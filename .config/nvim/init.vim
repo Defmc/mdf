@@ -22,10 +22,20 @@ Plug 'itchyny/lightline.vim'
 
 " Highlighting
 Plug 'cespare/vim-toml', {'branch': 'master'}
+
+" Theme
+Plug 'rakr/vim-one'
 call plug#end()
 
 " Theme
 syntax on
+set background=dark
+set termguicolors
+let g:one_allow_italics = 1
+let g:lightline = {
+			\ 'colorscheme': 'one',
+			\ }
+colorscheme one
 
 " Keybindings
 nnoremap <A-Up> :m-2<CR>
