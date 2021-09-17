@@ -1,0 +1,59 @@
+! Colors
+*.foreground: #EBDBB2
+*.background: #282828
+*.text: #EBDBB2
+!*.cursor: #F8F8F2
+*.color0: #282828
+*.color1: #CC241D
+*.color2: #98971A
+*.color3: #D79921
+*.color4: #458588
+*.color5: #B16286
+*.color6: #689D6A
+*.color7: #A89984
+*.color8: #928374
+*.color9: #B8BB26
+*.color10: #FABD2F
+*.color11: #83A598
+*.color12: #D3869B
+*.color13: #8EC07C
+*.color14: #9AEDFE
+*.color15: #EBDBB2
+
+! Font
+*.faceName: xft:Iosevka:size=14:antialias=true:autohint=true
+*.termName: xterm-256color
+*.shell: /usr/bin/zsh
+*.tabspaces: 4
+*.borderpx: 2
+*.letterSpace: 0
+*.lineSpace: 0
+
+! Scroll
+!
+*.saveLine: 2048
+*.scrollBar: false
+*.srollBarRight: false
+
+Xft.dpi: 96
+
+! Copy Paste & Other Extensions
+!*.perl-ext-common: default,selection-to-clipboard
+!*.keysym.Shift-Control-V: eval:paste_clipboard
+!*.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! Keyboard
+*.iso14755: false
+*.iso14775_52: false
+
+! Window
+!*.internalBorder: 5
+!*.borderColor: #44475A
+!*.depth: 32
+
+XTerm*selectToClipboard: true
+XTerm*vt100.translations: #override \
+	Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+	Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+
+Xcursor.theme: fuchsia
