@@ -51,12 +51,12 @@ up_files(){
 up_git(){
 	OLDDIR=$(pwd)
 	cd ~/repos/mdf
-	echo "$FG_WHITE Commiting... $RESET"
+	printf "$FG_WHITE Commiting... $RESET"
 	git add --all
 	git commit -am "Update mdf"
 	git push origin main
 	cd $OLDDIR
-	echo "$FG_GREEN Upload completed $RESET"
+	printf "$FG_GREEN Upload completed $RESET"
 }
 
 rm_buff
