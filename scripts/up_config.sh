@@ -3,7 +3,7 @@ load_colors(){
 }
 
 rm_buff(){
-	echo "$FG_RED Clearing buffer..."
+	printf "$FG_RED Clearing buffer...\n"
 	mv ~/repos/mdf ~/repos/mdf-old
 	mkdir -p ~/repos/mdf
 	cp -r ~/repos/mdf-old/.git ~/repos/mdf/.git
