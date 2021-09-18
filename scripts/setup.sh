@@ -1,3 +1,3 @@
 clear
-neofetch
+pfetch
 startx
