@@ -11,17 +11,17 @@ temp(){
 }
 
 upF(){
-	echo "$FG_WHITE Copying ~/$1/$2..."
+	printf "$FG_WHITE Copying ~/$1/$2..."
 	mkdir -p ~/repos/mdf/$1
 	cp -r ~/$1/$2 ~/repos/mdf/$1/$2
-	echo "$FG_GREEN Ok!"
+	printf "$FG_GREEN Ok!"
 }
 
 rootUpF(){
-	echo "$FG_WHITE Copying /$1/$2..."
+	printf "$FG_WHITE Copying /$1/$2..."
 	mkdir -p ~/repos/mdf/$1
 	cp -r /$1/$2 ~/repos/mdf/$1/$2
-	echo "$FG_GREEN Ok!"
+	printf "$FG_GREEN Ok!"
 }
 
 upMDF(){
