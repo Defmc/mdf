@@ -14,18 +14,19 @@ upF(){
 	printf "$FG_WHITE Copying ~/$1/$2..."
 	mkdir -p ~/repos/mdf/$1
 	cp -r ~/$1/$2 ~/repos/mdf/$1/$2
-	printf "$FG_GREEN Ok!"
+	printf "$FG_GREEN Ok!\n"
 }
 
 rootUpF(){
 	printf "$FG_WHITE Copying /$1/$2..."
 	mkdir -p ~/repos/mdf/$1
 	cp -r /$1/$2 ~/repos/mdf/$1/$2
-	printf "$FG_GREEN Ok!"
+	printf "$FG_GREEN Ok!\n"
 }
 
 upMDF(){
 	temp
+	load_colors
 	export OLDDIR=$(pwd)
 
 	upF . .Xresources
