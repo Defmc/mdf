@@ -29,11 +29,11 @@ upMDF(){
 	upF .icons fuchsia
 	rootUpF usr/share/themes onedark
 
-	upF apps/dwm config.def.h
+	upF apps/dwm config.h
 	upF apps/dwm gaps.diff
-	upF apps/st config.def.h
+	upF apps/st config.h
 
-	upF apps/slstatus config.def.h
+	upF apps/slstatus config.h
 
 	upF .config picom.conf
 
