@@ -34,6 +34,8 @@ up_files(){
 
 	upF apps/dwm config.def.h
 	upF apps/dwm gaps.diff
+	upF apps/dwm moveresize.diff
+
 	upF apps/st config.def.h
 
 	upF apps/slstatus config.def.h
