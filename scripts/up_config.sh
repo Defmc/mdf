@@ -1,3 +1,7 @@
+load_colors(){
+	source ~/scripts/colors.sh
+}
+
 temp(){
 	echo "Clearing buffer..."
 	mv ~/repos/mdf ~/repos/mdf-old
@@ -7,15 +11,17 @@ temp(){
 }
 
 upF(){
-	echo "Copying ~/$1/$2..."
+	echo "$FG_WHITE Copying ~/$1/$2..."
 	mkdir -p ~/repos/mdf/$1
 	cp -r ~/$1/$2 ~/repos/mdf/$1/$2
+	echo "$FG_GREEN Ok!"
 }
 
 rootUpF(){
-	echo "Copying /$1/$2..."
+	echo "$FG_WHITE Copying /$1/$2..."
 	mkdir -p ~/repos/mdf/$1
 	cp -r /$1/$2 ~/repos/mdf/$1/$2
+	echo "$FG_GREEN Ok!"
 }
 
 upMDF(){
