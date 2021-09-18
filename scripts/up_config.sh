@@ -38,8 +38,10 @@ up_files(){
 	upF apps/dwm build.sh
 
 	upF apps/st config.def.h
+	upF apps/st build.sh
 
 	upF apps/slstatus config.def.h
+	upF apps/slstatus build.sh
 
 	upF .config picom.conf
 

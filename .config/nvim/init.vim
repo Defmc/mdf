@@ -19,6 +19,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'itchyny/lightline.vim'
+Plug 'joshdick/onedark.vim'
 
 " Highlighting
 Plug 'cespare/vim-toml', {'branch': 'master'}
@@ -27,10 +28,14 @@ call plug#end()
 " Theme
 syntax on
 set background=dark
+set termguicolors
+colorscheme onedark
 let g:one_allow_italics = 1
 let g:lightline = {
-			\ 'colorscheme': 'one',
-			\ }
+	      \ 'colorscheme': 'one',
+      \ }
+
+
 " Keybindings
 nnoremap <A-Up> :m-2<CR>
 nnoremap <A-Down> :m+<CR>
@@ -55,11 +60,9 @@ set shortmess+=c
 
 lua << EOF
 require('nvim-autopairs').setup{}
-EOF
 
-" LSP Config
+-- LSP Config
 
-lua << EOF
 local nvim_lsp = require'lspconfig'
 
 local opts = {
