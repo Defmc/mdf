@@ -2,8 +2,8 @@ load_colors(){
 	source ~/scripts/colors.sh
 }
 
-temp(){
-	echo "Clearing buffer..."
+rm_buff(){
+	echo "$FG_RED Clearing buffer..."
 	mv ~/repos/mdf ~/repos/mdf-old
 	mkdir -p ~/repos/mdf
 	cp -r ~/repos/mdf-old/.git ~/repos/mdf/.git
@@ -24,10 +24,9 @@ rootUpF(){
 	printf "$FG_GREEN Ok!\n"
 }
 
-upMDF(){
+up_files(){
 	temp
 	load_colors
-	export OLDDIR=$(pwd)
 
 	upF . .Xresources
 	upF . .xinitrc
@@ -47,12 +46,19 @@ upMDF(){
 	upF . .zshrc
 	upF .config/nvim init.vim
 	upF scripts .
+}
 
+up_git(){
+	OLDDIR=$(pwd)
 	cd ~/repos/mdf
+	echo "$FG_WHITE Commiting... $RESET"
 	git add --all
 	git commit -am "Update mdf"
 	git push origin main
 	cd $OLDDIR
+	echo "$FG_GREEN Upload completed $RESET"
 }
 
-upMDF
+rm_buff
+up_files
+up_git
