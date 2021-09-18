@@ -25,9 +25,6 @@ rootUpF(){
 }
 
 up_files(){
-	temp
-	load_colors
-
 	upF . .Xresources
 	upF . .xinitrc
 
@@ -59,6 +56,8 @@ up_git(){
 	printf "$FG_GREEN Upload completed $RESET"
 }
 
+printf "\e[1;37m"
+load_colors
 rm_buff
 up_files
 up_git
