@@ -56,7 +56,6 @@ up_git(){
 	printf "$FG_GREEN Upload completed $RESET"
 }
 
-printf "\e[1;37m"
 load_colors
 rm_buff
 up_files
