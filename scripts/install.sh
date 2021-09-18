@@ -32,13 +32,13 @@ move_files(){
 
 	move_patched apps/dwm gaps.diff
 
-	move apps/dwm config.h
+	move apps/dwm config.def.h
 
-	move apps/st config.h
+	move apps/st config.def.h
 
 	#move_patched apps/st lig.diff
 
-	move apps/slstatus config.h
+	move apps/slstatus config.def.h
 
 	move .icons fuchsia
 
