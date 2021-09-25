@@ -32,16 +32,9 @@ up_files(){
 	upF .icons fuchsia
 	rootUpF usr/share/themes onedark
 
-	upF apps/dwm config.def.h
-	upF apps/dwm gaps.diff
-	upF apps/dwm moveresize.diff
-	upF apps/dwm build.sh
-
-	upF apps/st config.def.h
-	upF apps/st build.sh
-
-	upF apps/slstatus config.def.h
-	upF apps/slstatus build.sh
+	upF apps/dwm .
+	upF apps/st .
+	upF apps/slstatus .
 
 	upF .config picom.conf
 

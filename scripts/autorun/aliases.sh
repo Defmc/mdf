@@ -24,6 +24,7 @@ alias mem='free --mega'
 # User managment
 alias gsd='doas cd .' # Get doas
 alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
+alias net='doas dhcpcd'
 
 # Software Update
 alias upPkg='paru -Syyu --noconfirm'
@@ -48,10 +49,8 @@ ce(){
 }
 
 # Scripts Shortcuts
-
+alias clear_cache='sh ~/scripts/clear.sh'
 alias setup='sh ~/scripts/setup.sh'
 alias up_config='sh ~/scripts/up_config.sh'
-alias cmp_make='rm -f config.h && doas make clean install && opt'
 alias ghdown='sh ~/scripts/ghdown.sh'
-
 alias gittree="git log --graph --all --format='%C(cyan dim) %p %Cred %h %C(white dim) %s %Cgreen(%cr)%C(cyan dim) <%an>%C(bold yellow)%d%Creset"
