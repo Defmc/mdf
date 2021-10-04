@@ -50,6 +50,7 @@ ce(){
 
 # Scripts Shortcuts
 alias clear_cache='sh ~/scripts/clear.sh'
+alias blue='sh ~/scripts/blue.sh'
 alias setup='sh ~/scripts/setup.sh'
 alias up_config='sh ~/scripts/up_config.sh'
 alias ghdown='sh ~/scripts/ghdown.sh'

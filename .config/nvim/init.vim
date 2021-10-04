@@ -6,14 +6,13 @@ Plug 'neoclide/coc.nvim'
 
 " Editor
 Plug 'windwp/nvim-autopairs'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 
 " Highlighting
 Plug 'cespare/vim-toml', {'branch': 'master'}
+Plug 'cdelledonne/vim-cmake'
 call plug#end()
 
 " Theme
@@ -30,11 +29,15 @@ let g:lightline = {
 " Keybindings
 nnoremap <silent> <A-Up> :m-2<CR>
 nnoremap <silent> <A-Down> :m+<CR>
-nnoremap <silent> <space>e :NvimTreeToggle<CR>
+nmap <space>e <Cmd>CocCommand explorer<CR>
 
 nnoremap <silent> <C-v> a<C-r>+<Esc>
 inoremap <silent> <C-v> <C-r>+
 cnoremap <silent> <C-v> <C-r>+
+
+" Windows Manager
+nnoremap <silent> <A-Left> :vertical resize -5<CR>
+nnoremap <silent> <A-Right> :vertical resize +5<CR>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
@@ -53,8 +56,12 @@ set number
 set ttyfast
 set lazyredraw
 
+autocmd BufEnter *.tpp :setlocal filetype=cpp
+
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
+
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 lua << EOF
 require('nvim-autopairs').setup{}
