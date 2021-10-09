@@ -10,6 +10,9 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+
 " Highlighting
 Plug 'cespare/vim-toml', {'branch': 'master'}
 Plug 'cdelledonne/vim-cmake'
@@ -29,7 +32,7 @@ let g:lightline = {
 " Keybindings
 nnoremap <silent> <A-Up> :m-2<CR>
 nnoremap <silent> <A-Down> :m+<CR>
-nmap <space>e <Cmd>CocCommand explorer<CR>
+nmap <space>e <Cmd>:NvimTreeToggle<CR>
 
 nnoremap <silent> <C-v> a<C-r>+<Esc>
 inoremap <silent> <C-v> <C-r>+
