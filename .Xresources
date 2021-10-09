@@ -1,59 +1,53 @@
-! Colors
-*.foreground: #EBDBB2
-*.background: #282828
-*.text: #EBDBB2
-!*.cursor: #F8F8F2
-*.color0: #282828
-*.color1: #CC241D
-*.color2: #98971A
-*.color3: #D79921
-*.color4: #458588
-*.color5: #B16286
-*.color6: #689D6A
-*.color7: #A89984
-*.color8: #928374
-*.color9: #B8BB26
-*.color10: #FABD2F
-*.color11: #83A598
-*.color12: #D3869B
-*.color13: #8EC07C
-*.color14: #9AEDFE
-*.color15: #EBDBB2
+!-- Xft settings -- ! you dont even need this probably 
 
-! Font
-*.faceName: xft:Iosevka:size=14:antialias=true:autohint=true
-*.termName: xterm-256color
-*.shell: /usr/bin/zsh
-*.tabspaces: 4
-*.borderpx: 2
-*.letterSpace: 0
-*.lineSpace: 0
+Xft.antialias:	1
+Xft.hinting:	1
+Xft.autohint:	0
+Xft.hintstyle:	hintslight
+Xft.rgba:	rgb
+Xft.lcdfilter:	lcddefault
 
-! Scroll
-!
-*.saveLine: 2048
-*.scrollBar: false
-*.srollBarRight: false
+! transparency ( 0.1 to 0.9 values)
+st.alpha: 0.8 
 
-Xft.dpi: 96
+! inner padding
+st.borderpx:          15
+st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=15
 
-! Copy Paste & Other Extensions
-!*.perl-ext-common: default,selection-to-clipboard
-!*.keysym.Shift-Control-V: eval:paste_clipboard
-!*.keysym.Shift-Control-C: eval:selection_to_clipboard
+!! Colors
 
-! Keyboard
-*.iso14755: false
-*.iso14775_52: false
+!! Dracula  palette
+*.foreground: #F8F8F2
+*.background: #282A36
 
-! Window
-!*.internalBorder: 5
-!*.borderColor: #44475A
-!*.depth: 32
+!! black + grey
+*.color0:     #000000
+*.color8:     #4D4D4D
 
-XTerm*selectToClipboard: true
-XTerm*vt100.translations: #override \
-	Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
-	Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+!! dark red + red
+*.color1:     #FF5555
+*.color9:     #FF6E67
 
-Xcursor.theme: fuchsia
+!! green
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+
+!! yellow
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+
+!! purple
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+
+!! pink
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+
+!! cyan
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+
+!! white
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
