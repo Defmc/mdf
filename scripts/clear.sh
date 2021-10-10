@@ -1,7 +1,7 @@
 DIR=$(pwd)
 cd ~
-doas paccache -r
-doas pacman -Rns $(pacman -Qtdq)
+doas paccache -r --noconfirm
+doas pacman -Rns $(pacman -Qtdq) --noconfirm
 doas rm -rf .cache \
 	.zsh_history \
 	.zshrc-back \

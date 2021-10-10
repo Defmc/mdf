@@ -1,5 +1,6 @@
-setxkbmap -model abnt2 -layout br -variant abnt2
-feh --bg-scale /home/me/images/wallpapers/onedark.png &
+setxkbmap -model abnt2 -layout br -variant abnt2 &
+feh --bg-scale /home/me/images/wallpapers/cube.jpg &
 picom -b
-slstatus &
+xrdb /home/me/.Xresources &
+slstatus & 
 exec dwm

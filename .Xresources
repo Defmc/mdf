@@ -8,46 +8,49 @@ Xft.rgba:	rgb
 Xft.lcdfilter:	lcddefault
 
 ! transparency ( 0.1 to 0.9 values)
-st.alpha: 0.8 
+st.alpha: 0.8
 
 ! inner padding
 st.borderpx:          15
-st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=15
+st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=18
 
-!! Colors
+!Tokyo Night theme
+! general
+*foreground: #a9b1d6
+*background: #1a1b26
+*cursorColor: #a9b1d6
 
-!! Dracula  palette
-*.foreground: #F8F8F2
-*.background: #282A36
+! terminal padding color
+*borderColor: #1a1b26
 
-!! black + grey
-*.color0:     #000000
-*.color8:     #4D4D4D
+! black
+*color0: #1a1b26
+*color8: #4e5173
 
-!! dark red + red
-*.color1:     #FF5555
-*.color9:     #FF6E67
+! red
+*color1: #F7768E
+*color9: #F7768E
 
-!! green
-*.color2:     #50FA7B
-*.color10:    #5AF78E
+! green
+*color2: #9ECE6A
+*color10: #9ECE6A
 
-!! yellow
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
+! yellow
+*color3: #E0AF68
+*color11: #E0AF68
 
-!! purple
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
+! blue
+*color4: #7AA2F7
+*color12: #7AA2F7
 
-!! pink
-*.color5:     #FF79C6
-*.color13:    #FF92D0
+! magenta
+*color5: #9a7ecc
+*color13: #9a7ecc
 
-!! cyan
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
+! cyan
+*color6: #4abaaf
+*color14: #4abaaf
 
-!! white
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
+! white
+*color7: #acb0d0
+*color15: #acb0d0
