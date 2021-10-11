@@ -34,8 +34,8 @@ let g:one_allow_italics = 1
 let g:lightline = { 'colorscheme': 'tokyonight' }
 
 " Keybindings
-nnoremap <silent> <C-S-Up> :m-2<CR>
-nnoremap <silent> <C-S-Down> :m+<CR>
+inoremap <silent> <C-S-Up> :m-2<CR>
+inoremap <silent> <C-S-Down> :m+<CR>
 nmap <space>e <Cmd>:NvimTreeToggle<CR>
 
 nnoremap <silent> <C-v> a<C-r>+<Esc>

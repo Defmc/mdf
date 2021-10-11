@@ -1,5 +1,5 @@
 source ~/scripts/colors.sh
-source  ~/scripts/autorun/aliases.sh
+source ~/scripts/autorun/prog.sh
 
 printf "$FG_RED Compiling...\n$RESET"
 doas make clean install

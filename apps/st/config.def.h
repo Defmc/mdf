@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Fira code:pixelsize=18:antialias=true:autohint=true:style=Regular";
-static char *font2[] = { "Fira code:pixelsize=18:antialias=true:autohint=true:style=Regular" };
+static char *font = "FreeMono:pixelsize=18:antialias=true:autohint=true:style=Regular";
+static char *font2[] = { "FreeMono:pixelsize=18:antialias=true:autohint=true:style=Regular" };
 static int borderpx = 0;
 
 /*
@@ -185,8 +185,8 @@ static unsigned int defaultattr = 11;
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-  { "font",         STRING,  &font },
-  { "fontalt0",     STRING,  &font2[0] },
+ // { "font",         STRING,  &font },
+ // { "fontalt0",     STRING,  &font2[0] },
   { "color0",       STRING,  &colorname[0] },
   { "color1",       STRING,  &colorname[1] },
   { "color2",       STRING,  &colorname[2] },
@@ -206,7 +206,7 @@ ResourcePref resources[] = {
   { "background",   STRING,  &colorname[258] },
   { "foreground",   STRING,  &colorname[259] },
   { "cursorColor",  STRING,  &colorname[256] },
-  { "termname",     STRING,  &termname },
+//  { "termname",     STRING,  &termname },
   { "shell",        STRING,  &shell },
   { "blinktimeout", INTEGER, &blinktimeout },
   { "bellvolume",   INTEGER, &bellvolume },
