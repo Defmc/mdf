@@ -1,4 +1,4 @@
-actual_dir="$(cwd)"
+actual_dir="$(pwd)"
 
 git clone https://github.com/Defmc/mdf mdf
 
