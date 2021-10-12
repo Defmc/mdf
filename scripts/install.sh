@@ -6,7 +6,7 @@ cp -rf mdf/* ~
 
 for dir in ~/apps/*/; do
     cd $dir
-    echo "Compiling $dir..."
+    echo "\e[97m\e[1mCompiling $dir...\e[0m\e[39m"
     ./build.sh
 done
 
