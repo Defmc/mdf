@@ -10,7 +10,7 @@ actual_dir="$(pwd)"
 git clone https://github.com/Defmc/mdf mdf
 
 pprint "Copiando arquivos..." $red_col
-#cp -rf mdf/* ~
+cp -rf mdf/* ~
 pprint " Pronto!\n" $green_col
 
 for dir in ~/apps/*/; do
