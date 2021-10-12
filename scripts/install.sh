@@ -9,19 +9,19 @@ actual_dir="$(pwd)"
 
 git clone https://github.com/Defmc/mdf mdf
 
-pprint "Copying files..." $red_col
+pprint "Copiando arquivos..." $red_col
 #cp -rf mdf/* ~
-pprint " Done!\n" $green_col
+pprint " Pronto!\n" $green_col
 
 for dir in ~/apps/*/; do
     cd $dir
-    pprint "Compiling $dir..." $red_col
+    pprint "Compilando $dir..." $red_col
     ./build.sh &> /dev/null
-    pprint " Builded!\n" $green_col
+    pprint " Construído!\n" $green_col
 done
 
-pprint "Removing temp files..." $red_col
+pprint "Apagando arquivos inúteis..." $red_col
 rm -rf ~/.git
-pprint " Done!\n" $green_col
+pprint " GG!\n" $green_col
 cd $actual_dir
 pprint "Bodia amdrade gostosa\n" $green_col
