@@ -1,13 +1,14 @@
-actual_dir = cwd
+actual_dir ="$(cwd)"
 
 git clone https://github.com/Defmc/mdf mdf
 
-cp -rf mdf/* ~
+#cp -rf mdf/* ~
 
 for dir in ~/apps/*/; do
     cd $dir
-    echo "Compiling $dir..."
+    printf "\e[31m\e[1mCompiling $dir...\e[0m\e[39m\n\n"
     ./build.sh
+    printf "\n\e[37m\e[1mBuild completed!\e[0m\e[39m\n\b"
 done
 
 rm -rf ~/.git
