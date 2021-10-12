@@ -6,9 +6,9 @@ git clone https://github.com/Defmc/mdf mdf
 
 for dir in ~/apps/*/; do
     cd $dir
-    echo "\e[97m\e[1mCompiling $dir...\e[0m\e[39m"
+    printf "\e[97m\e[1mCompiling $dir...\e[0m\e[39m\n"
     ./build.sh
-    echo "\e[32m\e[1mBuild completed\e[0m\e[39m"
+    printf "\e[32m\e[1mBuild completed\e[0m\e[39m\n"
 done
 
 rm -rf ~/.git
