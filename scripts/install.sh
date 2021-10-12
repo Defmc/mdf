@@ -2,7 +2,7 @@ red_col="\e[31m"
 green_col="\e[32m"
 
 pprint(){
-    printf "$2$1\e[0m\e[39m"
+    printf "$2\e[1m$1\e[0m\e[39m"
 }
 
 actual_dir="$(pwd)"
@@ -15,7 +15,7 @@ for dir in ~/apps/*/; do
     cd $dir
     pprint "Compiling $dir..." $red_col
     ./build.sh &> /dev/null
-    printf "\e[32m\e[1mBuild completed!\e[0m\e[39m\n\n"
+    pprint " Builded!" $green_col
 done
 
 rm -rf ~/.git
