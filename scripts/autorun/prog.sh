@@ -15,7 +15,7 @@ opt(){
 
 # Cargo's export and formatter
 ce(){
-	cargo format --all
+	cargo fmt --all
 	cargo build --release
 	opt "target/release/${PWD##*/}"
 	time "target/release/${PWD##*/}"

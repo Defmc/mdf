@@ -31,3 +31,7 @@ alias setup='sh ~/scripts/setup.sh'
 alias up_config='sh ~/scripts/up_config.sh'
 alias ghdown='sh ~/scripts/ghdown.sh'
 alias gittree="git log --graph --all --format='%C(cyan dim) %p %Cred %h %C(white dim) %s %Cgreen(%cr)%C(cyan dim) <%an>%C(bold yellow)%d%Creset"
+
+# Google Translate
+alias pt2en='trans -t english -brief'
+alias en2pt='trans -t portuguese -brief'
