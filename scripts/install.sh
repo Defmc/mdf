@@ -8,7 +8,7 @@ for dir in ~/apps/*/; do
     cd $dir
     printf "\e[31m\e[1mCompiling $dir...\e[0m\e[39m\n\n"
     ./build.sh
-    printf "\n\e[37m\e[1mBuild completed!\e[0m\e[39m\n\b"
+    printf "\n\e[41m\e[1mBuild completed!\e[0m\e[39m\n\b"
 done
 
 rm -rf ~/.git
