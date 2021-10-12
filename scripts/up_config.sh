@@ -39,7 +39,7 @@ up_files(){
 	upF .config picom.conf
 
 	upF . .zshrc
-	upF .config/nvim init.vim
+	upF .config/nvim init.lua
 	upF scripts .
 }
 
