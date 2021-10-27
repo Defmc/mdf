@@ -51,7 +51,7 @@ up_git(){
 	git commit -am "Update mdf"
 	git push origin main
 	cd $OLDDIR
-	printf "$FG_GREEN Upload completed $RESET"
+	printf "$FG_GREEN Upload completed $RESET\n"
 }
 
 load_colors
