@@ -13,7 +13,7 @@ Xft.lcdfilter:	lcddefault
 
 ! inner padding
 *.borderpx: 15
-*.font:firacode:style=Regular:size=14:autohint=true:antialias=true
+*.font: JetBrains Mono:style=Regular:size=14:autohint=true:antialias=true
 
 !Tokyo Night theme
 ! general
