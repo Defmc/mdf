@@ -1,6 +1,10 @@
 pfetch
-for script in $(exa --all ~/scripts/autorun); do
+for script in $(ls --all ~/scripts/autorun); do
 	printf "\e[37mLoading ~/scripts/autorun/$script...\e[0m"
 	source ~/scripts/autorun/$script
-	printf "\e[1;32m Ok!\e[0m\n"
+        if [ $? = 0 ]; then
+            printf "\e[1;32m Ok!\e[0m\n"
+        else
+            print "\e[1;31m Error!\e[0m\n"
+        fi
 done

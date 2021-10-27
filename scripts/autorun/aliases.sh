@@ -1,4 +1,4 @@
-#Pacman managment
+# Pacman managment
 alias inst='doas pacman -S --needed --noconfirm'
 alias uinst='doas pacman -Syyu --needed --noconfirm'
 alias uninst='doas pacman -Rns --noconfirm'
@@ -13,10 +13,13 @@ alias puuninst='paru -Rnsu --needed --noconfirm'
 # System infos
 alias fetch='pfetch'
 alias mem='free --mega'
+alias dir='exa --icons'
+alias exa='exa --icons'
 
 # User managment
 alias gsd='doas cd .' # Get doas
 alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
+alias getout='upSys && clear_cache && doas poweroff'
 
 # Software Update
 alias upPkg='paru -Syyu --noconfirm'

@@ -14,6 +14,7 @@ require('packer').startup(function()
     use 'mg979/vim-visual-multi'
     use 'itchyny/lightline.vim'
     use 'folke/tokyonight.nvim'
+    use 'lukas-reineke/indent-blankline.nvim'
 
     -- NvimTree
     use 'kyazdani42/nvim-web-devicons'
@@ -195,4 +196,12 @@ folder = {
     warning = "",
     error = "",
   }
+}
+
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+vim.opt.listchars:append("eol:↴")
+
+require("indent_blankline").setup {
+    space_char_blankline = ".",
 }
