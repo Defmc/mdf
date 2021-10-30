@@ -48,12 +48,12 @@ up_files(){
 up_git(){
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
-	printf "$FG_WHITE" "Commiting...$RESET"
+	printf "$FG_WHITE%s$RESET\n" "Commiting..."
 	git add --all
 	git commit -am "Update mdf"
 	git push origin main
 	cd $OLDDIR
-	printf "$FG_GREEN" "Upload completed $RESET\n"
+	printf "$FG_GREEN%s$RESET\n" "Upload completed"
 }
 
 source ~/scripts/colors.sh
