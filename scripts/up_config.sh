@@ -48,7 +48,7 @@ up_files(){
 up_git(){
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
-	printf "$FG_WHITE%s$RESET\n" "Commiting..."
+	printf "$FG_YELLOW%s$RESET\n" "Commiting..."
 	git add --all
 	git commit -am "Update mdf"
 	git push origin main
