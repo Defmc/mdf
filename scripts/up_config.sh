@@ -12,9 +12,9 @@ up_file(){
 	cp -r ~/$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
         if [ $? = 0 ]; then
-            printf "$FG_GREEN[Ok]"
+            printf "\t$FG_GREEN[Ok]"
         else
-            printf "$FG_RED[Err]"
+            printf "\t$FG_RED[Err]"
         fi
 
         printf "\t$FG_WHITE%s\n" "~/$1/$2"
@@ -25,9 +25,9 @@ root_up_file(){
 	cp -r /$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
         if [ $? = 0 ]; then
-            printf "$FG_GREEN[Ok]"
+            printf "\t$FG_GREEN[Ok]"
         else
-            printf "$FG_RED[Err]"
+            printf "\t$FG_RED[Err]"
         fi
 	printf "\t$FG_WHITE%s\n" "/$1/$2"
 }
