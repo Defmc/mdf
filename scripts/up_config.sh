@@ -8,7 +8,7 @@ rm_buff(){
 }
 
 up_file(){
-        printf "        $FG_WHITE%s" "~/$1/$2..."
+        printf "\t$FG_WHITE%s" "~/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r ~/$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
@@ -20,7 +20,7 @@ up_file(){
 }
 
 root_up_file(){
-	printf "        $FG_WHITE%s" "/$1/$2..."
+	printf "\t$FG_WHITE%s" "/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r /$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
