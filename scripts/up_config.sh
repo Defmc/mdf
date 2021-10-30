@@ -17,7 +17,7 @@ up_file(){
             printf "$FG_RED[Err]"
         fi
 
-        printf "\t$FG_WHITE%s" "~/$1/$2"
+        printf "\t$FG_WHITE%s\n" "~/$1/$2"
 }
 
 root_up_file(){
@@ -29,7 +29,7 @@ root_up_file(){
         else
             printf "$FG_RED[Err]"
         fi
-	printf "\t$FG_WHITE%s" "/$1/$2\n"
+	printf "\t$FG_WHITE%s\n" "/$1/$2"
 }
 
 up_files(){
