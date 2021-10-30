@@ -4,10 +4,11 @@ rm_buff(){
 	mkdir -p ~/dev/mdf
 	cp -r ~/dev/mdf-old/.git ~/dev/mdf/.git
 	rm -rf ~/dev/mdf-old
+        printf "$FG_GREEN%s$RESET\n" " Done!"
 }
 
 up_file(){
-        printf "$FG_WHITE%s" "Copying ~/$1/$2..."
+        printf "$FG_WHITE%s" "~/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r ~/$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
@@ -19,7 +20,7 @@ up_file(){
 }
 
 root_up_file(){
-	printf "$FG_WHITE%s" "Copying /$1/$2..."
+	printf "$FG_WHITE%s" "/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r /$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
@@ -31,6 +32,8 @@ root_up_file(){
 }
 
 up_files(){
+    printf "$FG_YELLOW%s$RESET\n" "Updating files..."
+
     up_file . .Xresources
     up_file . .xinitrc
     up_file .icons fuchsia
@@ -43,6 +46,8 @@ up_files(){
     up_file scripts .
 
     root_up_file usr/share/themes onedark
+
+    printf "$FG_GREEN%s$RESET\n" " Done!"
 }
 
 up_git(){
