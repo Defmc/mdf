@@ -1,10 +1,12 @@
+source ~/scripts/colors.sh
+
 le() { # Load Envoriment
-    printf "\e[37mLoading ~/scripts/autorun/$1...\e[0m"
+    printf "Loading ~/scripts/autorun/$1..."
     source ~/scripts/autorun/$1
     if [ $? = 0 ]; then
-        printf "\e[1;32m Ok!\e[0m\n"
+        printf "$FG_GREEN Ok!$RESET\n"
     else
-        print "\e[1;31m Error!\e[0m\n"
+        print "$FG_RED Err!$RESET\n"
     fi
 }
 

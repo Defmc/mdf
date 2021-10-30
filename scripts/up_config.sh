@@ -10,7 +10,12 @@ up_file(){
 	printf "$FG_WHITE Copying ~/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r ~/$1/$2 ~/dev/mdf/$1/$2
-	printf "$FG_GREEN Ok!\n"
+
+        if [ $? = 0 ]; then
+            printf "$FG_GREEN Ok!\n"
+        else
+            printf "$FG_RED Err!\n"
+        fi
 }
 
 root_up_file(){
