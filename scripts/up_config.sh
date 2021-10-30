@@ -9,7 +9,7 @@ rm_buff(){
 up_file(){
         printf "$FG_WHITE%s" "Copying ~/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
-	cp -r ~/$1/$2 ~/dev/mdf/$1/$2
+	cp -r ~/$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
         if [ $? = 0 ]; then
             printf "$FG_GREEN Ok!\n"
@@ -21,8 +21,13 @@ up_file(){
 root_up_file(){
 	printf "$FG_WHITE%s\n" "Copying /$1/$2..."
 	mkdir -p ~/dev/mdf/$1
-	cp -r /$1/$2 ~/dev/mdf/$1/$2
-	printf "$FG_GREEN Ok!\n"
+	cp -r /$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
+
+        if [ $? = 0 ]; then
+            printf "$FG_GREEN Ok!\n"
+        else
+            printf "$FG_RED Err!\n"
+        fi
 }
 
 up_files(){
