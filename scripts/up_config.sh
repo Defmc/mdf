@@ -8,7 +8,7 @@ rm_buff(){
 }
 
 up_file(){
-        printf "\t$FG_WHITE%s" "~/$1/$2:"
+        printf "\t$FG_WHITE%s" "~/$1/$2"
 	mkdir -p ~/dev/mdf/$1
 	cp -r ~/$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
@@ -20,15 +20,15 @@ up_file(){
 }
 
 root_up_file(){
-	printf "\t$FG_WHITE%s" "/$1/$2:"
 	mkdir -p ~/dev/mdf/$1
 	cp -r /$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
         if [ $? = 0 ]; then
-            printf "$FG_GREEN Ok!\n"
+            printf "$FG_GREEN[Ok]\n"
         else
-            printf "$FG_RED Err!\n"
+            printf "$FG_RED[Err]\n"
         fi
+	printf "\t$FG_WHITE%s" "/$1/$2"
 }
 
 up_files(){
