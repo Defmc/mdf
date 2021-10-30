@@ -1,5 +1,5 @@
 rm_buff(){
-	printf "$FG_RED%s\n" "Clearing buffer..."
+	printf "$FG_RED%s" "Clearing buffer..."
 	mv ~/dev/mdf ~/dev/mdf-old
 	mkdir -p ~/dev/mdf
 	cp -r ~/dev/mdf-old/.git ~/dev/mdf/.git
@@ -8,7 +8,7 @@ rm_buff(){
 }
 
 up_file(){
-        printf "$FG_WHITE%s" "~/$1/$2..."
+        printf "        $FG_WHITE%s" "~/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r ~/$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
@@ -20,7 +20,7 @@ up_file(){
 }
 
 root_up_file(){
-	printf "$FG_WHITE%s" "/$1/$2..."
+	printf "        $FG_WHITE%s" "/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r /$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
@@ -47,7 +47,7 @@ up_files(){
 
     root_up_file usr/share/themes onedark
 
-    printf "$FG_GREEN%s$RESET\n" " Done!"
+    printf "$FG_GREEN%s$RESET\n" "Done!"
 }
 
 up_git(){
