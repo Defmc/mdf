@@ -19,7 +19,7 @@ up_file(){
 }
 
 root_up_file(){
-	printf "$FG_WHITE%s\n" "Copying /$1/$2..."
+	printf "$FG_WHITE%s" "Copying /$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r /$1/$2 ~/dev/mdf/$1/$2 &>/dev/null
 
