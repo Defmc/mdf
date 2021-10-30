@@ -14,26 +14,21 @@ alias puuninst='paru -Rnsu --needed --noconfirm'
 alias fetch='pfetch'
 alias mem='free --mega'
 alias dir='exa --icons'
-alias exa='exa --icons'
 
 # User managment
-alias gsd='doas cd .' # Get doas
 alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
 alias getout='upSys && clear_cache && doas poweroff'
 
 # Software Update
 alias upPkg='paru -Syyu --noconfirm'
 alias upX='xrdb ~/.Xresources'
-alias upZSH='source ~/.zshrc'
+alias upSH='source ~/.zshrc'
 alias upSys='upPkg; upX; upZSH'
 
 # Scripts Shortcuts
 alias clear_cache='sh ~/scripts/clear.sh'
-alias blue='sh ~/scripts/blue.sh'
 alias setup='sh ~/scripts/setup.sh'
 alias up_config='sh ~/scripts/up_config.sh'
-alias ghdown='sh ~/scripts/ghdown.sh'
-alias gittree="git log --graph --all --format='%C(cyan dim) %p %Cred %h %C(white dim) %s %Cgreen(%cr)%C(cyan dim) <%an>%C(bold yellow)%d%Creset"
 
 # Google Translate
 alias pt2en='trans -t english -brief'

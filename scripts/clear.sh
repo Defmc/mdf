@@ -62,6 +62,5 @@ doas rm -rf .cache \
         .ansible \
         .fltk \
         .vnc \
-        .mozilla
 
 cd $DIR

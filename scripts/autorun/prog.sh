@@ -1,15 +1,15 @@
 # Binary Optimizer
 opt(){
-	strip $1
-	upx $1
+    strip $1
+    upx $1
 }
 
 # Cargo's export and formatter
 ce(){
-	cargo fmt --all
-	cargo build --release
-	opt "target/release/${PWD##*/}"
-	time "target/release/${PWD##*/}"
+    cargo fmt --all
+    cargo build --release
+    opt "target/release/${PWD##*/}"
+    time "target/release/${PWD##*/}"
 }
 
 alias cfa="cargo fmt --all"
