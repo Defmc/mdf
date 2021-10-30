@@ -7,7 +7,7 @@ rm_buff(){
 }
 
 up_file(){
-	printf "$FG_WHITE" "Copying ~/$1/$2..."
+        printf "$(FG_WHITE)Copying ~/$1/$2..."
 	mkdir -p ~/dev/mdf/$1
 	cp -r ~/$1/$2 ~/dev/mdf/$1/$2
 
