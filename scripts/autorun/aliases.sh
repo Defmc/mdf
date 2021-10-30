@@ -23,7 +23,7 @@ alias getout='upSys && clear_cache && doas poweroff'
 alias upPkg='paru -Syyu --noconfirm'
 alias upX='xrdb ~/.Xresources'
 alias upSH='source ~/.zshrc'
-alias upSys='upPkg; upX; upZSH'
+alias upSys='upPkg ; upX; upSH'
 
 # Scripts Shortcuts
 alias clear_cache='sh ~/scripts/clear.sh'
