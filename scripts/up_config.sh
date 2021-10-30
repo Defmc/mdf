@@ -1,5 +1,5 @@
 rm_buff(){
-	printf "$FG_RED" "Clearing buffer...\n"
+	printf "$FG_RED%s" "Clearing buffer...\n"
 	mv ~/dev/mdf ~/dev/mdf-old
 	mkdir -p ~/dev/mdf
 	cp -r ~/dev/mdf-old/.git ~/dev/mdf/.git
