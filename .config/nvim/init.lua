@@ -29,9 +29,8 @@ require("packer").startup(
 require("theme").setup()
 require("keymap").setup()
 require("builtin").setup()
+require("startify").setup()
 require("nvim_tree").setup()
 require("line_indent").setup()
+require("nvim-autopairs").setup()
 require("nvim_treesitter").setup()
-require("nvim-autopairs").setup {}
-
-
