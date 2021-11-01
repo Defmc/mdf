@@ -1,3 +1,5 @@
+source ~/scripts/colors.sh
+
 rm_buff(){
 	printf "$FG_RED%s" "Clearing buffer..."
 	mv ~/dev/mdf ~/dev/mdf-old
@@ -55,15 +57,21 @@ up_files(){
 up_git(){
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
-	printf "$FG_YELLOW%s$RESET\n" "Commiting..."
-	git add --all
-	git commit -am "Update mdf"
-	git push origin main
+	printf "$FG_YELLOW%s$RESET" "Commiting..."
+        echo "Commit at: $(date)" > up_config.log 2>&1
+	git add --all >> up_config.log 2>&1
+	git commit -am "Update mdf" >> up_config.log 2>&1
+	git push origin main >> up_config.log 2>&1
+
+        if [ $? = 0]; then
+            printf "$FG_GREEN%s$RESET\n" "Done!"
+        else
+            printf "$FG_RED%s$RESET\n" "Error!"
+        fi
+
 	cd $OLDDIR
-	printf "$FG_GREEN%s$RESET\n" "Upload completed!"
 }
 
-source ~/scripts/colors.sh
 rm_buff
 up_files
 up_git
