@@ -18,6 +18,7 @@ alias dir='exa --icons'
 # User managment
 alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
 alias getout='upSys && clear_cache && doas poweroff'
+alias hyper='hyperfine'
 
 # Software Update
 alias upPkg='paru -Syyu --noconfirm'

@@ -44,6 +44,7 @@ up_files(){
     up_file .config picom.conf
     up_file . .zshrc
     up_file .config/nvim init.lua
+    up_file .config/nvim/lua .
     up_file scripts .
 
     root_up_file usr/share/themes onedark
