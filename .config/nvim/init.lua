@@ -2,12 +2,18 @@
 require("packer").startup(
     function()
         -- LSP
-        use 'neovim/nvim-lspconfig' 
+        use 'neovim/nvim-lspconfig'
+        use 'nvim-lua/popup.nvim'
+        use 'nvim-lua/plenary.nvim'
+        use 'nvim-telescope/telescope.nvim'
+        use 'simrat39/rust-tools.nvim'
+        use 'mfussenegger/nvim-dap'
+
         use {
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate'
-        } 
-  
+        }
+ 
         -- Editor
         use 'mhinz/vim-startify'
         use 'windwp/nvim-autopairs'
@@ -29,6 +35,7 @@ require("packer").startup(
 require("theme").setup()
 require("keymap").setup()
 require("builtin").setup()
+require("lsp_cfg").setup()
 require("startify").setup()
 require("nvim_tree").setup()
 require("line_indent").setup()
