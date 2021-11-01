@@ -63,7 +63,7 @@ up_git(){
 	git commit -am "Update mdf" >> up_config.log 2>&1
 	git push origin main >> up_config.log 2>&1
 
-        if [ $? = 0]; then
+        if [ $? = 0 ]; then
             printf "$FG_GREEN%s$RESET\n" "Done!"
         else
             printf "$FG_RED%s$RESET\n" "Error!"
