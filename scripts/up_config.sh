@@ -57,7 +57,7 @@ up_files(){
 up_git(){
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
-	printf "$FG_YELLOW%s$RESET" "Commiting..."
+	printf "$FG_YELLOW%s$RESET" "Commiting... "
         echo "Commit at: $(date)" > up_config.log 2>&1
 	git add --all >> up_config.log 2>&1
 	git commit -am "Update mdf" >> up_config.log 2>&1
