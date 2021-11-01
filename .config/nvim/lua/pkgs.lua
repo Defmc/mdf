@@ -22,7 +22,7 @@ require("packer").startup(
         -- Editor
         use 'mhinz/vim-startify'
         use 'windwp/nvim-autopairs'
-        use 'terryma/vim-multiple-cursors'
+        use 'mg979/vim-visual-multi'
         use 'itchyny/lightline.vim'
         use 'folke/tokyonight.nvim'
         use 'lukas-reineke/indent-blankline.nvim'

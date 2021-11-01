@@ -28,8 +28,8 @@ alias upSys='upPkg ; upX; upSH'
 
 # Scripts Shortcuts
 alias clear_cache='ksh ~/scripts/clear.sh'
-alias setup='sh ~/scripts/setup.sh'
-alias up_config='sh ~/scripts/up_config.sh'
+alias setup='ksh ~/scripts/setup.sh'
+alias up_config='ksh ~/scripts/up_config.sh'
 alias gitlog='ksh ~/scripts/gitlog.sh'
 
 # Google Translate
