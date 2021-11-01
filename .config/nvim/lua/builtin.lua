@@ -13,6 +13,9 @@ function builtin_cfgs.setup()
     vim.o.shortmess = vim.o.shortmess .. "c"
     vim.o.completeopt = "menuone,noinsert,noselect"
     vim.o.signcolumn = "yes"
+    vim.o.updatetime = 300
+    vim.cmd([[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]])
+    vim.cmd([[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)]])
 end
 
 return builtin_cfgs
