@@ -42,9 +42,9 @@ up_git(){
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
 	printf "$FG_YELLOW%s$RESET\n" "Commiting..."
-        echo "Commit at: $(date)" > up_config.log 2>&1
-	git add --all >> up_config.log 2>&1
-	git commit -am "Update mdf" >> up_config.log 2>&1
+        echo "Commit at: $(date)" > up_config.log
+	git add --all >> up_config.log
+	git commit -am "Update mdf" >> up_config.log
 	log_proc "git push origin main >> up_config.log" "Pushing"
 	cd $OLDDIR
 }
