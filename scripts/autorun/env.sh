@@ -1,2 +1,3 @@
 export CC=clang CXX=clang++
-xrdb ~/.Xresources
+export EDITOR=nvim
+xrdb -merge ~/.Xresources

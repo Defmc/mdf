@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap("n", "<Tab><Right>", ":tabmove +<CR>", options)
 vim.api.nvim_set_keymap("n", "<Tab><Left>", ":tabmove -<CR>", options)
 vim.api.nvim_set_keymap("n", "<Tab><BS>", ":tabclose<CR>", options)
 vim.api.nvim_set_keymap("n", "<Tab>n", ":tabnew<CR>", options)
+vim.api.nvim_set_keymap("n", "<Tab>q", ":bdelete<CR>", options)
 
 -- Nvim-Tree
 vim.api.nvim_set_keymap("n", "<space>e", ":NvimTreeToggle<CR>", options)
