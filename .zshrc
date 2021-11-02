@@ -1,8 +1,7 @@
 source ~/scripts/ui_tools.sh
 
 le() { # Load Envoriment
-    printf "Loading ~/scripts/autorun/$1...\n"
-    source ~/scripts/autorun/$1
+    log_proc "source ~/scripts/autorun/$1" "Loading $1"
 }
 
 pfetch
