@@ -1,3 +1,4 @@
+source ~/scripts/colors.sh
 source ~/scripts/ui_tools.sh
 
 le() { # Load Envoriment

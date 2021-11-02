@@ -7,8 +7,8 @@ source ~/scripts/colors.sh
 log_proc() {
     eval "$1" 1>/dev/null 2>&1
     if [ $? -eq 0 ]; then
-        printf "\t$FG_GREEN[Ok]$RESET $2...\n"
+        printf "\t$FG_GREEN%s$RESET $2...\n" "[Ok]"
     else
-        printf "\t$FG_RED[Er]$RESET $2...\n"
+        printf "\t$FG_RED%s$RESET $2...\n" "[Er]"
     fi
 }
