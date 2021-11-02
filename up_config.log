@@ -1,17 +1,1 @@
-Commit at: Mon Nov  1 09:19:38 PM -04 2021
-warning: adding embedded git repository: apps/dwm/.#
-hint: You've added another git repository inside your current repository.
-hint: Clones of the outer repository will not contain the contents of
-hint: the embedded repository and will not know how to obtain it.
-hint: If you meant to add a submodule, use:
-hint: 
-hint: 	git submodule add <url> apps/dwm/.#
-hint: 
-hint: If you added this path by mistake, you can remove it from the
-hint: index with:
-hint: 
-hint: 	git rm --cached apps/dwm/.#
-hint: 
-hint: See "git help submodule" for more information.
-warning: adding embedded git repository: apps/slstatus/.#
-warning: adding embedded git repository: apps/st/.#
+Commit at: Mon Nov  1 09:21:03 PM -04 2021
