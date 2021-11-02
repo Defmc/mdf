@@ -19,8 +19,6 @@ root_up_file(){
 }
 
 up_files(){
-    printf "$FG_YELLOW%s$RESET\n" "Updating files..."
-
     up_file . .Xresources
     up_file . .xinitrc
     up_file .icons fuchsia
@@ -34,14 +32,11 @@ up_files(){
     up_file scripts .
 
     root_up_file usr/share/themes onedark
-
-    printf "$FG_GREEN%s$RESET\n" "Done!"
 }
 
 up_git(){
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
-	printf "$FG_YELLOW%s$RESET\n" "Commiting..."
         echo "Commit at: $(date)" > up_config.log
 	git add --all >> up_config.log
 	git commit -am "Update mdf" >> up_config.log
