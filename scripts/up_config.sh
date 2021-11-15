@@ -38,7 +38,10 @@ up_git(){
 }
 
 rm_buff() {
-    find -not -path ".git/*" -not -name ".git" | grep git
+    cp -r ~/dev/mdf/.git ~/dev/.git
+    rm -rf ~/dev/mdf
+    mkdir ~/dev/mdf
+    cp -r ~/dev/.git ~/dev/mdf/.git
 }
 
 up_files
