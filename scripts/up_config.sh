@@ -38,7 +38,7 @@ up_git(){
 }
 
 rm_buff() {
-    find -not -path ".git/*" -not -name ".git"
+    find -not -path ".git/*" -not -name ".git" | grep git
 }
 
 up_files
