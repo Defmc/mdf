@@ -1,13 +1,6 @@
 source ~/scripts/colors.sh
 source ~/scripts/ui_tools.sh
 
-rm_buff(){
-	mv ~/dev/mdf ~/dev/mdf-old
-	mkdir -p ~/dev/mdf
-        cp -r ~/dev/mdf-old/.git ~/dev/mdf/.git
-        log_proc "rm -rf ~/dev/mdf-old" "Clearing buffer"
-}
-
 up_file(){
 	mkdir -p ~/dev/mdf/$1
         log_proc "cp -r ~/$1/$2 ~/dev/mdf/$1/$2" "Copying ~/$1/$2"
@@ -44,6 +37,10 @@ up_git(){
 	cd $OLDDIR
 }
 
-rm_buff
+rm_buff() {
+    find -not -path ".git/*" -not -name ".git"
+}
+
 up_files
 up_git
+rm_buff
