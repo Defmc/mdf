@@ -1,9 +1,1 @@
-source ~/scripts/colors.sh
-source  ~/scripts/autorun/prog.sh
-
-printf "$FG_RED Compiling...\n$RESET"
-doas make clean install
-printf "$FG_RED Optimizing binary...\n$RESET"
-opt st
-printf "$FG_RED Clearing temporaries configs...\n$RESET"
-rm -f config.h
+zsh ~/apps/build.sh st

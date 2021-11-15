@@ -27,10 +27,10 @@ alias upSH='source ~/.zshrc'
 alias upSys='upPkg ; upX; upSH'
 
 # Scripts Shortcuts
-alias clear_cache='ksh ~/scripts/clear.sh'
-alias setup='ksh ~/scripts/setup.sh'
-alias up_config='ksh ~/scripts/up_config.sh'
-alias gitlog='ksh ~/scripts/gitlog.sh'
+alias clear_cache='zsh ~/scripts/clear.sh'
+alias setup='zsh ~/scripts/setup.sh'
+alias up_config='zsh ~/scripts/up_config.sh'
+alias gitlog='zsh ~/scripts/gitlog.sh'
 
 # Google Translate
 alias pt2en='trans -t english -brief'

@@ -21,12 +21,12 @@ root_up_file(){
 up_files(){
     up_file . .Xresources
     up_file . .xinitrc
-    up_file .icons fuchsia
-    up_file apps/dwm .
-    up_file apps/st .
-    up_file apps/slstatus .
-    up_file .config picom.conf
+    up_file .icons .
+    up_file apps .
     up_file . .zshrc
+    up_file .config picom.conf
+    up_file .config gtk-3.0
+    up_file . .gtkrc-2.0
     up_file .config/nvim init.lua
     up_file .config/nvim/lua .
     up_file scripts .

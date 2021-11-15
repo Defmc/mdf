@@ -11,8 +11,8 @@ static const unsigned int gappov    = 25;
 static const int smartgaps          = 1;
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Fira code:size=16" };
-static const char dmenufont[]       = "Firacode:size=16";
+static const char *fonts[]          = { "JetBrains Mono:size=16" };
+static const char dmenufont[]       = "JetBrains Mono:size=16";
 static const char col_bg[]          = "#1a1b26";
 static const char col_fg[]          = "#a9b1d6";
 static const char *colors[][3]      = {

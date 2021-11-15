@@ -1,6 +1,6 @@
 setxkbmap -model abnt2 -layout br -variant abnt2
-feh --bg-scale /home/me/images/wallpapers/cube.jpg &
+feh --bg-scale ~/imgs/wllp.png &
 picom &
 slstatus &
-xrdb merge ~/.Xresources
+xrdb -merge ~/.Xresources
 exec dwm
