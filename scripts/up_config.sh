@@ -41,7 +41,7 @@ rm_buff() {
     cp -r ~/dev/mdf/.git ~/dev/.git
     rm -rf ~/dev/mdf
     mkdir ~/dev/mdf
-    cp -r ~/dev/.git ~/dev/mdf/.git
+    mv ~/dev/.git ~/dev/mdf/.git
 }
 
 up_files
