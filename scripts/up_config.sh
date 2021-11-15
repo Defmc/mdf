@@ -33,7 +33,7 @@ up_git(){
         echo "Commit at: $(date)" > up_config.log
 	git add --all >> up_config.log
 	git commit -am "Update mdf" >> up_config.log
-	log_proc "git push origin main >> up_config.log" "Pushing"
+	log_proc "git push origin main -f >> up_config.log" "Pushing"
 	cd $OLDDIR
 }
 
