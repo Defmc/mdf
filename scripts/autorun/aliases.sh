@@ -31,6 +31,7 @@ alias clear_cache='zsh ~/scripts/clear.sh'
 alias setup='zsh ~/scripts/setup.sh'
 alias up_config='zsh ~/scripts/up_config.sh'
 alias gitlog='zsh ~/scripts/gitlog.sh'
+alias net='zsh ~/scripts/net.sh'
 
 # Google Translate
 alias pt2en='trans -t english -brief'

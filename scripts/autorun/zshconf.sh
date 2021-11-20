@@ -73,7 +73,6 @@ ZSH_THEME="awesomepanda"
 plugins=(
 #	git
 	zsh-syntax-highlighting
-        zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh

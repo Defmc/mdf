@@ -25,6 +25,7 @@ up_files(){
     up_file scripts .
 
     root_up_file usr/share/themes onedark
+    root_up_file etc makepkg.conf
 }
 
 up_git(){

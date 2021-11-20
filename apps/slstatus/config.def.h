@@ -7,7 +7,7 @@ const unsigned int interval = 1000;
 static const char unknown_str[] = "n/a";
 
 /* maximum output string length */
-#define MAXLEN 256
+#define MAXLEN 128
 
 /*
  * function            description                     argument (example)
@@ -68,5 +68,5 @@ static const struct arg args[] = {
 	{ cpu_perc,  "[cpu %2s%%] ",                  NULL },
 	{ ram_perc,  "[ram %2s%%] ",                  NULL },
 	{ swap_perc, "[swp %2s%%] ",                  NULL },
-	{ datetime,  "%s", "[dat %F] [tim %T]",      NULL },
+	{ datetime,  "%s", "[tim %T]",                NULL },
 };
