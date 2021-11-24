@@ -6,7 +6,7 @@ source ~/scripts/colors.sh
 #       Message to be printed
 log_proc() {
     printf "$FG_YELLOW%s$RESET $2..." "[..]"
-    stderr=$(eval "$1" ) # 1>/dev/null 2>&1)
+    stderr=$(eval "$1")
     if [ $? -eq 0 ]; then
         printf "\r$FG_GREEN%s$RESET $2...\n" "[Ok]"
     else

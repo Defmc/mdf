@@ -20,18 +20,13 @@ alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
 alias getout='upSys && clear_cache && doas poweroff'
 alias hyper='hyperfine'
 
-# Software Update
-alias upPkg='paru -Syyu --noconfirm'
-alias upX='xrdb ~/.Xresources'
-alias upSH='source ~/.zshrc'
-alias upSys='upPkg ; upX; upSH'
-
 # Scripts Shortcuts
 alias clear_cache='zsh ~/scripts/clear.sh'
 alias setup='zsh ~/scripts/setup.sh'
 alias up_config='zsh ~/scripts/up_config.sh'
 alias gitlog='zsh ~/scripts/gitlog.sh'
 alias net='zsh ~/scripts/net.sh'
+alias up_sys='zsh ~/scripts/up_sys.sh'
 
 # Google Translate
 alias pt2en='trans -t english -brief'
