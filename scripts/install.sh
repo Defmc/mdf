@@ -1,8 +1,8 @@
 red_col="\e[31m"
 green_col="\e[32m"
 
-pprint(){
-    printf "$2\e[1m$1\e[0m\e[39m"
+pprint() {
+	printf "$2\e[1m$1\e[0m\e[39m"
 }
 
 actual_dir="$(pwd)"
@@ -14,10 +14,11 @@ cp -rf mdf/* ~
 pprint " Pronto!\n" $green_col
 
 for dir in ~/apps/*/; do
-    cd $dir
-    pprint "Compilando $dir..." $red_col
-    ./build.sh &> /dev/null
-    pprint " Construído!\n" $green_col
+	cd $dir
+	pprint "Compilando $dir..." $red_col
+	./build.sh &
+	>/dev/null
+	pprint " Construído!\n" $green_col
 done
 
 pprint "Apagando arquivos inúteis..." $red_col
