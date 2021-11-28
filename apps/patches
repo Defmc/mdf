@@ -1,0 +1,27 @@
+dwm (https://github.com/igor37/dwm-rounded-corners):
+    vanitygaps
+    fullscreen
+    roundedcorners
+
+st (siduck76):
+    alpha
+    Ligatures
+    sixel (check sixel branch)
+    scrollback
+    Clipboard
+    Alpha(Transparency)
+    Boxdraw
+    patch_column ( doesnt cut text while resizing)
+    font2
+    right click paste
+    st desktop entry
+    newterm
+    anygeometry
+    xresources
+    sync patch ( Better draw timing to reduce flicker/tearing and improve animation smoothness )
+    live reload ( change colors/fonts on the fly )
+
+dmenu:
+    xrdb
+
+slstatus: (none)

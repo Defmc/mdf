@@ -15,8 +15,15 @@ up_files() {
 	up_file . .Xresources
 	up_file . .xinitrc
 	up_file .icons .
-	up_file apps .
-	up_file . .zshrc
+
+	up_file apps dwm
+        up_file apps build.sh
+        up_file apps inst_all.sh
+        up_file apps slstatus.diff
+        up_file apps patches
+
+
+        up_file . .zshrc
 	up_file .config picom.conf
 	up_file .config gtk-3.0
 	up_file . .gtkrc-2.0
