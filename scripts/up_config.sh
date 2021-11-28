@@ -16,11 +16,8 @@ up_files() {
 	up_file . .xinitrc
 	up_file .icons .
 
-	up_file apps dwm
-        up_file apps build.sh
-        up_file apps inst_all.sh
-        up_file apps slstatus.diff
-        up_file apps patches
+	up_file apps .
+        log_proc "rm -rf apps/**/*.o" "Removing unecessary C objects"
 
 
         up_file . .zshrc
