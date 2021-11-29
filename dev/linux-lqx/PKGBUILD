@@ -43,6 +43,7 @@ _localmodcfg=y
 # a new kernel is released, but again, convenient for package bumps.
 _use_current=
 
+
 ### Selecting the CPU scheduler
 # ATTENTION - one of three predefined values should be selected!
 # 'bmq' - select 'BitMap Queue CPU scheduler'
