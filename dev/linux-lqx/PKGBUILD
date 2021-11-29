@@ -57,9 +57,9 @@ _htmldocs_enable=
 
 # pkgname=('linux-lqx' 'linux-lqx-headers' 'linux-lqx-docs')
 _major=5.15
-_kernel_major=5.15.5
-_srcname=linux-${_major}
-_kernel_srcname=linux-${_kernel_major}
+_linux_major=5.15.5
+_lqx_srcname=linux-${_major}
+_srcname=linux-${_linux_major}
 _lqxpatchname=liquorix-package
 _lqxpatchrel=6
 _lqxpatchver=${_lqxpatchname}-${_major}-${_lqxpatchrel}
@@ -78,8 +78,8 @@ options=('!strip')
 #_lucjanpath="https://raw.githubusercontent.com/sirlucjan/kernel-patches/master/${_major}"
 _lucjanpath="https://gitlab.com/sirlucjan/kernel-patches/raw/master/${_major}"
 
-source=("https://cdn.kernel.org/pub/linux/kernel/v5.x/${_kernel_srcname}.tar.xz"
-        "https://cdn.kernel.org/pub/linux/kernel/v5.x/${_kernel_srcname}.tar.sign"
+source=("https://cdn.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
+        "https://cdn.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.sign"
         "https://github.com/damentz/${_lqxpatchname}/archive/${_major}-${_lqxpatchrel}.tar.gz")
 validpgpkeys=(
     'ABAF11C65A2970B130ABE3C479BE3E4300411886' # Linus Torvalds
