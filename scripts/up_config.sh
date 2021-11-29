@@ -27,8 +27,8 @@ up_files() {
 	up_file .config/nvim init.lua
 	up_file .config/nvim/lua .
 	up_file scripts .
-	up_file dev/linux-lqx .config
-	up_file dev/linux-lqx PKGBUILD
+	up_file dev/linux-zen config
+	up_file dev/linux-zen PKGBUILD
 
 	root_up_file usr/share/themes onedark
 	root_up_file etc makepkg.conf
