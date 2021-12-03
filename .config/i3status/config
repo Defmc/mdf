@@ -11,17 +11,17 @@ general {
 order += "cpu_usage"
 
 cpu_usage {
-    format = "<span background='#9ECE6A' color='#1A1B26'> %usage</span>"
+    format = "<span color='#9ECE6A'> %usage</span>"
 }
 
 order += "memory"
 
 memory {
-    format = "<span background='#E0AF68' color='#1A1B26'> %percentage_used</span>"
+    format = "<span color='#E0AF68'> %percentage_used</span>"
 }
 
 order += "tztime local"
 
 tztime local {
-    format = "<span background='#ACB0D0' color='#1A1B26'> %H:%M:%S</span>"
+    format = "<span color='#ACB0D0'> %H:%M:%S</span>"
 }
