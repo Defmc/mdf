@@ -3,4 +3,4 @@ feh --bg-scale ~/imgs/wllp.png &
 xrdb -merge ~/.Xresources
 picom &
 slstatus &
-exec dwm
+exec i3
