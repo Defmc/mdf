@@ -13,12 +13,4 @@ rce() {
 	log_proc "cross build --release --target x86_64-unknown-linux-musl" "Building for Linux (MUSL)"
 }
 
-alias cross='~/.cargo/bin/cross'
-alias cfa="cargo fmt --all"
-alias crr="cfa && cargo run --release"
-alias crd="cfa && cargo run"
-alias cbe="cfa && cargo bench"
-alias cbr="cfa && cargo build --release"
-alias cbd="cfa && cargo build"
-alias cf="cfa && cargo flamegraph"
-alias cu="cfa && cargo update"
+alias co="cargo"
