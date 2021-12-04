@@ -2,26 +2,23 @@ general {
     output_format = "i3bar"
     markup = "pango"
     colors = true
-    color_good = "#9ECE6A"
-    color_degraded = "#E0AF68"
-    color_bad = "#F7768E"
     interval = 1
 }
 
 order += "cpu_usage"
 
 cpu_usage {
-    format = "<span color='#9ECE6A'> %usage</span>"
+    format = "<span background='#474A68' color='#9ECE6A'>  </span><span background='#13141C' color='#9ECE6A'> %usage</span>"
 }
 
 order += "memory"
 
 memory {
-    format = "<span color='#E0AF68'> %percentage_used</span>"
+    format = "<span background='#474A68' color='#E0AF68'>  </span><span background='#12141C' color='#E0AF68'> %percentage_used</span>"
 }
 
 order += "tztime local"
 
 tztime local {
-    format = "<span color='#ACB0D0'> %H:%M:%S</span>"
+    format = "<span background='#474A68' color='#ACB0D0'>  </span><span background='#12141C' color='#ACB0D0'> %H:%M:%S</span><span color='#666666'></span>"
 }
