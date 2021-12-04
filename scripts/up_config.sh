@@ -37,7 +37,7 @@ up_files() {
 
 create_readme() {
     echo '# My personal dotfiles\n\
-        ![screenshot](~/dev/mdf/screenshot.png "Screenshot")' > ~/dev/mdf/README.md
+        ![screenshot](screenshot.png "Screenshot")' > ~/dev/mdf/README.md
 }
 
 up_git() {
