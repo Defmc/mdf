@@ -32,6 +32,7 @@ up_files() {
 
 	root_up_file usr/share/themes onedark
 	root_up_file etc makepkg.conf
+        scrot ~/dev/mdf/screenshot.png
 }
 
 up_git() {

@@ -1,6 +1,7 @@
 DIR=$(pwd)
 cd ~
 doas paccache -r
+paru --clean --noconfirm
 PKGS=$(pacman -Qtdq)
 [ ! -z $PKGS ] && doas pacman -Rns --noconfirm $PKGS
 
