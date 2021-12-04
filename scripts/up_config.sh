@@ -35,6 +35,11 @@ up_files() {
         scrot ~/dev/mdf/screenshot.png
 }
 
+create_readme() {
+    echo "# My personal dotfiles\
+        ![screenshot] (/screenshot.png "Screenshot")" > ~/dev/mdf/README.md
+}
+
 up_git() {
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
@@ -53,5 +58,6 @@ rm_buff() {
 }
 
 up_files
+create_readme
 up_git
 rm_buff
