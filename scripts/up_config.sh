@@ -17,7 +17,7 @@ up_files() {
 	up_file .icons .
 
 	up_file apps .
-        log_proc "rm -rf apps/**/*.o" "Removing unecessary C objects"
+        rm -rf apps/**/*.o &> /dev/null 2>&1
 
 
         up_file . .zshrc
@@ -32,12 +32,12 @@ up_files() {
 
 	root_up_file usr/share/themes onedark
 	root_up_file etc makepkg.conf
-        scrot ~/dev/mdf/screenshot.png
+        log_proc "scrot ~/dev/mdf/screenshot.png" "Taking a screenshot"
 }
 
 create_readme() {
-    echo '# My personal dotfiles\n\
-        ![screenshot](screenshot.png "Screenshot")' > ~/dev/mdf/README.md
+    log_proc "echo '# My personal dotfiles\n\
+        ![screenshot](screenshot.png \"Screenshot\")' > ~/dev/mdf/README.md" "Generating README.md"
 }
 
 up_git() {
