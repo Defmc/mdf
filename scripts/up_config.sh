@@ -15,11 +15,7 @@ up_files() {
 	up_file . .Xresources
 	up_file . .xinitrc
 	up_file .icons .
-
 	up_file apps .
-        rm -rf apps/**/*.o &> /dev/null 2>&1
-
-
         up_file . .zshrc
 	up_file .config picom.conf
 	up_file .config gtk-3.0
@@ -29,7 +25,6 @@ up_files() {
 	up_file scripts .
         up_file .config/i3 config
         up_file .config/i3status config
-
 	root_up_file usr/share/themes onedark
 	root_up_file etc makepkg.conf
         log_proc "scrot ~/dev/mdf/screenshot.png" "Taking a screenshot"
