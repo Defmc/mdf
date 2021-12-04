@@ -1,3 +1,3 @@
 # My personal dotfiles
 \
-        ![screenshot] (screenshot.png "Screenshot")
+        ![screenshot] (~/dev/mdf/screenshot.png "Screenshot")
