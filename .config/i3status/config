@@ -20,5 +20,5 @@ memory {
 order += "tztime local"
 
 tztime local {
-    format = "<span background='#474A68' color='#ACB0D0'>  </span><span background='#12141C' color='#ACB0D0'> %H:%M:%S</span><span color='#666666'></span>"
+    format = "<span background='#474A68' color='#ACB0D0'>  </span><span background='#12141C' color='#ACB0D0'> %H:%M:%S</span> "
 }

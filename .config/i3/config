@@ -171,7 +171,7 @@ for_window [class="^.*"] border pixel 0
 bar {
     status_command i3status
     position top
-    separator_symbol ""
+    separator_symbol "|"
 
     colors {
         background         #1A1B26
