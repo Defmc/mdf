@@ -1,1 +1,2 @@
-# My personal dotfiles        ![screenshot] (/screenshot.png Screenshot)
+# My personal dotfiles
+        ![screenshot] (/screenshot.png Screenshot)
