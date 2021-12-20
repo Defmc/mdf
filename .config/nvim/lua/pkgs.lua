@@ -24,5 +24,6 @@ require("packer").startup(
         use 'kyazdani42/nvim-web-devicons'
         use 'kyazdani42/nvim-tree.lua'
         use 'itchyny/lightline.vim'
+        use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     end
 )
