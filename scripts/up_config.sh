@@ -25,7 +25,7 @@ up_files() {
 	up_file scripts .
         up_file .config/i3 config
         up_file .config/i3status config
-	root_up_file .themes onedark
+	up_file .themes onedark
 	root_up_file etc makepkg.conf
         log_proc "scrot ~/dev/mdf/screenshot.png" "Taking a screenshot"
 }
