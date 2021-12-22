@@ -4,8 +4,8 @@ vim.api.nvim_set_keymap("n", "<C-S-Up>", ":m-2<CR>", options)
 vim.api.nvim_set_keymap("n", "<C-S-Down>", ":m+1<CR>", options)
 
 -- Tabs
-vim.api.nvim_set_keymap("n", "<Tab><Down>", ":tabn<CR>", options)
-vim.api.nvim_set_keymap("n", "<Tab><Up>", ":tabp<CR>", options)
+vim.api.nvim_set_keymap("n", "<Tab><Down>", ":BufferLineCycleNext<CR>", options)
+vim.api.nvim_set_keymap("n", "<Tab><Up>", ":BufferLineCyclePrev<CR>", options)
 vim.api.nvim_set_keymap("n", "<Tab><Right>", ":tabmove +<CR>", options)
 vim.api.nvim_set_keymap("n", "<Tab><Left>", ":tabmove -<CR>", options)
 vim.api.nvim_set_keymap("n", "<Tab><BS>", ":tabclose<CR>", options)

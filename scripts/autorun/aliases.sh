@@ -1,15 +1,3 @@
-# Pacman managment
-alias inst='doas pacman -S --needed --noconfirm'
-alias uinst='doas pacman -Syyu --needed --noconfirm'
-alias uninst='doas pacman -Rns --noconfirm'
-alias uuninst='doas pacman -Rnsu --noconfirm'
-
-# Paru managment
-alias pinst='paru -S --needed --noconfirm'
-alias puinst='paru -Syyu --needed --noconfirm'
-alias puninst='paru -Rns --noconfirm'
-alias puuninst='paru -Rnsu --needed --noconfirm'
-
 # System infos
 alias fetch='pfetch'
 alias mem='free --mega'
@@ -17,16 +5,6 @@ alias dir='exa --icons'
 
 # User managment
 alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
-alias getout='upSys && clear_cache && doas poweroff'
-alias hyper='hyperfine'
-
-# Scripts Shortcuts
-alias clear_cache='zsh ~/scripts/clear.sh'
-alias setup='zsh ~/scripts/setup.sh'
-alias up_config='zsh ~/scripts/up_config.sh'
-alias gitlog='zsh ~/scripts/gitlog.sh'
-alias net='zsh ~/scripts/net.sh'
-alias up_sys='zsh ~/scripts/up_sys.sh'
 
 # Google Translate
 alias pt2en='trans -t english -brief'
