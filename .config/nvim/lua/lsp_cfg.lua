@@ -1,3 +1,28 @@
+local lsp_custom_icons = {}
+lsp_custom_icons.icons = {
+  Class = " ",
+  Color = " ",
+  Constant = " ",
+  Constructor = " ",
+  Enum = "了 ",
+  EnumMember = " ",
+  Field = " ",
+  File = " ",
+  Folder = " ",
+  Function = " ",
+  Interface = "ﰮ ",
+  Keyword = " ",
+  Method = "ƒ ",
+  Module = " ",
+  Property = " ",
+  Snippet = "﬌ ",
+  Struct = " ",
+  Text = " ",
+  Unit = " ",
+  Value = " ",
+  Variable = " ",
+}
+
 local opts = {
     tools = { -- rust-tools options
         -- Automatically set inlay hints (type hints)
@@ -116,10 +141,16 @@ local opts = {
             command = 'lldb-vscode',
             name = "rt_lldb"
         }
-    }
+    },
 }
 
-vim.cmd([[autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()]])
--- vim.cmd([[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 200)]])
+local lsp_icons = vim.lsp.protocol.CompletionItemKind
+for i, icon_kind in ipairs(lsp_icons) do
+    lsp_icons[i] = lsp_custom_icons.icons[icon_kind] or icon_kind
+end
+
+
+vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float()]])
+vim.cmd([[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 500)]])
 --
 require('rust-tools').setup(opts) 

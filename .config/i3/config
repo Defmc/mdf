@@ -167,7 +167,7 @@ bar {
     }
 }
 
-border_radius 10
+#border_radius 10
 
 # gaps
 gaps inner 20

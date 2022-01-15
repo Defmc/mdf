@@ -9,7 +9,7 @@ Xft.rgba:       rgb
 Xft.lcdfilter:	lcddefault
 
 ! transparency ( 0.1 to 0.9 values)
-*.alpha: 0.9
+*.alpha: 1.0
 
 ! inner padding
 *.borderpx: 15
