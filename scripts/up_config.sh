@@ -24,15 +24,8 @@ up_files() {
 	up_file scripts .
         up_file .config/i3 config
         up_file .config/i3status config
-	up_file .themes onedark
+	up_file .themes TokyoNight
 	root_up_file etc makepkg.conf
-        log_proc "scrot ~/dev/mdf/screenshot.png" "Taking a screenshot"
-}
-
-create_readme() {
-    log_proc "echo" "Generating README.md"
-    echo '# My personal dotfiles\n\
-        ![screenshot](screenshot.png "Screenshot")' > ~/dev/mdf/README.md
 }
 
 up_git() {
@@ -53,6 +46,5 @@ rm_buff() {
 }
 
 up_files
-create_readme
 up_git
 rm_buff
