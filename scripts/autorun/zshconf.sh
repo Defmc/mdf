@@ -72,6 +72,7 @@ ZSH_THEME="awesomepanda"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     zsh-syntax-highlighting
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
