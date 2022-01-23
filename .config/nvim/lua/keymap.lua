@@ -18,3 +18,4 @@ vim.api.nvim_set_keymap("n", "<space>e", ":NvimTreeToggle<CR>", options)
 -- Split Manager
 vim.api.nvim_set_keymap("n", "<A-Left>", ":vertical resize -5<CR>", options)
 vim.api.nvim_set_keymap("n", "<A-Right>", ":vertical resize +5<CR>", options)
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", options);
