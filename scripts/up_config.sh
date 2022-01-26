@@ -31,9 +31,9 @@ up_files() {
 up_git() {
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
-	echo "Commit at: $(date)" >up_config.log
-	git add --all >>up_config.log
-	git commit -am "Update mdf" >>up_config.log
+	echo "Commit at: $(date)" > ~/scripts/up_config.log
+	git add --all >> ~/scripts/up_config.log
+	git commit -am "Update mdf" >> ~/scripts/up_config.log
 	log_proc "git push origin main -f >> up_config.log" "Pushing"
 	cd $OLDDIR
 }
@@ -45,6 +45,7 @@ rm_buff() {
 	mv ~/dev/.git ~/dev/mdf/.git
 }
 
+#rm_buff
 up_files
 up_git
-rm_buff
+echo "Log saved at ~/scripts/up_config.log"
