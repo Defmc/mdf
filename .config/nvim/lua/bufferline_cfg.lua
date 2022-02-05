@@ -26,7 +26,7 @@ require('bufferline').setup {
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
     -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "slack",
+    separator_style = "slant",
     enforce_regular_tabs = true,
     always_show_bufferline = false,
     custom_areas = {

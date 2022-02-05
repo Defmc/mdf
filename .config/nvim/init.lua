@@ -1,5 +1,5 @@
-require("pkgs")
 require("theme")
+require("pkgs")
 require("keymap")
 require("builtin")
 require("cmp_cfg")

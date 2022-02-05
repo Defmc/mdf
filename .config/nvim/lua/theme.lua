@@ -1,4 +1,4 @@
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 vim.g.one_allow_italics = true
 vim.g.tokyonight_transparent = true
 vim.g.tokyonight_transparent_sidebar = true
