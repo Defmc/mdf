@@ -12,6 +12,13 @@ vim.api.nvim_set_keymap("n", "<Tab><BS>", ":tabclose<CR>", options)
 vim.api.nvim_set_keymap("n", "<Tab>n", ":tabnew<CR>", options)
 vim.api.nvim_set_keymap("n", "<Tab>q", ":bdelete<CR>", options)
 
+-- Doc
+vim.api.nvim_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", options)
+vim.api.nvim_set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>", options)
+vim.api.nvim_set_keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", options)
+vim.api.nvim_set_keymap("n", "gs", ":lua vim.lsp.buf.document_symbol()<CR>", options)
+vim.api.nvim_set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", options)
+
 -- Nvim-Tree
 vim.api.nvim_set_keymap("n", "<space>e", ":NvimTreeToggle<CR>", options)
 
