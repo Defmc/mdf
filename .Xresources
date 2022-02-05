@@ -1,5 +1,4 @@
-!-- Xft settings -- ! you dont even need this probably 
-
+!-- Xft settings -- 
 Xft.antialias:	1
 Xft.hinting:	1
 Xft.autohint:	1
@@ -13,17 +12,17 @@ Xft.lcdfilter:	lcddefault
 
 ! inner padding
 *.borderpx: 15
-*.font: Firacode:style=Regular:size=14:autohint=true:antialias=true
+*.font: Jetbrains Mono:style=Regular:size=14:autohint=true:antialias=true
 
 *.foreground:    #A9B1D6
 *.background:    #1A1B26
 *.cursorColor:   #A9B1D6
 *.highlightColor:#3A3F4B
 
-!*fading:                  40
-!*fadeColor:               S_base03
-!*pointerColorBackground:  S_base01
-!*pointerColorForeground:  S_base1
+*fading:                  40
+*fadeColor:               S_base03
+*pointerColorBackground:  S_base01
+*pointerColorForeground:  S_base1
 
 ! Normal      Bright
 ! --------    -------
