@@ -22,7 +22,7 @@ up_files() {
         up_file .cargo config.toml
 	up_file scripts .
         up_file .config/i3 config
-        up_file .config/i3status config
+        up_file .config/polybar my
 	up_file .themes TokyoNight
 	root_up_file etc makepkg.conf
 }
