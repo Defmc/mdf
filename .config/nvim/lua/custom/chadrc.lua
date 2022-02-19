@@ -12,12 +12,15 @@ M.ui = {
 }
 
 M.plugins = {
-   options = {
+  install = require "custom.plugins",
+  options = {
       lspconfig = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
    },
 }
+
+require ("custom.plugins.lsp_rust_cfg").setup()
 
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
