@@ -1,4 +1,5 @@
-Commit at: Fri Feb 18 11:06:14 PM -04 2022
-[main 34b8b28] Update mdf
- 2 files changed, 5 insertions(+), 27 deletions(-)
- rewrite scripts/up_config.log (100%)
+Commit at: Sat Feb 19 11:12:53 AM -04 2022
+[main ccdba33] Update mdf
+ 6 files changed, 29 insertions(+), 9 deletions(-)
+ create mode 100644 .config/nvim/lua/custom/plugins/init.lua
+ create mode 100644 .config/nvim/lua/custom/plugins/lsp_rust_cfg.lua
