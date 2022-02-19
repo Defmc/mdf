@@ -1,9 +1,10 @@
--- Just an example, supposed to be placed in /lua/custom/
-
 local M = {}
+local map = require ("core.utils").map
 
--- make sure you maintain the structure of `core/default_config.lua` here,
--- example of changing theme:
+map("n", "<C-S-Up>", ":m-2<CR>")
+map("n", "<C-S-Down>", ":m+1<CR>")
+map("n", "<A-Left>", ":vertical resize -5<CR>")
+map("n", "<A-Right>", ":vertical resize +5<CR>")
 
 M.ui = {
    theme = "tokyonight",
@@ -19,8 +20,6 @@ M.plugins = {
 
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
-
-   -- lspservers with default config
    local servers = { "rustc-analyzer", "clangd" }
 
    for _, lsp in ipairs(servers) do
@@ -33,4 +32,5 @@ M.setup_lsp = function(attach, capabilities)
       }
    end
 end
+
 return M

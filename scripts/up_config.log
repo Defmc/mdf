@@ -1,4 +1,27 @@
-Commit at: Thu Feb 10 09:36:39 PM -04 2022
-[main d1caac7] Update mdf
- 3 files changed, 9 insertions(+), 5 deletions(-)
- create mode 100755 scripts/update.sh
+Commit at: Wed Feb 16 10:28:35 PM -04 2022
+[main d30d71e] Update mdf
+ 26 files changed, 2730 insertions(+), 16 deletions(-)
+ rewrite .config/nvim/init.lua (100%)
+ create mode 100644 .config/nvim/lua/colors/highlights.lua
+ create mode 100644 .config/nvim/lua/colors/init.lua
+ create mode 100644 .config/nvim/lua/core/autocmds.lua
+ create mode 100644 .config/nvim/lua/core/default_config.lua
+ create mode 100644 .config/nvim/lua/core/mappings.lua
+ create mode 100644 .config/nvim/lua/core/options.lua
+ create mode 100644 .config/nvim/lua/core/utils.lua
+ create mode 100644 .config/nvim/lua/custom/chadrc.lua
+ create mode 100644 .config/nvim/lua/custom/lsp.lua
+ create mode 100644 .config/nvim/lua/custom/plugins/lspconfig.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/bufferline.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/cmp.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/dashboard.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/icons.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/lspconfig.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/lspkind_icons.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/nvimtree.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/others.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/statusline.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/telescope.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/treesitter.lua
+ create mode 100644 .config/nvim/lua/plugins/init.lua
+ create mode 100644 .config/nvim/lua/plugins/packerInit.lua

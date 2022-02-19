@@ -19,7 +19,7 @@ up_files() {
 	up_file .config gtk-3.0
 	up_file . .gtkrc-2.0
 	up_file .config/nvim init.lua
-	up_file .config/nvim/lua .
+	up_file .config/nvim/lua/custom .
 	up_file scripts .
         up_file .config/i3 config
         up_file .config/i3status config
