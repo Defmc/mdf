@@ -1,6 +1,7 @@
 local M = {}
 local map = require ("core.utils").map
 
+map("n", "Q", ":bd<CR>")
 map("n", "<C-S-Up>", ":m-2<CR>")
 map("n", "<C-S-Down>", ":m+1<CR>")
 map("n", "<A-Left>", ":vertical resize -5<CR>")
