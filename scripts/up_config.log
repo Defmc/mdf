@@ -1,28 +1,4 @@
-Commit at: Sun Feb 20 04:55:53 PM -04 2022
-[main 2f407b7] Update mdf
- 26 files changed, 3855 insertions(+), 4 deletions(-)
- create mode 100644 .config/polybar/my/my/bars.ini
- create mode 100644 .config/polybar/my/my/colors.ini
- create mode 100644 .config/polybar/my/my/config.ini
- create mode 100755 .config/polybar/my/my/launch.sh
- create mode 100644 .config/polybar/my/my/modules.ini
- create mode 100644 .config/polybar/my/my/preview.ini
- create mode 100755 .config/polybar/my/my/preview.sh
- create mode 100755 .config/polybar/my/my/scripts/checkupdates
- create mode 100755 .config/polybar/my/my/scripts/color-switch.sh
- create mode 100755 .config/polybar/my/my/scripts/colors-dark.sh
- create mode 100755 .config/polybar/my/my/scripts/colors-light.sh
- create mode 100755 .config/polybar/my/my/scripts/launcher.sh
- create mode 100755 .config/polybar/my/my/scripts/powermenu.sh
- create mode 100755 .config/polybar/my/my/scripts/pywal.sh
- create mode 100755 .config/polybar/my/my/scripts/random.sh
- create mode 100644 .config/polybar/my/my/scripts/rofi/colors.rasi
- create mode 100644 .config/polybar/my/my/scripts/rofi/confirm.rasi
- create mode 100644 .config/polybar/my/my/scripts/rofi/launcher.rasi
- create mode 100644 .config/polybar/my/my/scripts/rofi/message.rasi
- create mode 100644 .config/polybar/my/my/scripts/rofi/networkmenu.rasi
- create mode 100644 .config/polybar/my/my/scripts/rofi/powermenu.rasi
- create mode 100644 .config/polybar/my/my/scripts/rofi/styles.rasi
- create mode 100755 .config/polybar/my/my/scripts/updates.sh
- create mode 100644 .config/polybar/my/my/user_modules.ini
- rewrite scripts/up_config.log (100%)
+Commit at: Sun Feb 20 05:25:59 PM -04 2022
+[main f039d1b] Update mdf
+ 5 files changed, 49 insertions(+), 42 deletions(-)
+ rewrite scripts/up_config.log (99%)
