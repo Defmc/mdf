@@ -1,4 +1,3 @@
-Commit at: Fri Feb 25 12:24:15 AM -04 2022
-[main a01ca83] Update mdf
- 5 files changed, 41 insertions(+), 15 deletions(-)
- create mode 100755 scripts/up_projs.sh
+Commit at: Fri Feb 25 12:27:32 AM -04 2022
+[main 3b95950] Update mdf
+ 2 files changed, 8 insertions(+), 8 deletions(-)
