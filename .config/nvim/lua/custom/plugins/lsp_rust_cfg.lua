@@ -12,6 +12,8 @@ M.setup = function()
   }
   vim.cmd [[autocmd CursorHold,CursorHoldI *.rs :lua require 'lsp_extensions'.inlay_hints{ prefix = "=> ", highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"}}]]
 
+  vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
+
 end
 
 return M

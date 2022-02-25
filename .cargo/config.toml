@@ -7,7 +7,7 @@ rustflags = ["-C", "link-arg=--ld-path=/usr/bin/mold"]
 [profile.perf]
 inherits = "release"
 lto = "fat"
-rustflags = ["-C", "-march=native"]
+#rustflags = ["-C", "-march=native"]
 codegen-units = 1
 opt-level = 3
 debug = false
