@@ -1,3 +1,6 @@
-Commit at: Fri Feb 25 12:27:46 AM -04 2022
-[main 1005f58] Update mdf
- 1 file changed, 3 insertions(+), 4 deletions(-)
+Commit at: Fri Feb 25 01:48:35 PM -04 2022
+[main 4c34ab8] Update mdf
+ 6 files changed, 155 insertions(+), 8 deletions(-)
+ create mode 100755 .config/bspwm/bspwmrc
+ create mode 100644 .config/bspwm/wallpaper.jpg
+ create mode 100755 .config/sxhkd/sxhkdrc
