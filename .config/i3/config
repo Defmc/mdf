@@ -129,10 +129,10 @@ bar {
 
     colors {
         background         #1A1B26
-        focused_workspace  #0A3EAE #1A1B26 #ACB0D0 
-        active_workspace   #1A1B26 #1A1B26 #ACB0D0 
-        inactive_workspace #1A1B26 #1A1B26 #ACB0D0 
-        urgent_workspace   #1A1B26 #1A1B26 #ACB0D0 
+        focused_workspace  #1A1B26 #1A1B26 #9A7ECC 
+        active_workspace   #1A1B26 #1A1B26 #E0AF68
+        inactive_workspace #1A1B26 #1A1B26 #9ECE6A
+        urgent_workspace   #1A1B26 #1A1B26 #ACB0D0
         statusline         #A9B1D6
     }
 }

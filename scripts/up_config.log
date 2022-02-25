@@ -1,4 +1,4 @@
-Commit at: Sun Feb 20 05:29:14 PM -04 2022
-[main bf26bc5] Update mdf
- 3 files changed, 9 insertions(+), 32 deletions(-)
- rewrite scripts/up_config.log (100%)
+Commit at: Fri Feb 25 12:24:15 AM -04 2022
+[main a01ca83] Update mdf
+ 5 files changed, 41 insertions(+), 15 deletions(-)
+ create mode 100755 scripts/up_projs.sh
