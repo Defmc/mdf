@@ -1,5 +1,5 @@
 source ~/scripts/ui_tools.sh
-pfetch
+rxfetch
 
 for file in $(exa ~/scripts/autorun); do
     source ~/scripts/autorun/$file

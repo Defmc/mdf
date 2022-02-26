@@ -15,7 +15,6 @@ up_files() {
 	up_file . .xinitrc
 	up_file .icons .
         up_file . .zshrc
-	up_file .config picom.conf
 	up_file .config gtk-3.0
 	up_file . .gtkrc-2.0
 	up_file .config/nvim/lua/custom .
@@ -44,7 +43,6 @@ rm_buff() {
 	mv ~/dev/.git ~/dev/mdf/.git
 }
 
-#rm_buff
 up_files
 up_git
 echo "Log saved at ~/scripts/up_config.log"
