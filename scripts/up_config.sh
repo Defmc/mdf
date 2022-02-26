@@ -17,7 +17,8 @@ up_files() {
         up_file . .zshrc
 	up_file .config gtk-3.0
 	up_file . .gtkrc-2.0
-        up_file .config/lemonbar .
+        up_file .config/polybar/my .
+        up_file .config/picom picom.conf
 	up_file .config/nvim/lua/custom .
         up_file .cargo config.toml
 	up_file scripts .
