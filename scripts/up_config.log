@@ -1,30 +1,4 @@
-Commit at: Sat Feb 26 05:07:26 PM -04 2022
-[main 82f410c] Update mdf
- 33 files changed, 450 insertions(+), 4328 deletions(-)
- create mode 100755 .config/picom/picom.conf
- delete mode 100644 .config/polybar/my/my/bars.ini
- delete mode 100644 .config/polybar/my/my/colors.ini
- delete mode 100644 .config/polybar/my/my/config.ini
- delete mode 100755 .config/polybar/my/my/launch.sh
- delete mode 100644 .config/polybar/my/my/modules.ini
- delete mode 100644 .config/polybar/my/my/preview.ini
- delete mode 100755 .config/polybar/my/my/preview.sh
- delete mode 100755 .config/polybar/my/my/scripts/checkupdates
- delete mode 100755 .config/polybar/my/my/scripts/color-switch.sh
- delete mode 100755 .config/polybar/my/my/scripts/colors-dark.sh
- delete mode 100755 .config/polybar/my/my/scripts/colors-light.sh
- delete mode 100755 .config/polybar/my/my/scripts/launcher.sh
- delete mode 100755 .config/polybar/my/my/scripts/powermenu.sh
- delete mode 100755 .config/polybar/my/my/scripts/pywal.sh
- delete mode 100755 .config/polybar/my/my/scripts/random.sh
- delete mode 100644 .config/polybar/my/my/scripts/rofi/colors.rasi
- delete mode 100644 .config/polybar/my/my/scripts/rofi/confirm.rasi
- delete mode 100644 .config/polybar/my/my/scripts/rofi/launcher.rasi
- delete mode 100644 .config/polybar/my/my/scripts/rofi/message.rasi
- delete mode 100644 .config/polybar/my/my/scripts/rofi/networkmenu.rasi
- delete mode 100644 .config/polybar/my/my/scripts/rofi/powermenu.rasi
- delete mode 100644 .config/polybar/my/my/scripts/rofi/styles.rasi
- delete mode 100644 .config/polybar/my/my/user_modules.ini
- rename .config/polybar/my/{my/scripts => }/updates.sh (100%)
- mode change 100755 => 100644
- rewrite scripts/up_config.log (100%)
+Commit at: Sat Feb 26 05:22:47 PM -04 2022
+[main 8c5e3fa] Update mdf
+ 2 files changed, 31 insertions(+), 7 deletions(-)
+ rewrite scripts/up_config.log (84%)
