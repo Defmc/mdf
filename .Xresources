@@ -12,7 +12,8 @@ Xft.lcdfilter:	lcddefault
 
 ! inner padding
 *.borderpx: 15
-*.font: Jetbrains Mono:style=Regular:size=14:autohint=true:antialias=true
+*.font: JetBrains Mono:style=Regular:size=14:autohint=true:antialias=true
+
 
 *.foreground:    #A9B1D6
 *.background:    #1A1B26
@@ -20,9 +21,9 @@ Xft.lcdfilter:	lcddefault
 *.highlightColor:#3A3F4B
 
 *fading:                  40
-*fadeColor:               S_base03
-*pointerColorBackground:  S_base01
-*pointerColorForeground:  S_base1
+*fadeColor:               #1A1B26
+*pointerColorBackground:  #1A1B26
+*pointerColorForeground:  #A9B1D6
 
 ! Normal      Bright
 ! --------    -------
