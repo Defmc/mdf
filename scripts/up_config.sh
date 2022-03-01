@@ -23,6 +23,7 @@ up_files() {
         up_file .cargo config.toml
 	up_file scripts .
         up_file .config/bspwm .
+        up_file img sky_mansion.jpg
         up_file .config/sxhkd .
 	up_file .themes TokyoNight
 	root_up_file etc makepkg.conf
