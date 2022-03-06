@@ -6,6 +6,9 @@ super + shift + Return
 super + d
 	rofi -show drun -modi drun
 
+super + shift + s
+      flameshot gui
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

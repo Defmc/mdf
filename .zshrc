@@ -5,3 +5,5 @@ for file in $(exa ~/scripts/autorun); do
     source ~/scripts/autorun/$file
     log_proc "" "Sourcing $file"
 done
+
+eval "$(starship init zsh)"
