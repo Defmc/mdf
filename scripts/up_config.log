@@ -1,3 +1,4 @@
-Commit at: Sun Mar  6 05:26:05 PM -04 2022
-[main 423b8ab] Update mdf
- 6 files changed, 29 insertions(+), 17 deletions(-)
+Commit at: Sun Mar  6 10:33:34 PM -04 2022
+[main 824a3af] Update mdf
+ 3 files changed, 17 insertions(+), 7 deletions(-)
+ create mode 100755 scripts/set_zsh.sh
