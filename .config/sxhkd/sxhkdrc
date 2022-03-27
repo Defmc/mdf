@@ -1,6 +1,6 @@
 # terminal emulator
 super + shift + Return
-	sdst
+	st
 
 # program launcher
 super + d

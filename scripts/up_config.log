@@ -1,4 +1,4 @@
-Commit at: Sat Mar 19 06:58:53 PM -04 2022
-[main ed66740] Update mdf
- 6 files changed, 26 insertions(+), 37 deletions(-)
- rewrite .zshrc (89%)
+Commit at: Sun Mar 20 09:14:32 PM -04 2022
+[main 7eeabf5] Update mdf
+ 4 files changed, 39 insertions(+), 42 deletions(-)
+ rewrite .config/nvim/lua/custom/plugins/lspconfig.lua (82%)
