@@ -1,3 +1,8 @@
-Commit at: Sun Mar 27 10:28:44 AM -04 2022
-[main ef94837] Update mdf
- 5 files changed, 64 insertions(+), 10 deletions(-)
+Commit at: Sat Apr  2 07:43:43 AM -04 2022
+[main c0e6947] Update mdf
+ 6 files changed, 133 insertions(+), 123 deletions(-)
+ rewrite .config/nvim/lua/custom/chadrc.lua (80%)
+ create mode 100644 .config/nvim/lua/custom/keymap.lua
+ rewrite .config/nvim/lua/custom/plugins/init.lua (99%)
+ rewrite .config/nvim/lua/custom/plugins/lspconfig.lua (90%)
+ rewrite scripts/set_zsh.sh (72%)
