@@ -21,4 +21,31 @@ M.plugins = {
    default_plugin_remove = { "extensions" },
 }
 
+M.mappings = {
+   -- terminal related mappings
+   terminal = {
+      -- multiple mappings can be given for esc_termmode, esc_hide_termmode
+
+      -- get out of terminal mode
+      esc_termmode = { "<esc>" },
+
+      -- get out of terminal mode and hide it
+      esc_hide_termmode = { "<A-h-i>" },
+      -- show & recover hidden terminal buffers in a telescope picker
+      pick_term = "<A-s>",
+
+      -- spawn a single terminal and toggle it
+      -- this just works like toggleterm kinda
+      new_horizontal = "<A-s>h",
+      new_vertical = "<A-s>v",
+      new_float = "<A-s-w>",
+
+      -- spawn new terminals
+      spawn_horizontal = "<A-h>",
+      spawn_vertical = "<A-v>",
+      spawn_window = "<A-w>",
+   },
+
+}
+
 return M
