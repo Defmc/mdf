@@ -1,7 +1,7 @@
 # System infos
-alias fetch='pfetch'
 alias mem='free --mega'
-alias dir='exa --icons'
+alias x='exa'
+alias n='nvim'
 
 # User managment
 alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'

@@ -16,8 +16,9 @@ M.plugins = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
    },
-   default_plugin_config_replace = {},
-   default_plugin_remove = {},
+   default_plugin_config_replace = {
+   },
+   default_plugin_remove = { "extensions" },
 }
 
 return M

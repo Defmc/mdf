@@ -1,6 +1,5 @@
 source ~/.cargo/env
 
-export EDITOR=nvim
 rusttest() {
   echo "fn main() {\n   println!(\"Hello world\")\n}" >> test.rs
   nvim test.rs
