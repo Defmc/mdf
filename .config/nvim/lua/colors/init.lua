@@ -2,9 +2,10 @@ local M = {}
 
 -- if theme given, load given theme if given, otherwise nvchad_theme
 M.init = function(theme)
-   if not theme then
-      theme = require("core.utils").load_config().ui.theme
-   end
+   --if not theme then
+   --   theme = require("chadrc").theme.name
+   --end
+   theme = "tokyonight"
 
    -- set the global theme, used at various places like theme switcher, highlights
    vim.g.nvchad_theme = theme

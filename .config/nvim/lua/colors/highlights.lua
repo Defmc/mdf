@@ -1,8 +1,6 @@
 local cmd = vim.cmd
 
-local override = require("core.utils").load_config().ui.hl_override
 local colors = require("colors").get()
-local ui = require("core.utils").load_config().ui
 
 local black = colors.black
 local black2 = colors.black2
@@ -12,6 +10,7 @@ local folder_bg = colors.folder_bg
 local green = colors.green
 local grey = colors.grey
 local grey_fg = colors.grey_fg
+local light_grey = colors.light_grey
 local line = colors.line
 local nord_blue = colors.nord_blue
 local one_bg = colors.one_bg
@@ -30,11 +29,8 @@ local fg_bg = require("core.utils").fg_bg
 local bg = require("core.utils").bg
 
 -- Comments
-if ui.italic_comments then
-   fg("Comment", grey_fg .. " gui=italic")
-else
-   fg("Comment", grey_fg)
-end
+-- fg("Comment", grey_fg .. " gui=italic") --italic!
+fg("Comment", grey_fg)
 
 -- Disable cursor line
 cmd "hi clear CursorLine"
@@ -58,29 +54,15 @@ fg("CmpItemAbbrMatch", white)
 fg("CmpItemKind", white)
 fg("CmpItemMenu", white)
 
--- misc
-
--- inactive statuslines as thin lines
-fg("StatusLineNC", one_bg3 .. " gui=underline")
-
 fg("LineNr", grey)
 fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 
-if ui.transparency then
-   bg("Normal", "NONE")
-   bg("Folded", "NONE")
-   fg("Folded", "NONE")
-   fg("Comment", grey)
-end
-
--- [[ Plugin Highlights
+-- Plugin Highlights
 
 -- Dashboard
-fg("DashboardCenter", grey_fg)
-fg("DashboardFooter", grey_fg)
-fg("DashboardHeader", grey_fg)
-fg("DashboardShortcut", grey_fg)
+fg("AlphaHeader", grey_fg)
+fg("AlphaButtons", light_grey)
 
 -- Git signs
 fg_bg("DiffAdd", blue, "NONE")
@@ -112,7 +94,7 @@ bg("NvimTreeNormalNC", darker_black)
 fg("NvimTreeOpenedFolderName", folder_bg)
 fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
 fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
-fg_bg("NvimTreeVertSplit", darker_black, darker_black)
+-- fg_bg("NvimTreeVertSplit", darker_black, darker_black)
 fg_bg("NvimTreeWindowPicker", red, black2)
 
 -- Telescope
@@ -130,27 +112,10 @@ fg_bg("TelescopeResultsTitle", darker_black, darker_black)
 
 bg("TelescopeSelection", black2)
 
--- keybinds cheatsheet
+-- TRANSPARENCY!
 
-fg_bg("CheatsheetBorder", black, black)
-bg("CheatsheetSectionContent", black)
-fg("CheatsheetHeading", white)
+--[[
 
-local section_title_colors = {
-   white,
-   blue,
-   red,
-   green,
-   yellow,
-   purple,
-   orange,
-}
-for i, color in ipairs(section_title_colors) do
-   vim.cmd("highlight CheatsheetTitle" .. i .. " guibg = " .. color .. " guifg=" .. black)
-end
-
--- Disable some highlight in nvim tree if transparency enabled
-if ui.transparency then
    bg("NormalFloat", "NONE")
    bg("NvimTreeNormal", "NONE")
    bg("NvimTreeNormalNC", "NONE")
@@ -167,8 +132,10 @@ if ui.transparency then
    bg("TelescopePromptPrefix", "NONE")
    fg("TelescopeBorder", one_bg)
    fg_bg("TelescopeResultsTitle", black, blue)
-end
 
-if #override ~= 0 then
-   require(override)
-end
+   bg("Normal", "NONE")
+   bg("Folded", "NONE")
+   fg("Folded", "NONE")
+   fg("Comment", grey)
+
+ --]]

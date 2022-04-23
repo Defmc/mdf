@@ -4,19 +4,13 @@ if not present then
    return
 end
 
+-- globals must be set prior to requiring nvim-tree to function
 local g = vim.g
 
 g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
 g.nvim_tree_git_hl = 0
 g.nvim_tree_highlight_opened_files = 0
-g.nvim_tree_indent_markers = 1
-g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
 g.nvim_tree_root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" }
-
-g.nvim_tree_window_picker_exclude = {
-   filetype = { "notify", "packer", "qf" },
-   buftype = { "terminal" },
-}
 
 g.nvim_tree_show_icons = {
    folders = 1,
@@ -46,7 +40,7 @@ g.nvim_tree_icons = {
    },
 }
 
-local default = {
+local options = {
    filters = {
       dotfiles = false,
    },
@@ -56,6 +50,7 @@ local default = {
    auto_close = false,
    open_on_tab = false,
    hijack_cursor = true,
+   hijack_unnamed_buffer_when_opening = false,
    update_cwd = true,
    update_focused_file = {
       enable = true,
@@ -71,15 +66,16 @@ local default = {
       enable = false,
       ignore = false,
    },
+   actions = {
+      open_file = {
+         resize_window = true,
+      },
+   },
+   renderer = {
+      indent_markers = {
+         enable = true,
+      },
+   },
 }
 
-local M = {}
-
-M.setup = function(override_flag)
-   if override_flag then
-      default = require("core.utils").tbl_override_req("nvim_tree", default)
-   end
-   nvimtree.setup(default)
-end
-
-return M
+nvimtree.setup(options)
