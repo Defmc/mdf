@@ -251,7 +251,7 @@ return require("packer").startup(function()
       after = "nvim-lspconfig",
 
       config = function()
-         require("plugins.configs.lsp_ext")
+         require "plugins.configs.lsp_ext"
       end,
 
       setup = function()
@@ -260,19 +260,27 @@ return require("packer").startup(function()
    }
 
    use {
-     "https://github.com/simrat39/rust-tools.nvim",
-     after = "nvim-lspconfig",
+      "https://github.com/simrat39/rust-tools.nvim",
+      after = "nvim-lspconfig",
 
-     config = function()
-       require("plugins.configs.rs_tools")
-    end,
+      config = function()
+         require "plugins.configs.rs_tools"
+      end,
    }
 
    use {
-      "https://github.com/terryma/vim-multiple-cursors"
+      "https://github.com/mg979/vim-visual-multi",
    }
 
    use {
-      "https://github.com/github/copilot.vim"
+      "https://github.com/github/copilot.vim",
    }
+
+    use {
+      "startup-nvim/startup.nvim",
+      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+      config = function()
+        require "plugins.configs.startup"
+      end
+    }
 end)

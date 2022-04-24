@@ -1,12 +1,7 @@
-Commit at: Sat Apr 23 05:19:18 PM -04 2022
-[main a7169f4] Update mdf
- 21 files changed, 1345 insertions(+), 1472 deletions(-)
- create mode 100644 .config/nvim/lua/chadrc.lua
- rewrite .config/nvim/lua/core/mappings.lua (93%)
- create mode 100644 .config/nvim/lua/core/terminal.lua
- create mode 100644 .config/nvim/lua/plugins/configs/alpha.lua
- create mode 100644 .config/nvim/lua/plugins/configs/feline.lua
- rewrite .config/nvim/lua/plugins/configs/icons.lua (98%)
- rewrite .config/nvim/lua/plugins/configs/others.lua (68%)
- rewrite .config/nvim/lua/plugins/configs/treesitter.lua (63%)
- rewrite scripts/up_config.log (100%)
+Commit at: Sat Apr 23 10:47:25 PM -04 2022
+[main 938c1c0] Update mdf
+ 8 files changed, 236 insertions(+), 13 deletions(-)
+ create mode 100644 .config/nvim/lua/plugins/configs/lsp_ext.lua
+ create mode 100644 .config/nvim/lua/plugins/configs/rs_tools.lua
+ create mode 100755 scripts/fwdo.sh
+ rewrite scripts/up_config.log (75%)
