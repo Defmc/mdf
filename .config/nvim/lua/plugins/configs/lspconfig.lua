@@ -54,9 +54,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
    },
 }
 
--- local servers = { "pyright", "rust_analyzer", "tsserver" }
-
-local servers = {}
+local servers = {"rust_analyzer", "clangd"}
 
 for _, lsp in pairs(servers) do
    require("lspconfig")[lsp].setup {
@@ -64,3 +62,6 @@ for _, lsp in pairs(servers) do
       capabilities = capabilities,
    }
 end
+
+
+require("rust-tools").setup {}

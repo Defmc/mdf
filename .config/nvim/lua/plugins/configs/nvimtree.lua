@@ -47,7 +47,6 @@ local options = {
    disable_netrw = true,
    hijack_netrw = true,
    ignore_ft_on_setup = { "dashboard" },
-   auto_close = false,
    open_on_tab = false,
    hijack_cursor = true,
    hijack_unnamed_buffer_when_opening = false,
@@ -63,8 +62,8 @@ local options = {
       hide_root_folder = true,
    },
    git = {
-      enable = false,
-      ignore = false,
+      enable = true,
+      ignore = true,
    },
    actions = {
       open_file = {

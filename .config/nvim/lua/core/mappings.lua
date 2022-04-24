@@ -138,7 +138,7 @@ end
 
 M.nvimtree = function()
    map("n", "E", ":NvimTreeToggle<CR>")
-   map("n", "<C-n>", ":NvimTreeFocus <CR>")
+   map("n", "F", ":NvimTreeFocus <CR>")
 end
 
 M.telescope = function()

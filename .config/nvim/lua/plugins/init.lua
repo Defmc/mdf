@@ -249,10 +249,30 @@ return require("packer").startup(function()
    use {
       "https://github.com/nvim-lua/lsp_extensions.nvim",
       after = "nvim-lspconfig",
+
+      config = function()
+         require("plugins.configs.lsp_ext")
+      end,
+
       setup = function()
          require("core.mappings").lsp_ext()
       end,
    }
---   use { "https://github.com/mg979/vim-visual-multi" }
-   use { "https://github.com/simrat39/rust-tools.nvim" }
+
+   use {
+     "https://github.com/simrat39/rust-tools.nvim",
+     after = "nvim-lspconfig",
+
+     config = function()
+       require("plugins.configs.rs_tools")
+    end,
+   }
+
+   use {
+      "https://github.com/terryma/vim-multiple-cursors"
+   }
+
+   use {
+      "https://github.com/github/copilot.vim"
+   }
 end)
