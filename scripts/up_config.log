@@ -1,7 +1,6 @@
-Commit at: Sat Apr 23 10:47:25 PM -04 2022
-[main 938c1c0] Update mdf
- 8 files changed, 236 insertions(+), 13 deletions(-)
- create mode 100644 .config/nvim/lua/plugins/configs/lsp_ext.lua
- create mode 100644 .config/nvim/lua/plugins/configs/rs_tools.lua
- create mode 100755 scripts/fwdo.sh
- rewrite scripts/up_config.log (75%)
+Commit at: Sun Apr 24 05:25:33 PM -04 2022
+[main e89d280] Update mdf
+ 7 files changed, 138 insertions(+), 214 deletions(-)
+ rewrite .config/nvim/lua/plugins/configs/rs_tools.lua (99%)
+ create mode 100644 .config/nvim/lua/plugins/configs/startup.lua
+ rewrite scripts/up_config.log (100%)

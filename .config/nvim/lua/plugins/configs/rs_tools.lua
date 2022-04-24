@@ -73,18 +73,13 @@ local opts = {
          ["rust-analyzer"] = {
             checkOnSave = {
                allFeatures = true,
-               overrideCommand = {
-                  "cargo",
-                  "clippy",
-                  "--workspace",
-                  "--message-format=json",
-                  "--all-targets",
-                  "--all-features",
-               },
+               overrideCommand = {},
             },
          },
       },
    }, -- rust-analyer options
 }
+
+vim.cmd [[autocmd BufWrite * :lua vim.lsp.buf.formatting_sync(nil, 1000) ]]
 
 require("rust-tools").setup(opts)
