@@ -50,6 +50,7 @@ return require("packer").startup(function()
    use {
       "akinsho/bufferline.nvim",
       after = "nvim-web-devicons",
+      branch = "main",
       config = function()
          require "plugins.configs.bufferline"
       end,
@@ -276,11 +277,12 @@ return require("packer").startup(function()
       "https://github.com/github/copilot.vim",
    }
 
-    use {
+   use {
       "startup-nvim/startup.nvim",
-      requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+      requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+      after = "bufferline.nvim",
       config = function()
-        require "plugins.configs.startup"
-      end
-    }
+         require "plugins.configs.startup"
+      end,
+   }
 end)
