@@ -1,1 +1,1 @@
-require("startup").setup({ theme = "bad" })
+require("startup").setup { theme = "bad" }

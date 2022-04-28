@@ -4,46 +4,45 @@ local M = {}
 
 M.options = {
 
-	path = "", -- path to file that overrides core.options
+   path = "", -- path to file that overrides core.options
 
-	-- NvChad options
-	nvChad = {
-		-- updater
-		update_url = "https://github.com/NvChad/NvChad",
-		update_branch = "re-custom",
-	},
+   -- NvChad options
+   nvChad = {
+      -- updater
+      update_url = "https://github.com/NvChad/NvChad",
+      update_branch = "re-custom",
+   },
 }
 
 M.ui = {
-	hl_override = "",
-	colors = "", -- path of your file that contains colors
-	theme = "tokyonight", -- default theme
-	transparency = false,
+   hl_override = "",
+   colors = "", -- path of your file that contains colors
+   theme = "tokyonight", -- default theme
+   transparency = false,
 }
 
 M.plugins = {
-	override = {},
+   override = {},
 
-	options = {
-		packer = {
-			init_file = "plugins.packerInit",
-		},
-		lspconfig = {
-			setup_lspconf = "", -- path of lspconfig file
-		},
-		statusline = {
-			style = "arrow", -- default/round/slant/block/arrow
-		},
-	},
+   options = {
+      packer = {
+         init_file = "plugins.packerInit",
+      },
+      lspconfig = {
+         setup_lspconf = "", -- path of lspconfig file
+      },
+      statusline = {
+         style = "arrow", -- default/round/slant/block/arrow
+      },
+   },
 
-	-- add, modify, remove plugins
-	user = require("custom.plugins")
-
+   -- add, modify, remove plugins
+   user = require "custom.plugins",
 }
 
 -- non plugin only
 M.mappings = {
-	misc = nil,
+   misc = nil,
 }
 
 return M
