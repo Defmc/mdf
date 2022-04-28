@@ -1,7 +1,6 @@
 source ~/scripts/ui_tools.sh
 
 up_file() {
-        rm -rf ~/dev/mdf/$1
 	mkdir -p ~/dev/mdf/$1
 	log_proc "cp -r ~/$1/$2 ~/dev/mdf/$1/$2" "Copying ~/$1/$2"
 }
@@ -33,10 +32,8 @@ up_files() {
 up_git() {
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
-	echo "Commit at: $(date)" > ~/scripts/up_config.log
-	git add --all >> ~/scripts/up_config.log
-	git commit -am "Update mdf" >> ~/scripts/up_config.log
-	log_proc "git push origin main -f >> up_config.log" "Pushing"
+	git commit -am "feat: update dotfiles"
+	git push origin main -f
 	cd $OLDDIR
 }
 
@@ -47,6 +44,7 @@ rm_buff() {
 	mv ~/dev/.git ~/dev/mdf/.git
 }
 
+rm_buff
 up_files
 up_git
 echo "Log saved at ~/scripts/up_config.log"
