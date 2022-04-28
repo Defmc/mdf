@@ -1,6 +1,7 @@
 local cmd = vim.cmd
 
 local colors = require("colors").get()
+local ui = require("core.utils").load_config().ui
 
 local black = colors.black
 local black2 = colors.black2
@@ -29,11 +30,10 @@ local fg_bg = require("core.utils").fg_bg
 local bg = require("core.utils").bg
 
 -- Comments
--- fg("Comment", grey_fg .. " gui=italic") --italic!
 fg("Comment", grey_fg)
 
 -- Disable cursor line
-cmd "hi clear CursorLine"
+cmd("hi clear CursorLine")
 -- Line number
 fg("cursorlinenr", white)
 
@@ -54,11 +54,23 @@ fg("CmpItemAbbrMatch", white)
 fg("CmpItemKind", white)
 fg("CmpItemMenu", white)
 
+-- misc
+
+-- inactive statuslines as thin lines
+fg("StatusLineNC", one_bg3 .. " gui=underline")
+
 fg("LineNr", grey)
 fg("NvimInternalError", red)
 fg("VertSplit", one_bg2)
 
--- Plugin Highlights
+if ui.transparency then
+	bg("Normal", "NONE")
+	bg("Folded", "NONE")
+	fg("Folded", "NONE")
+	fg("Comment", grey)
+end
+
+-- [[ Plugin Highlights
 
 -- Dashboard
 fg("AlphaHeader", grey_fg)
@@ -94,7 +106,7 @@ bg("NvimTreeNormalNC", darker_black)
 fg("NvimTreeOpenedFolderName", folder_bg)
 fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
 fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
--- fg_bg("NvimTreeVertSplit", darker_black, darker_black)
+fg_bg("NvimTreeVertSplit", darker_black, darker_black)
 fg_bg("NvimTreeWindowPicker", red, black2)
 
 -- Telescope
@@ -112,30 +124,22 @@ fg_bg("TelescopeResultsTitle", darker_black, darker_black)
 
 bg("TelescopeSelection", black2)
 
--- TRANSPARENCY!
+-- Disable some highlight in nvim tree if transparency enabled
+if ui.transparency then
+	bg("NormalFloat", "NONE")
+	bg("NvimTreeNormal", "NONE")
+	bg("NvimTreeNormalNC", "NONE")
+	bg("NvimTreeStatusLineNC", "NONE")
+	fg_bg("NvimTreeVertSplit", grey, "NONE")
 
---[[
-
-   bg("NormalFloat", "NONE")
-   bg("NvimTreeNormal", "NONE")
-   bg("NvimTreeNormalNC", "NONE")
-   bg("NvimTreeStatusLineNC", "NONE")
-   fg_bg("NvimTreeVertSplit", grey, "NONE")
-
-   -- telescope
-   bg("TelescopeBorder", "NONE")
-   bg("TelescopePrompt", "NONE")
-   bg("TelescopeResults", "NONE")
-   bg("TelescopePromptBorder", "NONE")
-   bg("TelescopePromptNormal", "NONE")
-   bg("TelescopeNormal", "NONE")
-   bg("TelescopePromptPrefix", "NONE")
-   fg("TelescopeBorder", one_bg)
-   fg_bg("TelescopeResultsTitle", black, blue)
-
-   bg("Normal", "NONE")
-   bg("Folded", "NONE")
-   fg("Folded", "NONE")
-   fg("Comment", grey)
-
- --]]
+	-- telescope
+	bg("TelescopeBorder", "NONE")
+	bg("TelescopePrompt", "NONE")
+	bg("TelescopeResults", "NONE")
+	bg("TelescopePromptBorder", "NONE")
+	bg("TelescopePromptNormal", "NONE")
+	bg("TelescopeNormal", "NONE")
+	bg("TelescopePromptPrefix", "NONE")
+	fg("TelescopeBorder", one_bg)
+	fg_bg("TelescopeResultsTitle", black, blue)
+end

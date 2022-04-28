@@ -1,41 +1,49 @@
+require("custom.mappings").apply()
+
 local M = {}
-require("custom.keymap").setup()
+
+M.options = {
+
+	path = "", -- path to file that overrides core.options
+
+	-- NvChad options
+	nvChad = {
+		-- updater
+		update_url = "https://github.com/NvChad/NvChad",
+		update_branch = "re-custom",
+	},
+}
 
 M.ui = {
-   theme = "tokyonight",
-   italic_comments = true,
+	hl_override = "",
+	colors = "", -- path of your file that contains colors
+	theme = "tokyonight", -- default theme
+	transparency = false,
 }
 
 M.plugins = {
-   install = require "custom.plugins",
-   status = {
-      colorizer = true,
-   },
-   options = {
-      lspconfig = {
-         setup_lspconf = "custom.plugins.lspconfig",
-      },
-   },
-   default_plugin_config_replace = {},
-   default_plugin_remove = { "extensions" },
+	override = {},
+
+	options = {
+		packer = {
+			init_file = "plugins.packerInit",
+		},
+		lspconfig = {
+			setup_lspconf = "", -- path of lspconfig file
+		},
+		statusline = {
+			style = "arrow", -- default/round/slant/block/arrow
+		},
+	},
+
+	-- add, modify, remove plugins
+	user = require("custom.plugins")
+
 }
 
+-- non plugin only
 M.mappings = {
-   terminal = {
-      esc_termmode = { "<esc>" },
-      esc_hide_termmode = { "<A-q>" },
-      pick_term = "<A>s",
-
-      -- split terminal
-      new_horizontal = "<A-s>h",
-      new_vertical = "<A-s>v",
-      new_float = "<A-f>",
-
-      -- creates new instance
-      spawn_horizontal = "<A-h>",
-      spawn_vertical = "<A-v>",
-      spawn_window = "<A-w>",
-   },
+	misc = nil,
 }
 
 return M

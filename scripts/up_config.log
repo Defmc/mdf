@@ -1,3 +1,5 @@
-Commit at: Sun Apr 24 05:36:56 PM -04 2022
-[main 8a43ad7] Update mdf
- 2 files changed, 9 insertions(+), 15 deletions(-)
+Commit at: Sun Apr 24 09:20:22 PM -04 2022
+[main a96fb5d] Update mdf
+ 4 files changed, 71 insertions(+), 34 deletions(-)
+ rewrite .config/nvim/lua/plugins/configs/startup.lua (100%)
+ create mode 100644 .config/nvim/lua/startup/themes/bad.lua

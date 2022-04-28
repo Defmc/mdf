@@ -1,6 +1,7 @@
 source ~/scripts/ui_tools.sh
 
 up_file() {
+        rm -rf ~/dev/mdf/$1
 	mkdir -p ~/dev/mdf/$1
 	log_proc "cp -r ~/$1/$2 ~/dev/mdf/$1/$2" "Copying ~/$1/$2"
 }
