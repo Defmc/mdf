@@ -1,6 +1,5 @@
-Commit at: Wed Apr 27 10:01:04 PM -04 2022
-[main f971240] Update mdf
- 4 files changed, 586 insertions(+), 26 deletions(-)
- delete mode 100644 .cargo/config.toml
- create mode 100644 .cargo/env
+Commit at: Wed Apr 27 10:02:00 PM -04 2022
+[main 6ab5e92] Update mdf
+ 3 files changed, 7 insertions(+), 587 deletions(-)
+ delete mode 100644 .cargo/env
  rewrite scripts/up_config.log (100%)
