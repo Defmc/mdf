@@ -34,5 +34,26 @@ return {
      config = function()
        require "custom.plugins.nvterm"
      end
-   }
+   },
+
+   ["hrsh7th/nvim-cmp"] = {
+      after = "friendly-snippets",
+      config = function()
+         require "custom.plugins.cmp"
+      end,
+   },
+
+   ["akinsho/bufferline.nvim"] = {
+      after = "nvim-web-devicons",
+      branch = "main",
+
+      setup = function()
+         require("core.mappings").bufferline()
+      end,
+
+      config = function()
+         require "plugins.configs.bufferline"
+      end,
+   },
+
 }
