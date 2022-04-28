@@ -22,6 +22,7 @@ up_files() {
         up_file .config/picom picom.conf
 	up_file .config/nvim/lua .
         up_file .cargo config.toml
+        up_file .cargo env
 	up_file scripts .
         up_file .config/bspwm .
         up_file img sky_mansion.jpg
