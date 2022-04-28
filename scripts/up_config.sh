@@ -48,4 +48,3 @@ rm_buff() {
 rm_buff
 up_files
 up_git
-echo "Log saved at ~/scripts/up_config.log"
