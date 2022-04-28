@@ -29,4 +29,10 @@ return {
          require "custom.plugins.startup"
       end,
    },
+
+   ["NvChad/nvterm"] = {
+     config = function()
+       require "custom.plugins.nvterm"
+     end
+   }
 }

@@ -33,7 +33,7 @@ up_files() {
 up_git() {
 	OLDDIR=$(pwd)
 	cd ~/dev/mdf
-	git commit -am "feat: update dotfiles"
+        git commit -am $1
 	git push origin main -f
 	cd $OLDDIR
 }
@@ -45,6 +45,6 @@ rm_buff() {
 	mv ~/dev/.git ~/dev/mdf/.git
 }
 
-rm_buff
+log_proc "rm_buff" "Removing old buffer"
 up_files
-up_git
+up_git $1
