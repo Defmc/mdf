@@ -56,4 +56,11 @@ return {
       end,
    },
 
+  ["rcarriga/nvim-notify"] = {
+    setup = function()
+      require("custom.plugins.notify")
+    end,
+  }
+
 }
+
