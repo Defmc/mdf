@@ -30,12 +30,6 @@ return {
       end,
    },
 
-   ["NvChad/nvterm"] = {
-     config = function()
-       require "custom.plugins.nvterm"
-     end
-   },
-
    ["hrsh7th/nvim-cmp"] = {
       after = "friendly-snippets",
       config = function()
@@ -53,6 +47,12 @@ return {
 
       config = function()
          require "plugins.configs.bufferline"
+      end,
+   },
+
+   ["NvChad/nvterm"] = {
+      config = function()
+         require "custom.plugins.nvterm"
       end,
    },
 
