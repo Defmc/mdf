@@ -1,15 +1,8 @@
 local utils = require "core.utils"
 
-local config = utils.load_config()
 local map = utils.map
-
-local user_cmd = vim.api.nvim_create_user_command
-
-local nvChad_options = config.options.nvChad
-
-local mappings = config.mappings
-
 local cmd = vim.cmd
+local user_cmd = vim.api.nvim_create_user_command
 
 -- This is a wrapper function made to disable a plugin mapping from chadrc
 -- If keys are nil, false or empty string, then the mapping will be not applied
@@ -61,11 +54,6 @@ map("n", "<C-s>", "<cmd> :w <CR>") -- ctrl + s to save file
 -- get out of terminal mode
 map("t", { "jk" }, "<C-\\><C-n>")
 
--- hide a term from within terminal mode
-map("t", { "JK" }, function()
-   require("nvchad.terminal").hide()
-end)
-
 -- Add Packer commands because we are not loading it at startup
 
 local packer_cmd = function(callback)
@@ -74,6 +62,22 @@ local packer_cmd = function(callback)
       require("packer")[callback]()
    end
 end
+
+-- snapshot stuff
+user_cmd("PackerSnapshot", function(info)
+   require "plugins"
+   require("packer").snapshot(info.args)
+end, { nargs = "+" })
+
+user_cmd("PackerSnapshotDelete", function(info)
+   require "plugins"
+   require("packer.snapshot").delete(info.args)
+end, { nargs = "+" })
+
+user_cmd("PackerSnapshotRollback", function(info)
+   require "plugins"
+   require("packer").rollback(info.args)
+end, { nargs = "+" })
 
 user_cmd("PackerClean", packer_cmd "clean", {})
 user_cmd("PackerCompile", packer_cmd "compile", {})
@@ -87,10 +91,7 @@ cmd "silent! command! NvChadUpdate lua require('nvchad').update_nvchad()"
 map("n", "<leader>uu", "<cmd> :NvChadUpdate <CR>")
 
 -- load overriden misc mappings
-
-if mappings.misc ~= nil and type(mappings.misc) == "function" then
-   mappings.misc()
-end
+require("core.utils").load_config().mappings.misc()
 
 local M = {}
 
@@ -103,7 +104,7 @@ end
 
 M.comment = function()
    map("n", "<leader>/", "<cmd> :lua require('Comment.api').toggle_current_linewise()<CR>")
-   map("v", "<leader>/", "<cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
+   map("v", "<leader>/", "<esc><cmd> :lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>")
 end
 
 M.lspconfig = function()

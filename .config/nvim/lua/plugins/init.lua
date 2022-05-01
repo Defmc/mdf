@@ -184,7 +184,7 @@ local plugins = {
 
    ["numToStr/Comment.nvim"] = {
       module = "Comment",
-      keys = { "gcc" },
+      keys = { "gc", "gb" },
 
       setup = function()
          require("core.mappings").comment()
@@ -209,7 +209,6 @@ local plugins = {
    },
 
    ["nvim-telescope/telescope.nvim"] = {
-      module = "telescope",
       cmd = "Telescope",
 
       setup = function()
@@ -222,6 +221,7 @@ local plugins = {
    },
 }
 
+plugins = require("core.utils").remove_default_plugins(plugins)
 -- merge user plugin table & default plugin table
 plugins = require("core.utils").plugin_list(plugins)
 

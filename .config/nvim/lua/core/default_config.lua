@@ -5,9 +5,9 @@ local M = {}
 
 M.options = {
 
-   path = "", -- path to file that overrides core.options
+   -- load your options here or load module with options1
+   user = function() end,
 
-   -- NvChad options
    nvChad = {
       -- updater
       update_url = "https://github.com/NvChad/NvChad",
@@ -18,7 +18,7 @@ M.options = {
 ---- UI -----
 
 M.ui = {
-   hl_override = "",
+   hl_override = {},
    colors = "", -- path of your file that contains colors
    theme = "onedark", -- default theme
    transparency = false,
@@ -26,16 +26,18 @@ M.ui = {
 
 M.plugins = {
    override = {},
+   remove = {},
 
    options = {
       packer = {
          init_file = "plugins.packerInit",
+         snapshot = nil,
       },
       lspconfig = {
          setup_lspconf = "", -- path of lspconfig file
       },
       statusline = {
-         style = "default", -- default/round/slant/block/arrow
+         separator_style = "default", -- default/round/slant/block/arrow
       },
    },
 
@@ -45,7 +47,7 @@ M.plugins = {
 
 -- non plugin only
 M.mappings = {
-   misc = nil,
+   misc = function() end,
 }
 
 return M

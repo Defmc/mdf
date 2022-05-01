@@ -5,6 +5,7 @@ local g = vim.g
 g.did_load_filetypes = 0
 g.do_filetype_lua = 1
 
+opt.confirm = true
 opt.laststatus = 3 -- global statusline
 opt.title = true
 opt.clipboard = "unnamedplus"
@@ -77,13 +78,9 @@ for _, plugin in pairs(default_plugins) do
 end
 
 vim.schedule(function()
-   vim.opt.shadafile = "NONE"
+   vim.opt.shadafile = vim.fn.expand "$HOME" .. "/.local/share/nvim/shada/main.shada"
    vim.cmd [[ silent! rsh ]]
 end)
 
 -- load user options if the file exists
-
-local load_ifExists = require("core.utils").load_ifExists
-local user_options = require("core.utils").load_config().options.path
-
-load_ifExists(user_options)
+require("core.utils").load_config().options.user()
