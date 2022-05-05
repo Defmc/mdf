@@ -1,27 +1,23 @@
- require("custom.mappings").apply()
---
- local M = {}
---
- M.options = {
---
-    path = "", -- path to file that overrides core.options
---
---    -- NvChad options
-    nvChad = {
-       -- updater
-       update_url = "https://github.com/NvChad/NvChad",
-       update_branch = "main",
-     },
- }
+require("custom.mappings").apply()
+local M = {}
+M.options = {
+   path = "", -- path to file that overrides core.options
+   -- NvChad options
+   nvChad = {
+      -- updater
+      update_url = "https://github.com/NvChad/NvChad",
+      update_branch = "main",
+   },
+}
 
--- M.ui = {
---    hl_override = "",
---    colors = "", -- path of your file that contains colors
---    theme = "tokyonight", -- default theme
---    transparency = false,
--- }
+M.ui = {
+   hl_override = {},
+   colors = "", -- path of your file that contains colors
+   theme = "tokyonight", -- default theme
+   transparency = false,
+}
 
- M.plugins = {
+M.plugins = {
    override = {},
 
    options = {
@@ -32,7 +28,7 @@
          setup_lspconf = "", -- path of lspconfig file
       },
       statusline = {
-         style = "arrow", -- default/round/slant/block/arrow
+         style = "round", -- default/round/slant/block/arrow
       },
    },
 
