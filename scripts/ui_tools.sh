@@ -5,7 +5,7 @@ log_proc() {
     if [ ! -z $SHOW_STDOUT ]; then
         eval "$1"
     else
-        stderr=$(eval "$1")
+        stderr=$(eval "$1" 2>&1)
     fi
 
     if [ $? -eq 0 ]; then
