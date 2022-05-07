@@ -1,11 +1,7 @@
 require("custom.mappings").apply()
-
 local M = {}
-
 M.options = {
-
    path = "", -- path to file that overrides core.options
-
    -- NvChad options
    nvChad = {
       -- updater
@@ -32,7 +28,7 @@ M.plugins = {
          setup_lspconf = "", -- path of lspconfig file
       },
       statusline = {
-         style = "arrow", -- default/round/slant/block/arrow
+         style = "round", -- default/round/slant/block/arrow
       },
    },
 
