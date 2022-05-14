@@ -1,10 +1,39 @@
-local lspconfig = require("lspconfig")
+local function lspSymbol(name, icon)
+	local hl = "DiagnosticSign" .. name
+	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+end
 
-local M = {}
+lspSymbol("Error", "")
+lspSymbol("Info", "")
+lspSymbol("Hint", "")
+lspSymbol("Warn", "")
 
-function M.on_attach(client, _)
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = "",
+	},
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "single",
+})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = "single",
+})
+
+-- suppress error messages from lang servers
+vim.notify = function(msg, log_level)
+	if msg:match("exit code") then
+		return
+	end
+	if log_level == vim.log.levels.ERROR then
+		vim.api.nvim_err_writeln(msg)
+	else
+		vim.api.nvim_echo({ { msg } }, true, {})
+	end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -27,25 +56,12 @@ capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-lspconfig.sumneko_lua.setup({
-	on_attach = M.on_attach,
-	capabilities = capabilities,
-
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim", "nvchad" },
-			},
-			workspace = {
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-				},
-				maxPreload = 100000,
-				preloadFileSize = 10000,
-			},
+local servers = { "sumneko_lua", "rust_analyzer" }
+for _, lsp in pairs(servers) do
+	require("lspconfig")[lsp].setup({
+		on_attach = function() end,
+		flags = {
+			debounce_text_changes = 150,
 		},
-	},
-})
-
-return M
+	})
+end

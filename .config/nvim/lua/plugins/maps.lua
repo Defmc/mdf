@@ -19,6 +19,8 @@ M.editor = function()
 	map("n", "<C-S-Up>", ":m-2<CR>")
 	map("n", "<A-Left>", ":vertical resize +5 <CR>")
 	map("n", "<A-Right>", ":vertical resize -5 <CR>")
+	map("n", "<Tab>", ":bnext")
+	map("n", "<S-Tab>", ":bprev")
 end
 
 M.nvim_tree = function()

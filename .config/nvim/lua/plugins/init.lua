@@ -1,4 +1,3 @@
-local maps = require("plugins.maps")
 local plugins = {
 	{
 		"lewis6991/impatient.nvim",
@@ -108,7 +107,7 @@ end
 require("packer").startup(function(use)
 	local bootstrapped = bootstrap()
 	for _, pkg in ipairs(plugins) do
-		local stts, err = use(pkg)
+		local _, err = use(pkg)
 		if err ~= nil then
 			vim.print("an error ocurred loading " .. pkg)
 		end
