@@ -1,5 +1,5 @@
-local modules = {"editor"}
+local modules = { "editor" }
 
 for _, mod in ipairs(modules) do
-	require ("configs." .. mod)
+	require("configs." .. mod)
 end
