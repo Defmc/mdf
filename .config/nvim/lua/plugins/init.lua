@@ -38,6 +38,9 @@ local plugins = {
 	{
 		"nvim-lua/lsp_extensions.nvim",
 		after = "nvim-lspconfig",
+		config = function()
+			require("plugins.lsp_ext")
+		end,
 	},
 	{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 	{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
@@ -62,6 +65,7 @@ local plugins = {
 		end,
 		config = function()
 			require("nvim-tree").setup()
+			require("plugins.nvimtree")
 		end,
 		requires = { "kyazdani42/nvim-web-devicons" },
 	},
@@ -99,6 +103,19 @@ local plugins = {
 		end,
 	},
 	{ "lukas-reineke/indent-blankline.nvim" },
+	{
+		"zbirenbaum/copilot.lua",
+		event = { "VimEnter" },
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup()
+			end, 100)
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		after = { "copilot.lua", "nvim-cmp" },
+	},
 }
 
 local bootstrap = function()

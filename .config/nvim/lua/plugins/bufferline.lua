@@ -6,7 +6,7 @@ require("bufferline").setup({
 		right_mouse_command = "bdelete! %d",
 		left_mouse_command = "buffer %d",
 		middle_mouse_command = nil,
-		indicator_icon = "▎",
+		indicator_icon = "|>",
 		buffer_close_icon = "",
 		modified_icon = "●",
 		close_icon = "",
@@ -43,26 +43,16 @@ require("bufferline").setup({
 				local result = {}
 				local colors = require("tokyonight.colors").setup({ style = "storm" })
 				local seve = vim.diagnostic.severity
-				local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
-				local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
-				local info = #vim.diagnostic.get(0, { severity = seve.INFO })
-				local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
-
-				if error ~= 0 then
-					table.insert(result, { text = "  " .. error, guifg = colors.red, guibg = "#18141c" })
+				local diag = function(sv, text, color)
+					local count = #vim.diagnostic.get(0, { severity = sv })
+					if count ~= 0 then
+						table.insert(result, { text = text .. count, guifg = color, guibg = colors.bg })
+					end
 				end
-
-				if warning ~= 0 then
-					table.insert(result, { text = "   " .. warning, guifg = colors.yellow, guibg = "#18141c" })
-				end
-
-				if hint ~= 0 then
-					table.insert(result, { text = "  " .. hint, guifg = colors.green, guibg = "#18141c" })
-				end
-
-				if info ~= 0 then
-					table.insert(result, { text = "  " .. info, guifg = colors.fg, guibg = "#18141c" })
-				end
+				diag(seve.ERROR, "  ", colors.red)
+				diag(seve.WARN, "   ", colors.yellow)
+				diag(seve.HINT, "  ", colors.green)
+				diag(seve.INFO, "  ", colors.fg)
 				return result
 			end,
 		},
