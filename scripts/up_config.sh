@@ -17,6 +17,7 @@ up_files() {
     up_file . .zshrc
 	up_file .config gtk-3.0
 	up_file . .gtkrc-2.0
+    up_file dev dmenu
     up_file .emacs.d init.el
     up_file .doom.d .
     up_file .config/polybar/my .

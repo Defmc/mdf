@@ -35,13 +35,6 @@ local plugins = {
 		end,
 	},
 	{ "onsails/lspkind.nvim", after = "nvim-lspconfig" },
-	{
-		"nvim-lua/lsp_extensions.nvim",
-		after = "nvim-lspconfig",
-		config = function()
-			require("plugins.lsp_ext")
-		end,
-	},
 	{ "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
 	{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
 	{ "hrsh7th/cmp-path", after = "nvim-cmp" },
@@ -110,6 +103,13 @@ local plugins = {
 			vim.defer_fn(function()
 				require("copilot").setup()
 			end, 100)
+		end,
+	},
+	{
+		"simrat39/rust-tools.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("plugins.rs_tools")
 		end,
 	},
 	{
