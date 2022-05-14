@@ -1,4 +1,4 @@
-local maps = require("plugins.maps")
+local maps = require("configs.maps")
 maps.editor()
 maps.terminal()
 

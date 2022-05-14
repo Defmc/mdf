@@ -15,12 +15,7 @@ end
 
 M.format = function()
 	require("formatter").setup({
-		filetype = {
-			lua = { require("formatter.filetypes.lua").stylua },
-			rust = { require("formatter.filetypes.lua").rustfmt },
-			cpp = { require("formatter.filetypes.lua").clangformat },
-			c = { require("formatter.filetypes.lua").clangforma },
-		},
+		filetype = require("configs.lsp").formatters,
 	})
 	vim.cmd([[
     augroup FormatAutogroup

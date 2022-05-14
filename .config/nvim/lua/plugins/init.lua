@@ -5,6 +5,7 @@ local plugins = {
 			require("impatient")
 		end,
 	},
+	{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
 	{
 		"akinsho/bufferline.nvim",
 		config = function()
@@ -29,7 +30,7 @@ local plugins = {
 		after = "nvim-lsp-installer",
 		config = function()
 			require("plugins.setups").installer()
-			require("plugins.maps").lsp()
+			require("configs.maps").lsp()
 			require("plugins.lspconfig")
 		end,
 	},
@@ -57,14 +58,20 @@ local plugins = {
 		"kyazdani42/nvim-tree.lua",
 		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 		setup = function()
-			require("plugins.maps").nvim_tree()
+			require("configs.maps").nvim_tree()
 		end,
 		config = function()
 			require("nvim-tree").setup()
 		end,
 		requires = { "kyazdani42/nvim-web-devicons" },
 	},
-	{ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" },
+	{
+		"nvim-telescope/telescope.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		setup = function()
+			require("configs.maps").telescope()
+		end,
+	},
 	{ "folke/tokyonight.nvim" },
 	{
 		"numToStr/Comment.nvim",
@@ -86,9 +93,9 @@ local plugins = {
 		end,
 	},
 	{
-		"nvim-lualine/lualine.nvim",
+		"feline-nvim/feline.nvim",
 		config = function()
-			require("plugins.setups").statusline()
+			require("plugins.statusline")
 		end,
 	},
 	{ "lukas-reineke/indent-blankline.nvim" },

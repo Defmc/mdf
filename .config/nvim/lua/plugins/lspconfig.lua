@@ -10,7 +10,7 @@ lspSymbol("Warn", "")
 
 vim.diagnostic.config({
 	virtual_text = {
-		prefix = "",
+		prefix = " ●",
 	},
 	signs = true,
 	underline = true,
@@ -56,9 +56,8 @@ capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-local servers = { "sumneko_lua", "rust_analyzer" }
-for _, lsp in pairs(servers) do
-	require("lspconfig")[lsp].setup({
+for _, svr in pairs(require("configs.lsp").servers) do
+	require("lspconfig")[svr].setup({
 		on_attach = function() end,
 		flags = {
 			debounce_text_changes = 150,
