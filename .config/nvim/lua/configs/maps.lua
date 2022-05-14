@@ -13,6 +13,8 @@ M.telescope = function()
 	map("n", "fg", "<cmd>Telescope live_grep <CR>")
 	map("n", "fb", "<cmd>Telescope buffers <CR>")
 	map("n", "fh", "<cmd>Telescope help_tags <CR>")
+	map("n", "fc", "<cmd>Telescope colorscheme <CR>")
+	map("n", "ft", "<cmd>Telescope treesitter <CR>")
 end
 
 M.terminal = function()
