@@ -2,6 +2,12 @@ local map = require("core.utils").map
 
 local M = {}
 
+M.lsp = function()
+	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration() <CR>")
+	map("n", "gd", "<cmd>lua vim.lsp.buf.definition() <CR>")
+	map("n", "K", "<cmd>lua vim.lsp.buf.hover() <CR>")
+end
+
 M.terminal = function()
 	map("", "<A-w>", ":terminal<CR>")
 	map("t", "<esc>", "<C-\\><C-n>")

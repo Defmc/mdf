@@ -30,6 +30,7 @@ local plugins = {
 		after = "nvim-lsp-installer",
 		config = function()
 			require("plugins.setups").installer()
+			require("plugins.maps").lsp()
 			require("plugins.lspconfig")
 		end,
 	},

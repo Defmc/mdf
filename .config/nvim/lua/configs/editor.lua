@@ -1,4 +1,6 @@
-require("plugins.maps").editor()
+local maps = require("plugins.maps")
+maps.editor()
+maps.terminal()
 
 vim.o.number = true
 vim.o.tabstop = 4
