@@ -3,13 +3,13 @@
 source ~/scripts/ui_tools.sh
 
 rust() {
-    if [[ test -f "Cargo.toml" ]]; then
+    if [[ -f "Cargo.toml" ]]; then
       log_proc "cargo update" "updating cargo packages"
     fi
 }
 
 js() {
-    if [[ test -f "package.json" ]]; then
+    if [[ -f "package.json" ]]; then
         log_proc "npm up" "updating npm packages"
     fi
 }
