@@ -1,6 +1,13 @@
+local M = {}
+
+M.setup = function()
+	vim.g.tokyonight_style = "night"
+	vim.cmd([[colorscheme tokyonight]])
+end
+
 local theme_colors = require("tokyonight.colors").setup({ style = "storm" })
 
-local colors = {
+M.colors = {
 	bg = theme_colors.bg_statusline,
 	fg = theme_colors.fg,
 	yellow = theme_colors.yellow,
@@ -16,6 +23,4 @@ local colors = {
 	primary_blue = theme_colors.blue5,
 }
 
-return {
-	colors,
-}
+return M

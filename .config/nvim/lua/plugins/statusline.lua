@@ -1,23 +1,7 @@
 local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
 
-local tokyonight_colors = require("tokyonight.colors").setup({ style = "storm" })
-
-local colors = {
-	bg = tokyonight_colors.bg_statusline,
-	fg = tokyonight_colors.fg,
-	yellow = tokyonight_colors.yellow,
-	cyan = tokyonight_colors.cyan,
-	darkblue = tokyonight_colors.blue0,
-	green = tokyonight_colors.green,
-	orange = tokyonight_colors.orange,
-	violet = tokyonight_colors.purple,
-	magenta = tokyonight_colors.magenta,
-	blue = tokyonight_colors.blue,
-	red = tokyonight_colors.red,
-	light_bg = tokyonight_colors.bg_highlight,
-	primary_blue = tokyonight_colors.blue5,
-}
+local colors = require("configs.theme").colors
 
 local vi_mode_colors = {
 	NORMAL = colors.primary_blue,
@@ -123,6 +107,10 @@ local gitdiffmod = {
 		bg = "bg",
 		style = "bold",
 	},
+}
+
+local sep = {
+	provider = " ",
 }
 
 local gitdiffrm = {
@@ -340,16 +328,17 @@ local components = {
 			gitdiffadd,
 			gitdiffmod,
 			gitdiffrm,
+		},
+		[3] = {
 			diag_err,
 			diag_warn,
 			diag_hint,
 			diag_info,
-		},
-		[3] = {
+            sep,
 			lspprog,
 			lspname,
 			file_icon,
-			file_type,
+			-- file_type,
 			-- file_format,
 			-- file_size,
 			-- file_enc,
@@ -364,7 +353,7 @@ local components = {
 		[3] = {
 			lspprog,
 			lspname,
-			file_type,
+			--			file_type,
 			file_info,
 			file_perc,
 			scrollbar,

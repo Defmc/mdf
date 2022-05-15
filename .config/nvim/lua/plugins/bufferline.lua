@@ -41,7 +41,7 @@ require("bufferline").setup({
 		custom_areas = {
 			right = function()
 				local result = {}
-				local colors = require("tokyonight.colors").setup({ style = "storm" })
+				local colors = require("configs.theme").colors
 				local seve = vim.diagnostic.severity
 				local diag = function(sv, text, color)
 					local count = #vim.diagnostic.get(0, { severity = sv })
