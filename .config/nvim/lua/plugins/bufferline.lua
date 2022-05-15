@@ -34,7 +34,7 @@ require("bufferline").setup({
 		show_close_icon = false,
 		show_tab_indicators = true,
 		persist_buffer_sort = false,
-		separator_style = "thick", --"slant" | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "", --"slant" | "thick" | "thin" | { 'any', 'any' },
 		enforce_regular_tabs = false,
 		always_show_bufferline = true,
 		sort_by = "insert_after_current",

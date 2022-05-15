@@ -334,7 +334,7 @@ local components = {
 			diag_warn,
 			diag_hint,
 			diag_info,
-            sep,
+			sep,
 			lspprog,
 			lspname,
 			file_icon,

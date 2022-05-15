@@ -28,8 +28,8 @@ M.editor = function()
 	map("n", "<C-S-Up>", ":m-2<CR>")
 	map("n", "<A-Left>", ":vertical resize +5 <CR>")
 	map("n", "<A-Right>", ":vertical resize -5 <CR>")
-	map("n", "<Tab>", ":bnext<CR>")
-	map("n", "<S-Tab>", ":bprev<CR>")
+	map("n", "<TAB>", "<cmd> BufferLineCycleNext <CR>")
+	map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
 end
 
 M.nvim_tree = function()
