@@ -1,3 +1,5 @@
+#!/bin/sh
+
 doas pacman -Sy --noconfirm
 doas powerpill -Su --noconfirm
 rustup update

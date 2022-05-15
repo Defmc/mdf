@@ -1,3 +1,5 @@
+#!/bin/sh
+
 rm -rf ~/.oh-my-zsh/
 mv ~/.zshrc ~/.zshrc2
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

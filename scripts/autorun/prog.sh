@@ -1,3 +1,5 @@
+#!/bin/sh
+
 source ~/scripts/ui_tools.sh
 
 rce() {

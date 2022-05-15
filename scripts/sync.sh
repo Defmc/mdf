@@ -1,3 +1,5 @@
+#!/bin/sh
+
 rm -rf ~/dev/mdf
 git clone https://github.com/Defmc/mdf ~/dev/mdf
 

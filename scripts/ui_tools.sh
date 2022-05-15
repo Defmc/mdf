@@ -1,3 +1,5 @@
+#!/bin/sh
+
 source ~/scripts/colors.sh
 
 log_proc() {

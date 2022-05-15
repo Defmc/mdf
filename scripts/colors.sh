@@ -1,3 +1,5 @@
+#!/bin/sh
+
 RESET='\e[0m'
 FG_BLACK='\e[30m'
 FG_RED='\e[31m'

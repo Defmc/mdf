@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Edit your color/style preferences here or use empty values for git auto style
 tag_style="1;38;5;222"
 head_style="1;3;5;1;38;5;196"

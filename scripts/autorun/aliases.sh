@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # System infos
 alias mem='free --mega'
 alias x='exa'
