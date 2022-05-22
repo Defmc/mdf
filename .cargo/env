@@ -1,7 +1,3 @@
-#!/bin/sh
-# rustup shell setup
-# affix colons on either side of $PATH to simplify matching
-
 #export RUSTC_WRAPPER=/home/me/.cargo/bin/cachepot
 #export RUSTC_FLAGS='-C linker-flavor=mold'
 alias rustlint="cargo clippy -- -W clippy::pedantic -W clippy::nursery -W clippy::cargo -A clippy::missing_errors_doc -A clippy::missing_panics_doc"

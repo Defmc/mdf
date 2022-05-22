@@ -1,4 +1,11 @@
+local present, _ = pcall(require, "tokyonight")
+
 local M = {}
+
+if not present then
+	M.setup = function() end
+	return M
+end
 
 M.setup = function()
 	vim.g.tokyonight_style = "night"

@@ -1,5 +1,4 @@
 return {
-	servers = { "sumneko_lua", "rust_analyzer", "tsserver" },
 	formatters = {
 		lua = { require("formatter.filetypes.lua").stylua },
 		rust = { require("formatter.filetypes.rust").rustfmt },

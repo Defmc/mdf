@@ -24,10 +24,9 @@ local plugins = {
 			require("nvim-autopairs").setup()
 		end,
 	},
-	{ "williamboman/nvim-lsp-installer" },
 	{
-		"neovim/nvim-lspconfig",
-		after = "nvim-lsp-installer",
+		"williamboman/nvim-lsp-installer",
+		requires = "neovim/nvim-lspconfig",
 		config = function()
 			require("plugins.setups").installer()
 			require("configs.maps").lsp()
@@ -97,24 +96,11 @@ local plugins = {
 	},
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{
-		"zbirenbaum/copilot.lua",
-		event = { "VimEnter" },
-		config = function()
-			vim.defer_fn(function()
-				require("copilot").setup()
-			end, 100)
-		end,
-	},
-	{
 		"simrat39/rust-tools.nvim",
 		after = "nvim-lspconfig",
 		config = function()
 			require("plugins.rs_tools")
 		end,
-	},
-	{
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua", "nvim-cmp" },
 	},
 }
 
@@ -128,7 +114,7 @@ local bootstrap = function()
 	end
 end
 
-require("packer").startup(function(use)
+local sync_pkgs = function(use)
 	local bootstrapped = bootstrap()
 	for _, pkg in ipairs(plugins) do
 		local _, err = use(pkg)
@@ -140,4 +126,15 @@ require("packer").startup(function(use)
 	if bootstrapped then
 		require("packer").sync()
 	end
-end)
+end
+
+require("packer").startup({
+	sync_pkgs,
+	config = {
+		display = {
+			open_fn = function()
+				return require("packer.util").float({ border = "single" })
+			end,
+		},
+	},
+})

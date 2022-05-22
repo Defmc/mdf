@@ -24,7 +24,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = "single",
 })
 
--- suppress error messages from lang servers
 vim.notify = function(msg, log_level)
 	if msg:match("exit code") then
 		return
@@ -56,11 +55,10 @@ capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-for _, svr in pairs(require("configs.lsp").servers) do
-	require("lspconfig")[svr].setup({
+local servers = require("nvim-lsp-installer").get_installed_servers()
+for _, svr in ipairs(servers) do
+	require("lspconfig")[svr.name].setup({
 		on_attach = function() end,
-		flags = {
-			debounce_text_changes = 150,
-		},
+		capabilities = capabilities,
 	})
 end
