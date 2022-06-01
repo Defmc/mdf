@@ -56,7 +56,6 @@ local plugins = {
 			require("configs.maps").nvim_tree()
 		end,
 		config = function()
-			require("nvim-tree").setup()
 			require("plugins.nvimtree")
 		end,
 		requires = { "kyazdani42/nvim-web-devicons" },
