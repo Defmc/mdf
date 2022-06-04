@@ -1,12 +1,9 @@
-local function lspSymbol(name, icon)
-	local hl = "DiagnosticSign" .. name
-	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
-end
-
-lspSymbol("Error", "")
-lspSymbol("Info", "")
-lspSymbol("Hint", "")
-lspSymbol("Warn", "")
+local symbols = {
+	Error = "",
+	Info = "",
+	Hint = "",
+	Warn = "",
+}
 
 vim.diagnostic.config({
 	virtual_text = {
@@ -54,6 +51,14 @@ capabilities.textDocument.completion.completionItem = {
 		},
 	},
 }
+
+vim.o.updatetime = 750
+vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]])
+
+for name, icon in pairs(symbols) do
+	local hl = "DiagnosticSign" .. name
+	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+end
 
 local servers = require("nvim-lsp-installer").get_installed_servers()
 for _, svr in ipairs(servers) do
