@@ -60,6 +60,7 @@ local plugins = {
 		end,
 		requires = { "kyazdani42/nvim-web-devicons" },
 	},
+	{ "github/copilot.vim" },
 	{
 		"zbirenbaum/copilot.lua",
 		event = "InsertEnter",
