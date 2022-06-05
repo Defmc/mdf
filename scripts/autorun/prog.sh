@@ -8,4 +8,13 @@ rce() {
 	log_proc "cross build --release --target x86_64-unknown-linux-musl" "Building for Linux (MUSL)"
 }
 
+rusttest() {
+  echo "fn main() {\n\tprintln!(\"Hello world\")\n}" >> test.rs
+  nvim test.rs
+  rustc test.rs
+  ./test
+  rm test.rs
+  rm test
+}
+
 alias co="cargo"
