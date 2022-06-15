@@ -48,7 +48,13 @@ local plugins = {
 	{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
 	{ "wbthomason/packer.nvim" },
 	{ "mg979/vim-visual-multi" },
-	{ "nvim-treesitter/nvim-treesitter", run = "TSUpdate" },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		run = "TSUpdate",
+		config = function()
+			require("plugins.treesitter")
+		end,
+	},
 	{
 		"kyazdani42/nvim-tree.lua",
 		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
