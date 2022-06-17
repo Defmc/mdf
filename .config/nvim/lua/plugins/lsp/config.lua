@@ -14,10 +14,12 @@ vim.diagnostic.config({
 	update_in_insert = false,
 })
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+local lspserver = vim.lsp
+
+lspserver.handlers["textDocument/hover"] = lspserver.with(lspserver.handlers.hover, {
 	border = "single",
 })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+lspserver.handlers["textDocument/signatureHelp"] = lspserver.with(lspserver.handlers.signature_help, {
 	border = "single",
 })
 
@@ -32,7 +34,7 @@ vim.notify = function(msg, log_level)
 	end
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = lspserver.protocol.make_client_capabilities()
 
 capabilities.textDocument.completion.completionItem = {
 	documentationFormat = { "markdown", "plaintext" },

@@ -30,7 +30,15 @@ local plugins = {
 		config = function()
 			require("plugins.setups").installer()
 			require("configs.maps").lsp()
-			require("plugins.lspconfig")
+			require("plugins.lsp.config")
+		end,
+	},
+	{
+		"RishabhRD/lspactions",
+		requires = "nvim-lua/popup.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("plugins.lsp.actions").map()
 		end,
 	},
 	{ "onsails/lspkind.nvim", after = "nvim-lspconfig" },
