@@ -3,18 +3,18 @@ local map = require("core.utils").map
 local M = {}
 
 M.lsp = function()
-	map("n", "gD", "<cmd>lua vim.lsp.buf.declaration() <CR>")
-	map("n", "gd", "<cmd>lua vim.lsp.buf.definition() <CR>")
-	map("n", "K", "<cmd>lua vim.lsp.buf.hover() <CR>")
+	map("n", "gD", ":lua vim.lsp.buf.declaration() <CR>")
+	map("n", "gd", ":lua vim.lsp.buf.definition() <CR>")
+	map("n", "K", ":lua vim.lsp.buf.hover() <CR>")
 end
 
 M.telescope = function()
-	map("n", "ff", "<cmd>Telescope find_files <CR>")
-	map("n", "fg", "<cmd>Telescope live_grep <CR>")
-	map("n", "fb", "<cmd>Telescope buffers <CR>")
-	map("n", "fh", "<cmd>Telescope help_tags <CR>")
-	map("n", "fc", "<cmd>Telescope colorscheme <CR>")
-	map("n", "ft", "<cmd>Telescope treesitter <CR>")
+	map("n", "ff", ":Telescope find_files <CR>")
+	map("n", "fg", ":Telescope live_grep <CR>")
+	map("n", "fb", ":Telescope buffers <CR>")
+	map("n", "fh", ":Telescope help_tags <CR>")
+	map("n", "fc", ":Telescope colorscheme <CR>")
+	map("n", "ft", ":Telescope treesitter <CR>")
 end
 
 M.terminal = function()
@@ -28,8 +28,8 @@ M.editor = function()
 	map("n", "<C-S-Up>", ":m-2<CR>")
 	map("n", "<A-Left>", ":vertical resize +5 <CR>")
 	map("n", "<A-Right>", ":vertical resize -5 <CR>")
-	map("n", "<TAB>", "<cmd> BufferLineCycleNext <CR>")
-	map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
+	map("n", "<TAB>", ":BufferLineCycleNext <CR>")
+	map("n", "<S-Tab>", ":BufferLineCyclePrev <CR>")
 end
 
 M.nvim_tree = function()

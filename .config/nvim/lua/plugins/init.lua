@@ -38,7 +38,18 @@ local plugins = {
 		requires = "nvim-lua/popup.nvim",
 		after = "nvim-lspconfig",
 		config = function()
-			require("plugins.lsp.actions").map()
+			require("plugins.lsp.actions").setup()
+		end,
+	},
+	{
+		"folke/trouble.nvim",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+			"folke/lsp-colors.nvim",
+		},
+		after = "nvim-lspconfig",
+		config = function()
+			require("plugins.lsp.diags")
 		end,
 	},
 	{ "onsails/lspkind.nvim", after = "nvim-lspconfig" },

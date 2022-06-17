@@ -1,8 +1,9 @@
+local icons = require("plugins.lsp.icons")
 local symbols = {
-	Error = "",
-	Info = "",
-	Hint = "",
-	Warn = "",
+	Error = icons.Error,
+	Info = icons.Info,
+	Hint = icons.Hint,
+	Warn = icons.Warn,
 }
 
 vim.diagnostic.config({

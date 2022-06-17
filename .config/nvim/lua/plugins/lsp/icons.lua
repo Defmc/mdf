@@ -24,4 +24,8 @@ return {
 	Event = "",
 	Operator = "",
 	TypeParameter = "",
+	Error = "",
+	Info = "",
+	Hint = "",
+	Warn = "",
 }
