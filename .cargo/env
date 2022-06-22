@@ -1,0 +1,13 @@
+#export RUSTC_WRAPPER=/home/me/.cargo/bin/cachepot
+#export RUSTC_FLAGS='-C linker-flavor=mold'
+alias rustlint="cargo clippy -- -W clippy::pedantic -W clippy::nursery -W clippy::cargo -A clippy::missing_errors_doc -A clippy::missing_panics_doc"
+alias opt="RUSTCFLAGS=\"-C target-cpu=native codegen-units=1 debug-info=0 -C lto=fat opt-level=3 overflow-checks=no panic=abort strip=symbols\""
+
+case ":${PATH}:" in
+    *:"$HOME/.cargo/bin":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed rustc needs to be overridden
+        export PATH="$HOME/.cargo/bin:$PATH"
+        ;;
+esac
