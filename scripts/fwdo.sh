@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ~/scripts/ui_tools.sh
+. ~/scripts/ui_tools.sh
 
 log_proc "doas iptables -A INPUT -p tcp --dport $1 -j ACCEPT" "opening port $1"
 log_proc "doas systemctl restart iptables" "applying new firewall rule"

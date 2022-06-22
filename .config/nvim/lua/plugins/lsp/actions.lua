@@ -1,6 +1,5 @@
 local M = {}
 local lspactions = require("lspactions")
-local opts = {}
 
 M.setup = function()
 	local map = require("core.utils").map

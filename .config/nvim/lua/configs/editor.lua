@@ -11,9 +11,3 @@ vim.o.expandtab = true
 vim.o.clipboard = "unnamedplus"
 
 require("configs.theme").setup()
-
-vim.filetype.add({
-	pattern = {
-		["*.lalrpop"] = "rust",
-	},
-})

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source ~/scripts/ui_tools.sh
+. scripts/ui_tools.sh
 
 rce() {
 	log_proc "cross build --release --target x86_64-pc-windows-gnu" "Building for Windows (GNU)"
@@ -9,8 +9,8 @@ rce() {
 }
 
 rusttest() {
-  echo "fn main() {\n\tprintln!(\"Hello world\")\n}" >> test.rs
-  nvim test.rs
+  printf "fn main() {\n\tprintln!(\"Hello world\")\n}" >> test.rs
+  "$EDITOR" test.rs || exit
   rustc test.rs
   ./test
   rm test.rs

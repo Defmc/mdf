@@ -19,7 +19,7 @@ end
 
 M.terminal = function()
 	map("", "<A-w>", ":terminal<CR>")
-	map("t", "<esc>", "<C-\\><C-n>")
+	map("t", "<Tab><Esc>", "<C-\\><C-n>")
 end
 
 M.editor = function()
@@ -28,7 +28,7 @@ M.editor = function()
 	map("n", "<C-S-Up>", ":m-2<CR>")
 	map("n", "<A-Left>", ":vertical resize +5 <CR>")
 	map("n", "<A-Right>", ":vertical resize -5 <CR>")
-	map("n", "<TAB>", ":BufferLineCycleNext <CR>")
+	map("n", "<Tab>", ":BufferLineCycleNext <CR>")
 	map("n", "<S-Tab>", ":BufferLineCyclePrev <CR>")
 end
 

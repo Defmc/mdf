@@ -28,4 +28,5 @@ return {
 	Info = "",
 	Hint = "",
 	Warn = "",
+	copilot = "",
 }

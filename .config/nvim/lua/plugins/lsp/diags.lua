@@ -48,7 +48,6 @@ local opts = {
 	use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 }
 
-local trouble = require("trouble")
 local map = require("core.utils").map
 
 map("n", "<leader>xx", ":TroubleToggle<CR>")
@@ -57,4 +56,4 @@ map("n", "<leader>xd", ":Trouble document_diagnostics<CR>")
 map("n", "<leader>xq", ":Trouble quickfix<CR>")
 map("n", "<leader>xl", ":Trouble loclist<CR>")
 
-trouble.setup(opts)
+require("trouble").setup(opts)

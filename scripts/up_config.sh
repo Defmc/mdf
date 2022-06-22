@@ -1,14 +1,14 @@
 #!/bin/sh
 
-source ~/scripts/ui_tools.sh
+. ~/scripts/ui_tools.sh
 
 up_file() {
-	mkdir -p ~/dev/mdf/$1
+	mkdir -p ~/dev/mdf/"$1"
 	log_proc "cp -r ~/$1/$2 ~/dev/mdf/$1/$2" "Copying ~/$1/$2"
 }
 
 root_up_file() {
-	mkdir -p ~/dev/mdf/$1
+	mkdir -p ~/dev/mdf/"$1"
 	log_proc "cp -r /$1/$2 ~/dev/mdf/$1/$2" "Copying /$1/$2"
 }
 
@@ -35,11 +35,11 @@ up_files() {
 
 up_git() {
 	OLDDIR=$(pwd)
-	cd ~/dev/mdf
+	cd ~/dev/mdf || exit
         git add -A .
         git commit -am "update dotfiles"
 	git push origin main -f
-	cd $OLDDIR
+	cd "$OLDDIR" || exit
 }
 
 rm_buff() {

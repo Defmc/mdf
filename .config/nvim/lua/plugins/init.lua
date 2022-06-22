@@ -85,20 +85,6 @@ local plugins = {
 		end,
 		requires = { "kyazdani42/nvim-web-devicons" },
 	},
-	{ "github/copilot.vim" },
-	{
-		"zbirenbaum/copilot.lua",
-		event = "InsertEnter",
-		config = function()
-			vim.schedule(function()
-				require("copilot").setup()
-			end)
-		end,
-	},
-	{
-		"zbirenbaum/copilot-cmp",
-		after = { "copilot.lua", "nvim-cmp" },
-	},
 	{
 		"nvim-telescope/telescope.nvim",
 		requires = "nvim-lua/plenary.nvim",
