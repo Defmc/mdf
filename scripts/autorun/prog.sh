@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. scripts/ui_tools.sh
+. ~/scripts/ui_tools.sh
 
 rce() {
 	log_proc "cross build --release --target x86_64-pc-windows-gnu" "Building for Windows (GNU)"

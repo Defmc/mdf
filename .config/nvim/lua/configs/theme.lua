@@ -10,6 +10,7 @@ end
 M.setup = function()
 	vim.g.tokyonight_style = "night"
 	vim.cmd([[colorscheme tokyonight]])
+	vim.cmd([[ set cursorline ]])
 end
 
 local theme_colors = require("tokyonight.colors").setup({ style = "storm" })

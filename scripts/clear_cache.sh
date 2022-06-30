@@ -3,7 +3,7 @@
 . ~/scripts/ui_tools.sh
 
 DIR=$(pwd)
-cd "~" || exit
+cd "$HOME" || exit
 
 log_proc "doas paccache -r" "Clearing pacman cache"
 log_proc "paru --clean --noconfirm" "Clearing aur cache"
