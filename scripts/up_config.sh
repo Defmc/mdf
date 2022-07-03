@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ~/scripts/ui_tools.sh
+. "$HOME/scripts/ui_tools.sh"
 
 up_file() {
 	mkdir -p ~/dev/mdf/"$1"

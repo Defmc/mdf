@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ~/scripts/ui_tools.sh
+. "$HOME/scripts/ui_tools.sh"
 
 rust() {
     if [ -f "Cargo.toml" ]; then
@@ -15,7 +15,7 @@ js() {
 }
 
 for folder in $(exa ~/dev/); do
-  cd ~/dev/"$folder" || exit
+  cd "$HOME/dev/$folder" || exit
 
   if [ "$(rust && js)" -eq 0 ]; then
     log_proc "git commit -am \"fix: update deps\"" "Commiting" 
