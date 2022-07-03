@@ -1,11 +1,11 @@
 #!/bin/sh
 
-rm -rf ~/dev/mdf
-git clone https://github.com/Defmc/mdf ~/dev/mdf
+rm -rf "$HOME/dev/mdf"
+git clone https://github.com/Defmc/mdf "$HOME/dev/mdf"
 
-for p in $(exa --all ~/dev/mdf); do
+for p in $(exa --all "$HOME/dev/mdf"); do
   if [ "$p" != "." ] && [ "$p" != ".." ]; then
-    rm -rf ~/"$p"
-    cp -r ~/dev/mdf/"$p" ~/"$p"
+    rm -rf "$HOME/${p:?}"
+    cp -r "$HOME/dev/mdf/$p" "$HOME/$p"
   fi
 done

@@ -6,5 +6,5 @@ export RUSTC_WRAPPER="~/.cargo/cachepot"
 
 export plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
-. ~/.cargo/env
+. "$HOME/.cargo/env"
 . "$ZSH/oh-my-zsh.sh"

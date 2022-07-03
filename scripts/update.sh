@@ -3,4 +3,4 @@
 doas pacman -Sy --noconfirm
 rustup update
 paru -Syu --noconfirm
-zsh -c ~/scripts/clear_cache.sh
+zsh -c "$HOME/scripts/clear_cache.sh"
