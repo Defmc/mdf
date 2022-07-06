@@ -2,7 +2,7 @@
 export EDITOR="nvim"
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="robbyrussell"
-export RUSTC_WRAPPER="~/.cargo/cachepot"
+#export RUSTC_WRAPPER="~/.cargo/cachepot"
 
 export plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
