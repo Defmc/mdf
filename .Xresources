@@ -7,13 +7,16 @@ Xft.style:      Regular
 Xft.rgba:       rgb
 Xft.lcdfilter:	lcddefault
 
-! transparency ( 0.1 to 0.9 values)
 *.alpha: 1.0
 
 ! inner padding
 *.borderpx: 15
 *.font: JetBrains Mono:style=Regular:size=14:autohint=true:antialias=true
 
+URxvt.font: xft:JetBrains Mono:style=Regular:size=14:autohint=true:antialias=true
+URxvt.scrollBar: false
+URxvt.iso14755: false
+URxvt.iso14755_52: false
 
 *.foreground:    #A9B1D6
 *.background:    #1A1B26
@@ -35,28 +38,36 @@ Xft.lcdfilter:	lcddefault
 ! 5 Magenta   13 Magenta
 ! 6 Cyan      14 Cyan
 ! 7 White     15 White
-
-! Black colours
+  
+  
+! Black
 *.color0:        #1A1B26
 *.color8:        #4E5173
-! Red colours
+  
+! Red
 *.color1:        #F7768E
 *.color9:        #E06C75
-! Yellow colours
+  
+! Yellow
 *.color2:        #9ECE6A
 *.color10:       #98C379
-! Green colours
+  
+! Green  
 *.color3:        #E0AF68
 *.color11:       #D19A66
-! Blue colours
+
+! Blue  
 *.color4:        #7AA2F7
 *.color12:       #61AFEF
-! Magenta (pink, !green) colours
+  
+! Magenta (pink, !green)  
 *.color5:        #9A7ECC
 *.color13:       #C678DD
+
 ! Cyan (blue + green)
 *.color6:        #4ABAAF
 *.color14:       #56B6C2
-! White colours
+ 
+! White  
 *.color7:        #ACB0D0
 *.color15:       #ABB2BF
