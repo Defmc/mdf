@@ -11,12 +11,7 @@ Xft.lcdfilter:	lcddefault
 
 ! inner padding
 *.borderpx: 15
-*.font: JetBrains Mono:style=Regular:size=14:autohint=true:antialias=true
-
-URxvt.font: xft:JetBrains Mono:style=Regular:size=14:autohint=true:antialias=true
-URxvt.scrollBar: false
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+*.font: Jetbrains Mono Nerd Font:style=Regular:size=14:autohint=true:antialias=true
 
 *.foreground:    #A9B1D6
 *.background:    #1A1B26

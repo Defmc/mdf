@@ -7,11 +7,6 @@ local opts = {
 		-- default: true
 		autoSetHints = true,
 
-		-- whether to show hover actions inside the hover window
-		-- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
-		-- default: true
-		hover_with_actions = true,
-
 		-- how to execute terminal commands
 		-- options right now: termopen / quickfix
 		executor = require("rust-tools/executors").termopen,

@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 local maps = require("configs.maps")
+
 maps.editor()
 maps.terminal()
 

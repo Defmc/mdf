@@ -28,14 +28,14 @@ local plugins = {
 		"williamboman/nvim-lsp-installer",
 		requires = "neovim/nvim-lspconfig",
 		config = function()
-			require("plugins.setups").installer()
 			require("configs.maps").lsp()
+			require("plugins.setups").installer()
 			require("plugins.lsp.config")
 		end,
 	},
 	{
 		"RishabhRD/lspactions",
-		requires = "nvim-lua/popup.nvim",
+		requires = { "weilbith/nvim-code-action-menu", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
 		after = "nvim-lspconfig",
 		config = function()
 			require("plugins.lsp.actions").setup()
@@ -123,7 +123,7 @@ local plugins = {
 		"simrat39/rust-tools.nvim",
 		after = "nvim-lspconfig",
 		config = function()
-			require("plugins.rs_tools")
+			require("plugins.lsp.rs_tools")
 		end,
 	},
 }

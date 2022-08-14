@@ -3,8 +3,12 @@ local map = require("core.utils").map
 local M = {}
 
 M.lsp = function()
-	map("n", "gD", ":lua vim.lsp.buf.declaration() <CR>")
-	map("n", "gd", ":lua vim.lsp.buf.definition() <CR>")
+	map("n", "<leader>ca", ":lua vim.lsp.buf.code_action() <CR>")
+	map("n", "<leader>d", ":lua vim.lsp.buf.declaration() <CR>")
+	map("n", "<leader>D", ":lua vim.lsp.buf.definition() <CR>")
+	map("n", "<leader>R", ":lua vim.lsp.buf.rename() <CR>")
+	map("n", "<leader>i", ":lua vim.lsp.buf.implementation() <CR>")
+	map("n", "<leader>r", ":lua vim.lsp.buf.references() <CR>")
 	map("n", "K", ":lua vim.lsp.buf.hover() <CR>")
 end
 
