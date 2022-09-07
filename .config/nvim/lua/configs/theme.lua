@@ -1,5 +1,4 @@
 local present, _ = pcall(require, "tokyonight")
-
 local M = {}
 
 if not present then
@@ -8,12 +7,11 @@ if not present then
 end
 
 M.setup = function()
-	vim.g.tokyonight_style = "night"
-	vim.cmd([[colorscheme tokyonight]])
+	vim.cmd([[colorscheme tokyonight-night]])
 	vim.cmd([[ set cursorline ]])
 end
 
-local theme_colors = require("tokyonight.colors").setup({ style = "storm" })
+local theme_colors = require("tokyonight.colors").setup({ style = "night" })
 
 M.colors = {
 	bg = theme_colors.bg_statusline,

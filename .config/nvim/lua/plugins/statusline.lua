@@ -70,10 +70,10 @@ local visymbol = {
 
 local gps = {
 	provider = function()
-		return require("nvim-gps").get_location()
+		return require("nvim-navic").get_location({})
 	end,
 	enabled = function()
-		return require("nvim-gps").is_available()
+		return require("nvim-navic").is_available()
 	end,
 	hl = {
 		fg = "white",

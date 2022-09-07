@@ -107,9 +107,10 @@ local plugins = {
 		end,
 	},
 	{
-		"SmiteshP/nvim-gps",
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
 		config = function()
-			require("nvim-gps").setup()
+			require("plugins.lsp.navic")
 		end,
 	},
 	{

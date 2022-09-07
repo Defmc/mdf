@@ -64,9 +64,13 @@ for name, icon in pairs(symbols) do
 end
 
 local servers = require("nvim-lsp-installer").get_installed_servers()
+local navic = require("nvim-navic")
+
 for _, svr in ipairs(servers) do
 	require("lspconfig")[svr.name].setup({
-		on_attach = function() end,
+		on_attach = function(client, bufnr)
+			navic.attach(client, bufnr)
+		end,
 		capabilities = capabilities,
 	})
 end
