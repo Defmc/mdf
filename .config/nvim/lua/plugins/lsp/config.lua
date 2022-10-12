@@ -63,14 +63,17 @@ for name, icon in pairs(symbols) do
 	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 
-local servers = require("nvim-lsp-installer").get_installed_servers()
+local mason_lsp = require("mason-lspconfig")
+local lsp_cfg = require("lspconfig")
 local navic = require("nvim-navic")
 
-for _, svr in ipairs(servers) do
-	require("lspconfig")[svr.name].setup({
-		on_attach = function(client, bufnr)
-			navic.attach(client, bufnr)
-		end,
-		capabilities = capabilities,
-	})
-end
+mason_lsp.setup_handlers({
+	function(svr)
+		lsp_cfg[svr].setup({
+			on_attach = function(client, bufnr)
+				navic.attach(client, bufnr)
+			end,
+			capabilities = capabilities,
+		})
+	end,
+})

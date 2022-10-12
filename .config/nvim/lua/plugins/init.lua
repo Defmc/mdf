@@ -13,24 +13,29 @@ local plugins = {
 		end,
 	},
 	{
-		"mhartington/formatter.nvim",
-		config = function()
-			require("plugins.setups").format()
-		end,
-	},
-	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
 		end,
 	},
 	{
-		"williamboman/nvim-lsp-installer",
-		requires = "neovim/nvim-lspconfig",
+		"williamboman/mason.nvim",
+		requires = {
+			"neovim/nvim-lspconfig",
+			"williamboman/mason-lspconfig.nvim",
+			"nvim-lua/plenary.nvim",
+			"jose-elias-alvarez/null-ls.nvim",
+		},
 		config = function()
 			require("configs.maps").lsp()
-			require("plugins.setups").installer()
+			require("plugins.setups").mason()
 			require("plugins.lsp.config")
+		end,
+	},
+	{
+		"mhartington/formatter.nvim",
+		config = function()
+			require("plugins.setups").formatter()
 		end,
 	},
 	{

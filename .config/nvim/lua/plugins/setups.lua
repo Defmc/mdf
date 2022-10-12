@@ -1,19 +1,11 @@
 local M = {}
 
-M.installer = function()
-	require("nvim-lsp-installer").setup({
-		automatic_installation = true,
-		ui = {
-			icons = {
-				server_installed = "✓",
-				server_pending = "➜",
-				server_uninstalled = "✗",
-			},
-		},
-	})
+M.mason = function()
+	require("mason").setup()
+	require("mason-lspconfig").setup()
 end
 
-M.format = function()
+M.formatter = function()
 	require("formatter").setup({
 		filetype = require("configs.lsp").formatters,
 	})

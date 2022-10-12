@@ -1,5 +1,6 @@
-modules = { "configs", "plugins" }
+MODULES = { "configs", "plugins" }
+VIM = vim.cmd
 
-for _, mod in ipairs(modules) do
+for _, mod in ipairs(MODULES) do
 	require(mod)
 end
