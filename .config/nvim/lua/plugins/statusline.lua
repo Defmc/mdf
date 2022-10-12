@@ -383,8 +383,8 @@ force_inactive.buftypes = {
 
 require("feline").setup({
 	theme = colors,
-	default_bg = bg,
-	default_fg = fg,
+	default_bg = colors.bg,
+	default_fg = colors.fg,
 	vi_mode_colors = vi_mode_colors,
 	components = components,
 	force_inactive = force_inactive,
