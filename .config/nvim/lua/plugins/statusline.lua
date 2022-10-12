@@ -125,7 +125,7 @@ local gitdiffrm = {
 local diag_err = {
 	provider = "diagnostic_errors",
 	enabled = function()
-		return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR)
+		return lsp.diagnostics_exist(require("vim").diagnostic.severity.ERROR)
 	end,
 	hl = {
 		fg = "red",
@@ -136,7 +136,7 @@ local diag_err = {
 local diag_warn = {
 	provider = "diagnostic_warnings",
 	enabled = function()
-		return lsp.diagnostics_exist(vim.diagnostic.severity.WARN)
+		return lsp.diagnostics_exist(require("vim").diagnostic.severity.WARN)
 	end,
 	hl = {
 		fg = "yellow",
@@ -147,7 +147,7 @@ local diag_warn = {
 local diag_hint = {
 	provider = "diagnostic_hints",
 	enabled = function()
-		return lsp.diagnostics_exist(vim.diagnostic.severity.HINT)
+		return lsp.diagnostics_exist(require("vim").diagnostic.severity.HINT)
 	end,
 	hl = {
 		fg = "cyan",
@@ -158,7 +158,7 @@ local diag_hint = {
 local diag_info = {
 	provider = "diagnostic_info",
 	enabled = function()
-		return lsp.diagnostics_exist(vim.diagnostic.severity.INFO)
+		return lsp.diagnostics_exist(require("vim").diagnostic.severity.INFO)
 	end,
 	hl = {
 		fg = "skyblue",
@@ -168,7 +168,7 @@ local diag_info = {
 
 local lspprog = {
 	provider = function()
-		local Lsp = vim.lsp.util.get_progress_messages()[1]
+		local Lsp = require("vim").lsp.util.get_progress_messages()[1]
 
 		if Lsp then
 			local msg = Lsp.message or ""
@@ -186,7 +186,7 @@ local lspprog = {
 				"",
 			}
 
-			local ms = vim.loop.hrtime() / 1000000
+			local ms = require("vim").loop.hrtime() / 1000000
 			local frame = math.floor(ms / 120) % #spinners
 
 			if percentage >= 70 then
@@ -213,8 +213,8 @@ local lspname = {
 
 local file_icon = {
 	provider = function()
-		local filename = vim.fn.expand("%:t")
-		local extension = vim.fn.expand("%:e")
+		local filename = require("vim").fn.expand("%:t")
+		local extension = require("vim").fn.expand("%:e")
 		local icon = require("nvim-web-devicons").get_icon(filename, extension)
 		if icon == nil then
 			icon = ""
@@ -223,11 +223,11 @@ local file_icon = {
 	end,
 	hl = function()
 		local val = {}
-		local filename = vim.fn.expand("%:t")
-		local extension = vim.fn.expand("%:e")
+		local filename = require("vim").fn.expand("%:t")
+		local extension = require("vim").fn.expand("%:e")
 		local icon, name = require("nvim-web-devicons").get_icon(filename, extension)
 		if icon ~= nil then
-			val.fg = vim.fn.synIDattr(vim.fn.hlID(name), "fg")
+			val.fg = require("vim").fn.synIDattr(require("vim").fn.hlID(name), "fg")
 		else
 			val.fg = "white"
 		end
@@ -242,11 +242,11 @@ local file_type = {
 	provider = "file_type",
 	hl = function()
 		local val = {}
-		local filename = vim.fn.expand("%:t")
-		local extension = vim.fn.expand("%:e")
+		local filename = require("vim").fn.expand("%:t")
+		local extension = require("vim").fn.expand("%:e")
 		local icon, name = require("nvim-web-devicons").get_icon(filename, extension)
 		if icon ~= nil then
-			val.fg = vim.fn.synIDattr(vim.fn.hlID(name), "fg")
+			val.fg = require("vim").fn.synIDattr(require("vim").fn.hlID(name), "fg")
 		else
 			val.fg = "white"
 		end
@@ -260,7 +260,7 @@ local file_type = {
 local file_size = {
 	provider = "file_size",
 	enabled = function()
-		return vim.fn.getfsize(vim.fn.expand("%:t")) > 0
+		return require("vim").fn.getfsize(require("vim").fn.expand("%:t")) > 0
 	end,
 	hl = {
 		fg = "skyblue",
@@ -272,7 +272,7 @@ local file_size = {
 
 local file_format = {
 	provider = function()
-		return "" .. vim.bo.fileformat:upper() .. ""
+		return "" .. require("vim").bo.fileformat:upper() .. ""
 	end,
 	hl = {
 		fg = "white",

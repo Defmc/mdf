@@ -60,10 +60,10 @@ local opts = {
 			highlight = "Comment",
 		},
 
-		-- options same as lsp hover / vim.lsp.util.open_floating_preview()
+		-- options same as lsp hover / require("vim").lsp.util.open_floating_preview()
 		hover_actions = {
 			-- the border that is used for the hover window
-			-- see vim.api.nvim_open_win()
+			-- see require("vim").api.nvim_open_win()
 			border = {
 				{ "╭", "FloatBorder" },
 				{ "─", "FloatBorder" },

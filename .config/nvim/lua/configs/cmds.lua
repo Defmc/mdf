@@ -1,9 +1,9 @@
 local M = {}
 
 M.update = function()
-	vim.cmd([[PackerSync]])
-	vim.cmd([[TSUpdate]])
-	vim.cmd([[LspInstallInfo]])
+	require("vim").cmd([[PackerSync]])
+	require("vim").cmd([[TSUpdate]])
+	require("vim").cmd([[LspInstallInfo]])
 end
 
 return M

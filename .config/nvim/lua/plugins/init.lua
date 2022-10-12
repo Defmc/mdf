@@ -135,7 +135,7 @@ local plugins = {
 }
 
 local bootstrap = function()
-	local fn = vim.fn
+	local fn = require("vim").fn
 	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 	if fn.empty(fn.glob(install_path)) > 0 then
 		return fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
@@ -149,7 +149,7 @@ local sync_pkgs = function(use)
 	for _, pkg in ipairs(plugins) do
 		local _, err = use(pkg)
 		if err ~= nil then
-			vim.print("an error ocurred loading " .. pkg)
+			require("vim").print("an error ocurred loading " .. pkg)
 		end
 	end
 

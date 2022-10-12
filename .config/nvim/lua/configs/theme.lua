@@ -7,8 +7,8 @@ if not present then
 end
 
 M.setup = function()
-	vim.cmd([[colorscheme tokyonight-night]])
-	vim.cmd([[ set cursorline ]])
+	require("vim").cmd([[colorscheme tokyonight-night]])
+	require("vim").cmd([[ set cursorline ]])
 end
 
 local theme_colors = require("tokyonight.colors").setup({ style = "night" })

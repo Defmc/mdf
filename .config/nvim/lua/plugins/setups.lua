@@ -9,7 +9,7 @@ M.formatter = function()
 	require("formatter").setup({
 		filetype = require("configs.lsp").formatters,
 	})
-	vim.cmd([[
+	require("vim").cmd([[
     augroup FormatAutogroup
       autocmd!
       autocmd BufWritePost * FormatWrite

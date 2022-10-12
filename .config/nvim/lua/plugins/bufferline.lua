@@ -17,7 +17,7 @@ require("bufferline").setup({
 		right_trunc_marker = "",
 		name_formatter = function(buf)
 			if buf.name:match("%.md") then
-				return vim.fn.fnamemodify(buf.name, ":t:r")
+				return require("vim").fn.fnamemodify(buf.name, ":t:r")
 			end
 		end,
 		max_name_length = 18,
@@ -45,9 +45,9 @@ require("bufferline").setup({
 			right = function()
 				local result = {}
 				local colors = require("configs.theme").colors
-				local seve = vim.diagnostic.severity
+				local seve = require("vim").diagnostic.severity
 				local diag = function(sv, text, color)
-					local count = #vim.diagnostic.get(0, { severity = sv })
+					local count = #require("vim").diagnostic.get(0, { severity = sv })
 					if count ~= 0 then
 						table.insert(result, { text = text .. count, guifg = color, guibg = colors.bg })
 					end

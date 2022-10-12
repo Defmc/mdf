@@ -6,7 +6,7 @@ local symbols = {
 	Warn = icons.Warn,
 }
 
-vim.diagnostic.config({
+require("vim").diagnostic.config({
 	virtual_text = {
 		prefix = " ●",
 	},
@@ -15,7 +15,7 @@ vim.diagnostic.config({
 	update_in_insert = false,
 })
 
-local lspserver = vim.lsp
+local lspserver = require("vim").lsp
 
 lspserver.handlers["textDocument/hover"] = lspserver.with(lspserver.handlers.hover, {
 	border = "single",
@@ -24,14 +24,14 @@ lspserver.handlers["textDocument/signatureHelp"] = lspserver.with(lspserver.hand
 	border = "single",
 })
 
-vim.notify = function(msg, log_level)
+require("vim").notify = function(msg, log_level)
 	if msg:match("exit code") then
 		return
 	end
-	if log_level == vim.log.levels.ERROR then
-		vim.api.nvim_err_writeln(msg)
+	if log_level == require("vim").log.levels.ERROR then
+		require("vim").api.nvim_err_writeln(msg)
 	else
-		vim.api.nvim_echo({ { msg } }, true, {})
+		require("vim").api.nvim_echo({ { msg } }, true, {})
 	end
 end
 
@@ -55,12 +55,12 @@ capabilities.textDocument.completion.completionItem = {
 	},
 }
 
-vim.o.updatetime = 750
-vim.cmd([[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]])
+require("vim").o.updatetime = 750
+require("vim").cmd([[autocmd CursorHold * lua require("vim").diagnostic.open_float(nil, { focusable = false })]])
 
 for name, icon in pairs(symbols) do
 	local hl = "DiagnosticSign" .. name
-	vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+	require("vim").fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 
 local mason_lsp = require("mason-lspconfig")
