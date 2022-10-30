@@ -23,6 +23,9 @@ Xft.lcdfilter:	lcddefault
 *pointerColorBackground:  #1A1B26
 *pointerColorForeground:  #A9B1D6
 
+! Statusbar
+*.bottom: "n"
+
 ! Normal      Bright
 ! --------    -------
 ! 0 Black      8 Black
@@ -33,7 +36,6 @@ Xft.lcdfilter:	lcddefault
 ! 5 Magenta   13 Magenta
 ! 6 Cyan      14 Cyan
 ! 7 White     15 White
-  
   
 ! Black
 *.color0:        #1A1B26

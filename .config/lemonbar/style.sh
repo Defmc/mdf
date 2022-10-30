@@ -1,9 +1,9 @@
 #!/bin/sh
 
-FONT="xft:Jetbrains Mono:size=16:antialias=true"
-BOTTOM="n"
+FONT=$(xrdb -get font)
+BOTTOM=$(xrdb -get bottom)
 
-BG_BAR="#1A1B26"
-BG_ITEM="#4E5173"
-GREEN="#9ECE6A"
-WHITE="#ACB0D0"
+BG_BAR=$(xrdb -get background)
+BG_ITEM=$(xrdb -get color8)
+GREEN=$(xrdb -get color2)
+WHITE=$(xrdb -get color7)
