@@ -17,19 +17,18 @@ up_files() {
   up_file . .xinitrc
   up_file .icons .
   up_file . .zshrc
-  up_file .config gtk-3.0
   up_file . .gtkrc-2.0
-  up_file dev dmenu
-  up_file .config/polybar/my .
+  up_file .config gtk-3.0
   up_file .config/picom picom.conf
-  up_file .config/nvim/lua .
+  up_file .config/nvim lua
   up_file .config/nvim init.lua
+  up_file .config lemonbar
+  up_file .config sxhkd
   up_file .cargo config.toml
   up_file .cargo env
-  up_file scripts .
-  up_file .config/bspwm .
+  up_file . scripts
+  up_file .config bspwm
   up_file img sky_mansion.jpg
-  up_file .config/sxhkd .
   up_file .themes TokyoNight
   root_up_file etc makepkg.conf
 }
