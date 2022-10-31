@@ -1,11 +1,21 @@
 #!/bin/sh
 
-LIST="cargo-expand cargo-udeps cargo-audit cargo-bloat cargo-watch cargo-nextest loc stylua cargo-edit cargo-spellcheck"
-
-cargo uninstall "$LIST"
-
-for item in $LIST; do
+install() {
   mkdir ctmp
-  CARGO_TARGET_DIR=ctmp cargo install "$item"
+  CARGO_TARGET_DIR=ctmp cargo install "$1"
   rm -rf ctmp
-done
+}
+
+install cargo-expand
+install cargo-udeps
+install cargo-audit
+install cargo-bloat
+install cargo-watch
+install cargo-nextest
+install cargo-update
+install loc
+install stylua
+install cargo-edit
+install cargo-spellcheck
+install exa
+install ripgrep
