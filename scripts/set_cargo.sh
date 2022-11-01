@@ -19,3 +19,4 @@ install cargo-edit
 install cargo-spellcheck
 install exa
 install ripgrep
+install bat

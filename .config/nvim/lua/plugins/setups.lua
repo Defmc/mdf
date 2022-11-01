@@ -1,7 +1,14 @@
 local M = {}
 
 M.mason = function()
-	require("mason").setup()
+	local ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	}
+	require("mason").setup({ ui = ui })
 	require("mason-lspconfig").setup()
 end
 

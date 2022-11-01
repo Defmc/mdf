@@ -14,6 +14,4 @@ if [ -n "$PKGS" ]; then
   log_proc "doas pacman -Rns --noconfirm $PKGS" "Removing breaked dependences"
 fi
 
-rm -rf "$(xargs -a ~/scripts/clear_cache_targets.txt | cat)"
-
 cd "$DIR" || exit
