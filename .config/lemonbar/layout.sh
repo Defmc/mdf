@@ -5,7 +5,7 @@ source $LEMONBAR_CONFIG_PATH/sys.sh
 source $LEMONBAR_CONFIG_PATH/style.sh
 
 Left() {
-  ws=$(Workspace "%{B$BG_ITEM} " " %{B$BG_BAR}" "%{B$GREEN} " " %{B$BG_BAR}")
+  ws=$(Workspace "%{B$BG_ITEM} " " %{B-}" "%{B$GREEN} " " %{B-}")
   echo -e -n "$ws"
 }
 
@@ -36,8 +36,8 @@ Right() {
     MEM_COLOR="$GREEN"
   fi
 
-  cpu="%{B$CPU_COLOR}  %{B$BG_ITEM} $(Cpu)% %{B$BG_BAR}"
-  mem="%{B$MEM_COLOR}  %{B$BG_ITEM} $(Mem)% %{B$BG_BAR}"
-  clock="%{B$WHITE}  %{B$BG_ITEM} $(Clock) %{B$BG_BAR}"
+  cpu="%{B$CPU_COLOR}  %{B$BG_ITEM} $(Cpu)% %{B-}"
+  mem="%{B$MEM_COLOR}  %{B$BG_ITEM} $(Mem)% %{B-}"
+  clock="%{B$WHITE}  %{B$BG_ITEM} $(Clock) %{B-}"
   echo -e -n "$cpu $mem $clock"
 }

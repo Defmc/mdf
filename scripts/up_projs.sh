@@ -1,5 +1,7 @@
 #!/bin/sh
 
+origin=$(pwd)
+
 . "$HOME/scripts/ui_tools.sh"
 
 rust() {
@@ -22,3 +24,5 @@ for folder in $(exa ~/dev/); do
     log_proc "git push" "Pushing"
   fi
 done
+
+cd $origin
