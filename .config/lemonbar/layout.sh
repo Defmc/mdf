@@ -14,8 +14,30 @@ Center() {
 }
 
 Right() {
-  cpu="%{B$GREEN}  %{B$BG_ITEM} $(Cpu)% %{B$BG_BAR}"
-  mem="%{B$GREEN}  %{B$BG_ITEM} $(Mem)% %{B$BG_BAR}"
+  cpu=$(Cpu)
+  perc=$(printf "%.0f" $cpu)
+
+  if [ $perc -gt 90 ]; then
+    CPU_COLOR="$RED"
+  elif [ $perc -gt 70 ]; then
+    CPU_COLOR="$YELLOW"
+  else
+    CPU_COLOR="$GREEN"
+  fi
+
+  mem=$(Mem)
+  perc=$(printf "%.0f" $mem)
+
+  if [ $perc -gt 90 ]; then
+    MEM_COLOR="$RED"
+  elif [ $perc -gt 70 ]; then
+    MEM_COLOR="$YELLOW"
+  else
+    MEM_COLOR="$GREEN"
+  fi
+
+  cpu="%{B$CPU_COLOR}  %{B$BG_ITEM} $(Cpu)% %{B$BG_BAR}"
+  mem="%{B$MEM_COLOR}  %{B$BG_ITEM} $(Mem)% %{B$BG_BAR}"
   clock="%{B$WHITE}  %{B$BG_ITEM} $(Clock) %{B$BG_BAR}"
   echo -e -n "$cpu $mem $clock"
 }
