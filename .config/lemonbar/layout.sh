@@ -36,8 +36,8 @@ Right() {
     MEM_COLOR="$GREEN"
   fi
 
-  cpu="%{B$CPU_COLOR}  %{B$BG_ITEM} $(Cpu)% %{B-}"
-  mem="%{B$MEM_COLOR}  %{B$BG_ITEM} $(Mem)% %{B-}"
-  clock="%{B$WHITE}  %{B$BG_ITEM} $(Clock) %{B-}"
+  cpu="%{F$CPU_COLOR}  %{F$BG_ITEM}%{F-} $(Cpu)%"
+  mem="%{F$MEM_COLOR}  %{F$BG_ITEM}%{F-} $(Mem)%"
+  clock="%{F$WHITE}  %{F$BG_ITEM}%{F-} $(Clock)"
   echo -e -n "$cpu $mem $clock"
 }

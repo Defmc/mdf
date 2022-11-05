@@ -1,7 +1,12 @@
 #! /bin/sh
 
 pgrep -x sxhkd >/dev/null || sxhkd &
-~/.config/lemonbar/launch.sh &
+
+BAR="$(xrdb -get bar)"
+case $BAR in
+"lemonbar") ~/.config/lemonbar/launch.sh & ;;
+"polybar") sh ~/.config/polybar/my/launch.sh >/dev/null ;;
+esac
 
 bspc monitor -d 1 2 3 4 5
 
