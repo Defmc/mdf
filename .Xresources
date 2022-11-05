@@ -12,6 +12,7 @@ Xft.lcdfilter:	lcddefault
 ! inner padding
 *.borderpx: 15
 *.font: Jetbrains Mono Nerd Font:style=Regular:size=14:autohint=true:antialias=true
+*.font2: FontAwesome 6 Free:style=Regular:size=14:autohint=true:antialias=true
 
 *.foreground:    #A9B1D6
 *.background:    #1A1B26
