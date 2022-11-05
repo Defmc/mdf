@@ -23,6 +23,7 @@ up_files() {
   up_file .config/nvim lua
   up_file .config/nvim init.lua
   up_file .config lemonbar
+  up_file .config polybar
   up_file .config sxhkd
   up_file .cargo config.toml
   up_file .cargo env

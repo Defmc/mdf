@@ -3,9 +3,10 @@
 pgrep -x sxhkd >/dev/null || sxhkd &
 
 BAR="$(xrdb -get bar)"
-case $BAR in
-"lemonbar") ~/.config/lemonbar/launch.sh & ;;
-"polybar") sh ~/.config/polybar/my/launch.sh >/dev/null ;;
+echo $BAR
+case $(echo $BAR | tr '[:lower:]' '[:upper:]') in
+"\"LEMONBAR\"") ~/.config/lemonbar/launch.sh & ;;
+"\"POLYBAR\"") sh ~/.config/polybar/my/launch.sh >/dev/null ;;
 esac
 
 bspc monitor -d 1 2 3 4 5
