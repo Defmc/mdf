@@ -20,3 +20,4 @@ install cargo-spellcheck
 install exa
 install ripgrep
 install bat
+install paru
