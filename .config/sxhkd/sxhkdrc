@@ -1,6 +1,6 @@
 # terminal emulator
 super + shift + Return
-    st
+    $(xrdb -get "apps.terminal")
 
 # program launcher
 super + d

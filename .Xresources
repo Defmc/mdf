@@ -28,6 +28,12 @@ Xft.lcdfilter:	lcddefault
 *.bottom: "n"
 *.bar: "polybar"
 
+! Dmenu
+dmenu.topbar: 0
+
+! Default apps
+apps.terminal: st
+
 ! Normal      Bright
 ! --------    -------
 ! 0 Black      8 Black
