@@ -4,10 +4,10 @@ super + shift + Return
 
 # program launcher
 super + d
-    dmenu_run
+    $(xrdb -get "apps.launcher")
 
 super + shift + s
-    flameshot gui
+    $(xrdb -get "apps.screenshot")
 
 # make sxhkd reload its configuration files:
 super + Escape

@@ -1,10 +1,10 @@
 #!/bin/sh
-export EDITOR="nvim"
+export EDITOR=$(xrdb -get "apps.editor")
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="robbyrussell"
 #export RUSTC_WRAPPER="~/.cargo/cachepot"
 
 export plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
-. "$HOME/.cargo/env"
-. "$ZSH/oh-my-zsh.sh"
+source "$HOME/.cargo/env"
+source "$ZSH/oh-my-zsh.sh"
