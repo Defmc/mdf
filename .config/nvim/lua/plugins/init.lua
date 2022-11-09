@@ -5,7 +5,16 @@ local plugins = {
 			require("impatient")
 		end,
 	},
-	{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
+	{ "mfussenegger/nvim-dap", after = "mason.nvim" },
+	{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, after = "nvim-dap" },
+	{
+		"jayp0521/mason-nvim-dap.nvim",
+		requires = { "mfussenegger/nvim-dap" },
+		after = "nvim-dap",
+		config = function()
+			require("plugins.lsp.debug").setup()
+		end,
+	},
 	{
 		"akinsho/bufferline.nvim",
 		config = function()

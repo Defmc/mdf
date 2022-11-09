@@ -4,10 +4,10 @@ local M = {}
 
 M.lsp = function()
 	map("n", "<leader>ca", ":lua vim.lsp.buf.code_action() <CR>")
-	map("n", "<leader>d", ":lua vim.lsp.buf.declaration() <CR>")
-	map("n", "<leader>D", ":lua vim.lsp.buf.definition() <CR>")
+	map("n", "<leader>gd", ":lua vim.lsp.buf.declaration() <CR>")
+	map("n", "<leader>gD", ":lua vim.lsp.buf.definition() <CR>")
 	map("n", "<leader>R", ":lua vim.lsp.buf.rename() <CR>")
-	map("n", "<leader>i", ":lua vim.lsp.buf.implementation() <CR>")
+	map("n", "<leader>gi", ":lua vim.lsp.buf.implementation() <CR>")
 	map("n", "<leader>r", ":lua vim.lsp.buf.references() <CR>")
 	map("n", "K", ":lua vim.lsp.buf.hover() <CR>")
 end
@@ -38,6 +38,13 @@ end
 
 M.nvim_tree = function()
 	map("n", "E", ":NvimTreeToggle<CR>")
+end
+
+M.debug = function()
+	map("n", "<leader>dt", ":lua require('dapui').toggle()<CR>")
+	map("n", "<leader>do", ":lua require('dapui').open()<CR>")
+	map("n", "<leader>dc", ":lua require('dapui').close()<CR>")
+	map("n", "<leader>dr", ":lua require('dap').continue()<CR>")
 end
 
 return M
