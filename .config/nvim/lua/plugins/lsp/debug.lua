@@ -88,11 +88,12 @@ M.setup = function()
 
 	require("dapui").setup({ M.dapui })
 
-	require("dap").adapters.lldb = {
-		name = "lldb",
-		type = "executable",
-		command = "/usr/bin/lldb-vscode", -- adjust as needed
-		args = {},
+	local dap = require("dap")
+
+	dap.adapters.lldb = {
+		type = "server",
+		host = "127.0.0.1",
+		port = 13000,
 	}
 
 	local lldb = {
@@ -103,18 +104,21 @@ M.setup = function()
 			return require("vim").fn.input("Path to executable: ", require("vim").fn.getcwd() .. "/", "file")
 		end,
 		cwd = "${workspaceFolder}",
-		stopOnEntry = false,
 		args = {},
-		runInTerminal = false,
-		-- terminal = "integrated",
-		-- console = "integratedTerminal",
-		preRunCommands = { "settings set target.input-path input" },
+		terminal = "integrated",
 	}
 
 	require("configs.maps").debug()
-	require("dap").configurations.rust = { lldb }
-	require("dap").configurations.cpp = { lldb }
-	require("dap").configurations.c = { lldb }
+
+	dap.configurations.rust = { lldb }
+	dap.configurations.cpp = { lldb }
+	dap.configurations.c = { lldb }
+
+	require("vim").cmd([[
+        augroup daprepl
+          autocmd FileType dap-repl set nobuflisted
+        augroup end
+    ]])
 end
 
 return M
