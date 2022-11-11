@@ -101,6 +101,7 @@ M.setup = function()
 		type = "lldb", -- matches the adapter
 		request = "launch", -- could also attach to a currently running process
 		program = function()
+			os.execute("codelldb --port 13000 &")
 			return require("vim").fn.input("Path to executable: ", require("vim").fn.getcwd() .. "/", "file")
 		end,
 		cwd = "${workspaceFolder}",
