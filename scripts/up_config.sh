@@ -30,7 +30,7 @@ up_files() {
   up_file . scripts
   up_file . .gdbinit
   up_file .config bspwm
-  up_file img sky_mansion.jpg
+  up_file img .
   up_file .themes TokyoNight
   root_up_file etc makepkg.conf
 }
