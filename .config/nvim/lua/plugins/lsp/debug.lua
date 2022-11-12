@@ -38,7 +38,7 @@ M.dapui = {
 				"stacks",
 				"watches",
 			},
-			size = 40, -- 40 columns
+			size = 0.5,
 			position = "left",
 		},
 		{
@@ -46,7 +46,7 @@ M.dapui = {
 				"repl",
 				"console",
 			},
-			size = 0.25, -- 25% of total lines
+			size = 0.25,
 			position = "bottom",
 		},
 	},
@@ -69,7 +69,7 @@ M.dapui = {
 	floating = {
 		max_height = nil, -- These can be integers or a float between 0 and 1.
 		max_width = nil, -- Floats will be treated as percentage of your screen.
-		border = "single", -- Border style. Can be "single", "double" or "rounded"
+		border = "rounded", -- Border style. Can be "single", "double" or "rounded"
 		mappings = {
 			close = { "q", "<Esc>" },
 		},
@@ -101,7 +101,7 @@ M.setup = function()
 		type = "lldb", -- matches the adapter
 		request = "launch", -- could also attach to a currently running process
 		program = function()
-			os.execute("codelldb --port 13000 &")
+			os.execute([[ sh -c '[ ! "$(pidof codelldb)" ] && codelldb --port 13000 &' ]])
 			return require("vim").fn.input("Path to executable: ", require("vim").fn.getcwd() .. "/", "file")
 		end,
 		cwd = "${workspaceFolder}",
