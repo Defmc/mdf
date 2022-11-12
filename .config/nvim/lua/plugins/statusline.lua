@@ -333,6 +333,7 @@ local components = {
 			gitdiffadd,
 			gitdiffmod,
 			gitdiffrm,
+			sep,
 			gitbranch,
 			sep,
 			lspprog,
