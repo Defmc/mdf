@@ -5,7 +5,20 @@ local plugins = {
 			require("impatient")
 		end,
 	},
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
+		after = "telescope.nvim",
+		config = function()
+			require("telescope").load_extension("ui-select")
+		end,
+	},
 	{ "mfussenegger/nvim-dap", after = "mason.nvim" },
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
 	{ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" }, after = "nvim-dap" },
 	{
 		"jayp0521/mason-nvim-dap.nvim",
