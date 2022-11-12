@@ -323,17 +323,17 @@ local scrollbar = {
 local components = {
 	active = {
 		[1] = { vimode, visymbol, gps },
-		[2] = {
-			gitbranch,
-			gitdiffadd,
-			gitdiffmod,
-			gitdiffrm,
-		},
+		[2] = {},
 		[3] = {
 			diag_err,
 			diag_warn,
 			diag_hint,
 			diag_info,
+			sep,
+			gitdiffadd,
+			gitdiffmod,
+			gitdiffrm,
+			gitbranch,
 			sep,
 			lspprog,
 			lspname,
