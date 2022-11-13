@@ -9,6 +9,7 @@ M.lsp = function()
 	map("n", "<leader>R", ":lua vim.lsp.buf.rename() <CR>")
 	map("n", "<leader>gi", ":lua vim.lsp.buf.implementation() <CR>")
 	map("n", "<leader>r", ":lua vim.lsp.buf.references() <CR>")
+	map("n", "leader>tr", [[:lua require("plugins.lsp.actions").task_runner() <CR>]])
 	map("n", "K", ":lua vim.lsp.buf.hover() <CR>")
 end
 
@@ -23,6 +24,8 @@ end
 
 M.terminal = function()
 	map("", "<A-w>", ":terminal<CR>")
+	map("", "<A-v>", ":vsplit | terminal<CR>")
+	map("", "<A-h>", ":split | terminal<CR>")
 	map("t", "<Tab><Esc>", "<C-\\><C-n>")
 end
 
