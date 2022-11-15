@@ -1,10 +1,12 @@
 M = {}
 
+M.float_instance = nil
+M.float_win = nil
+
 M.config = {
 	-- The command to run as a job, if nil run the 'shell'.
 	command = nil, -- string or list of string
 	-- The placement in the editor of the floating window.
-	layout = "center", -- center | bottom | top | left | right
 	-- The width/height of the window. Must be a value between 0.1
 	-- and 1, 1 corresponds to 100% of the editor width/height.
 	width = 0.8,
@@ -15,9 +17,9 @@ M.config = {
 	col = 0,
 	-- Options passed to nvim_open_win (:h nvim_open_win())
 	-- You can use it to customize various things like border etc.
-	win_api = { style = "minimal", relative = "editor" },
+	win_api = { style = "minimal", border = "double", relative = "win" },
 	-- Terminal buffer name
-	name = "fterm",
+	name = "terminal",
 	-- Terminal highlight group, default NormalFloat
 	-- With it you can customize the background and default
 	-- foreground color since `{g,b}:terminal_color_x` will be used
@@ -28,6 +30,9 @@ M.config = {
 	border_hl = "FloatBorder",
 	-- `on_exit` a optional function to call when the terminal's job
 	-- exits. It will receive the job ID and exit code as argument.
+	on_exit = function(_)
+		M.float_instance = nil
+	end,
 }
 
 M.get_window_layout = function()
@@ -39,52 +44,25 @@ M.get_window_layout = function()
 	local height = math.floor(_height)
 	local center_y = (require("vim").opt.lines:get() - _height) / 2
 	local center_x = (screen_w - _width) / 2
-	local layouts = {
-		center = {
-			anchor = "NW",
-			row = center_y + M.config.row,
-			col = center_x + M.config.col,
-			width = width,
-			height = height,
-		},
-		bottom = {
-			anchor = "SW",
-			row = screen_h - M.config.row,
-			col = center_x + M.config.col,
-			width = width,
-			height = height,
-		},
-		top = {
-			anchor = "NW",
-			row = 0 + M.config.row,
-			col = center_x + M.config.col,
-			width = width,
-			height = height,
-		},
-		left = {
-			anchor = "NW",
-			row = center_y + M.config.row,
-			col = 0 + M.config.col,
-			width = width,
-			height = height,
-		},
-		right = {
-			anchor = "NE",
-			row = center_y + M.config.row,
-			col = screen_w - M.config.col,
-			width = width,
-			height = height,
-		},
+	return {
+		anchor = "NW",
+		row = center_y + M.config.row,
+		col = center_x + M.config.col,
+		width = width,
+		height = height,
 	}
-	return layouts[M.config.layout]
 end
 
 M.float_term = function(cmd)
-	local buffer = require("vim").api.nvim_create_buf(true, false)
+	if cmd == nil then
+		cmd = os.getenv("SHELL")
+	end
+
 	local win_opts = require("vim").tbl_deep_extend("force", M.get_window_layout(), M.config.win_api)
 
-	require("vim").api.nvim_open_win(buffer, true, win_opts)
-	local job = require("vim").fn.jobstart(cmd, {})
+	M.float_instance = require("vim").api.nvim_create_buf(true, false)
+	M.float_win = require("vim").api.nvim_open_win(M.float_instance, true, win_opts)
+	local job = require("vim").fn.termopen(cmd, M.config)
 
 	if job == 0 then
 		require("vim").api.nvim_err_writeln("termopen() failed, invalid argument")
@@ -92,6 +70,20 @@ M.float_term = function(cmd)
 	elseif job == -1 then
 		require("vim").api.nvim_err_writeln("termopen() failed, command or shell is not executable")
 		return
+	end
+end
+
+M.toggle_float_term = function()
+	if M.float_win ~= nil then
+		require("vim").api.nvim_win_hide(M.float_win)
+		M.float_win = nil
+	else
+		if M.float_instance ~= nil then
+			local win_opts = require("vim").tbl_deep_extend("force", M.get_window_layout(), M.config.win_api)
+			M.float_win = require("vim").api.nvim_open_win(M.float_instance, true, win_opts)
+		else
+			M.float_term()
+		end
 	end
 end
 
