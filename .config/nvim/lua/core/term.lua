@@ -74,11 +74,11 @@ M.float_term = function(cmd)
 end
 
 M.toggle_float_term = function()
-	if M.float_win ~= nil then
+	if M.float_win ~= nil and require("vim").api.nvim_win_is_valid(M.float_win) then
 		require("vim").api.nvim_win_hide(M.float_win)
 		M.float_win = nil
 	else
-		if M.float_instance ~= nil then
+		if M.float_instance ~= nil and require("vim").api.nvim_buf_is_valid(M.float_instance) then
 			local win_opts = require("vim").tbl_deep_extend("force", M.get_window_layout(), M.config.win_api)
 			M.float_win = require("vim").api.nvim_open_win(M.float_instance, true, win_opts)
 		else
