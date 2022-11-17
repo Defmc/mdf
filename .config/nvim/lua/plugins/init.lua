@@ -6,12 +6,6 @@ local plugins = {
 		end,
 	},
 	{
-		"andweeb/presence.nvim",
-		setup = function()
-			require("plugins.presence").setup()
-		end,
-	},
-	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		after = "telescope.nvim",
 		config = function()
