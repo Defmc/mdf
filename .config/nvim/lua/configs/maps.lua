@@ -23,7 +23,6 @@ M.telescope = function()
 end
 
 M.terminal = function()
-	require("vim").cmd([[ :autocmd TermOpen * startinsert ]])
 	map("", "<A-w>", ":terminal <CR>")
 	map("", "<A-v>", ":vsplit | terminal <CR>")
 	map("", "<A-h>", ":split | terminal <CR>")
