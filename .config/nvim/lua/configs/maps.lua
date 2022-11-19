@@ -9,7 +9,6 @@ M.lsp = function()
 	map("n", "<leader>R", ":lua vim.lsp.buf.rename() <CR>")
 	map("n", "<leader>gi", ":lua vim.lsp.buf.implementation() <CR>")
 	map("n", "<leader>r", ":lua vim.lsp.buf.references() <CR>")
-	map("n", "leader>tr", [[ :lua require("plugins.lsp.actions").task_runner() <CR> ]])
 	map("n", "K", ":lua vim.lsp.buf.hover() <CR>")
 end
 
@@ -38,7 +37,7 @@ M.editor = function()
 	map("n", "<A-Right>", ":vertical resize -5 <CR>")
 	map("n", "<Tab>", ":BufferLineCycleNext <CR>")
 	map("n", "<S-Tab>", ":BufferLineCyclePrev <CR>")
-	map("n", "<leader>rt", [[:lua require("configs.cmds").task_runner() <CR> ]])
+	map("n", "<leader>rt", [[ :lua require("core.actions_menu").task_runner() <CR> ]])
 end
 
 M.nvim_tree = function()
