@@ -1,5 +1,13 @@
 local M = {}
 
+M.telescope = function()
+	require("telescope").setup({
+		extensions = {
+			["ui-select"] = { require("telescope.themes").get_cursor({}) },
+		},
+	})
+end
+
 M.mason = function()
 	local ui = {
 		icons = {

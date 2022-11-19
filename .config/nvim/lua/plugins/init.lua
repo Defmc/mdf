@@ -51,6 +51,7 @@ local plugins = {
 		config = function()
 			require("configs.maps").lsp()
 			require("plugins.setups").mason()
+			require("plugins.lsp.mason_updater").setup()
 			require("plugins.lsp.config")
 		end,
 	},
@@ -117,6 +118,9 @@ local plugins = {
 		requires = "nvim-lua/plenary.nvim",
 		setup = function()
 			require("configs.maps").telescope()
+		end,
+		config = function()
+			require("plugins.setups").telescope()
 		end,
 	},
 	{ "folke/tokyonight.nvim" },

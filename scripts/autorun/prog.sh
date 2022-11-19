@@ -16,5 +16,3 @@ rusttest() {
   rm test.rs
   rm test
 }
-
-alias co="cargo"

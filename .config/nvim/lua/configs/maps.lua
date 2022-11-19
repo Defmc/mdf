@@ -38,6 +38,7 @@ M.editor = function()
 	map("n", "<A-Right>", ":vertical resize -5 <CR>")
 	map("n", "<Tab>", ":BufferLineCycleNext <CR>")
 	map("n", "<S-Tab>", ":BufferLineCyclePrev <CR>")
+	map("n", "<leader>rt", [[:lua require("configs.cmds").task_runner() <CR> ]])
 end
 
 M.nvim_tree = function()
