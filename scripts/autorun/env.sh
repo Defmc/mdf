@@ -5,5 +5,3 @@ export ZSH_THEME="robbyrussell"
 
 export plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
-source "$HOME/.cargo/env"
-source "$ZSH/oh-my-zsh.sh"

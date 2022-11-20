@@ -14,6 +14,10 @@ Xft.lcdfilter:	lcddefault
 *.font: Jetbrains Mono Nerd Font:style=Regular:size=14:autohint=true:antialias=true
 *.font2: FontAwesome 6 Free:style=Regular:size=14:autohint=true:antialias=true
 
+xterm*faceName: xft:Jetbrains Mono Nerd Font
+xterm*font: Jetbrains Mono Nerd Font
+xterm*faceSize: 14
+
 *.foreground:    #A9B1D6
 *.background:    #1A1B26
 *.cursorColor:   #A9B1D6

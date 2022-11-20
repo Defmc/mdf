@@ -14,3 +14,4 @@ alias en2pt='trans -t portuguese -brief'
 
 # Apps
 alias hp="hyperfine"
+alias ls="exa --icons --long"
