@@ -1,5 +1,5 @@
 #!/bin/sh
-export EDITOR=$(xrdb -get "apps.editor")
+[ ! -z "$DISPLAY" ] && export EDITOR=$(xrdb -get "apps.editor")
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="robbyrussell"
 
