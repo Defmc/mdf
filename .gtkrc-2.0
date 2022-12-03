@@ -3,8 +3,9 @@
 
 include "/home/me/.gtkrc-2.0.mine"
 gtk-theme-name="TokyoNight"
-gtk-icon-theme-name="TokyoNight"
+gtk-icon-theme-name="Adwaita"
 gtk-font-name="JetBrains Mono 14"
+gtk-cursor-theme-name="Fuchsia-Pop"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR

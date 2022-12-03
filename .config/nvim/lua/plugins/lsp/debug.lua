@@ -11,14 +11,6 @@ M.dapui = {
 		repl = "r",
 		toggle = "t",
 	},
-	-- Use this to override mappings for specific elements
-	element_mappings = {
-		-- Example:
-		-- stacks = {
-		--   open = "<CR>",
-		--   expand = "o",
-		-- }
-	},
 	-- Expand lines larger than the window
 	-- Requires >= 0.7
 	expand_lines = require("vim").fn.has("nvim-0.7") == 1,
@@ -81,6 +73,42 @@ M.dapui = {
 	},
 }
 
+M.lldb = {
+	name = "Launch lldb",
+	type = "lldb", -- matches the adapter
+	request = "launch", -- could also attach to a currently running process
+	program = function()
+		os.execute([[ sh -c '[ ! "$(pidof codelldb)" ] && codelldb --port 13000 &' ]])
+		return require("vim").fn.input("Path to executable: ", require("vim").fn.getcwd() .. "/", "file")
+	end,
+	cwd = "${workspaceFolder}",
+	args = {},
+	runtimeArgs = M.program_args,
+	terminal = "integrated",
+}
+
+M.program_args = {}
+
+M.set_args = function()
+	local fill_inputs = function(amount)
+		amount = tonumber(amount)
+		M.program_args = {}
+		M.next_arg(0, amount)
+	end
+	require("vim").ui.input({ prompt = "Args amount" }, fill_inputs)
+	M.lldb.runtimeArgs = M.program_args
+end
+
+M.next_arg = function(n, total)
+	if n == total then
+		return
+	end
+	require("vim").ui.input({ prompt = "arg no. " .. n }, function(arg)
+		table.insert(M.program_args, arg)
+		M.next_arg(n + 1, total)
+	end)
+end
+
 M.setup = function()
 	require("mason-nvim-dap").setup({
 		automatic_setup = true,
@@ -96,24 +124,11 @@ M.setup = function()
 		port = 13000,
 	}
 
-	local lldb = {
-		name = "Launch lldb",
-		type = "lldb", -- matches the adapter
-		request = "launch", -- could also attach to a currently running process
-		program = function()
-			os.execute([[ sh -c '[ ! "$(pidof codelldb)" ] && codelldb --port 13000 &' ]])
-			return require("vim").fn.input("Path to executable: ", require("vim").fn.getcwd() .. "/", "file")
-		end,
-		cwd = "${workspaceFolder}",
-		args = {},
-		terminal = "integrated",
-	}
-
 	require("configs.maps").debug()
 
-	dap.configurations.rust = { lldb }
-	dap.configurations.cpp = { lldb }
-	dap.configurations.c = { lldb }
+	dap.configurations.rust = { M.lldb }
+	dap.configurations.cpp = { M.lldb }
+	dap.configurations.c = { M.lldb }
 
 	require("vim").cmd([[
         augroup daprepl
