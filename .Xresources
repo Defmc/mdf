@@ -9,6 +9,8 @@ Xft.lcdfilter:	lcddefault
 
 *.alpha: 1.0
 
+Xcursor.theme: Fuchsia-Pop
+
 ! inner padding
 *.borderpx: 15
 *.font: Jetbrains Mono Nerd Font:style=Regular:size=14:autohint=true:antialias=true
