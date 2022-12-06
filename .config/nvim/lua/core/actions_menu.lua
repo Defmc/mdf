@@ -24,9 +24,9 @@ M.tasks = {
 				require("vim").cmd(":TSUpdate")
 			end,
 			["all"] = function()
-				require("vim").cmd(":PackerSync")
 				require("vim").cmd(":TSUpdate")
 				require("plugins.lsp.mason_updater").update_all()
+				require("vim").cmd(":PackerSync")
 			end,
 		},
 	},

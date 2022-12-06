@@ -15,3 +15,6 @@ alias en2pt='trans -t portuguese -brief'
 # Apps
 alias hp="hyperfine"
 alias ls="exa --icons --long"
+
+# Git
+alias gt="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
