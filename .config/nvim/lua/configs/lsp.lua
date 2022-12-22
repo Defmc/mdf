@@ -14,5 +14,6 @@ return {
 				return { exe = "shfmt", stdin = true, args = { "-i", 2 } }
 			end,
 		},
+		python = { require("formatter.filetypes.python").yapf },
 	},
 }
