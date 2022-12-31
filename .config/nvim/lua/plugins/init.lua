@@ -14,6 +14,12 @@ local plugins = {
 	},
 	{ "mfussenegger/nvim-dap", after = "mason.nvim" },
 	{
+		"simrat39/inlay-hints.nvim",
+		config = function()
+			require("plugins.lsp.inlayhints").setup()
+		end,
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
@@ -151,13 +157,6 @@ local plugins = {
 		end,
 	},
 	{ "lukas-reineke/indent-blankline.nvim" },
-	{
-		"simrat39/rust-tools.nvim",
-		after = "nvim-lspconfig",
-		config = function()
-			require("plugins.lsp.rs_tools")
-		end,
-	},
 }
 
 local bootstrap = function()

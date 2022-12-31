@@ -65,15 +65,67 @@ end
 
 local mason_lsp = require("mason-lspconfig")
 local lsp_cfg = require("lspconfig")
-local navic = require("nvim-navic")
+
+local server_configs = {
+	["clangd"] = {
+		InlayHints = {
+			Enabled = true,
+			ParameterNames = true,
+			DeducedTypes = true,
+		},
+	},
+	["rust-analyzer"] = {
+		imports = {
+			granularity = {
+				group = "module",
+			},
+			prefix = "self",
+		},
+		cargo = {
+			buildScripts = {
+				enable = true,
+			},
+		},
+		procMacro = {
+			enable = true,
+		},
+		inlayHints = {
+			enabled = true,
+			typeHints = {
+				enable = true,
+			},
+		},
+	},
+	["sumneko_lua"] = {
+		Lua = {
+			hint = {
+				enable = true,
+			},
+		},
+	},
+}
 
 mason_lsp.setup_handlers({
 	function(svr)
 		lsp_cfg[svr].setup({
-			on_attach = function(client, bufnr)
-				navic.attach(client, bufnr)
-			end,
+			on_attach = function(_, _) end,
 			capabilities = capabilities,
+			settings = server_configs[svr] or {},
 		})
+	end,
+})
+
+require("vim").api.nvim_create_augroup("LspAttach_inlayhints", {})
+require("vim").api.nvim_create_autocmd("LspAttach", {
+	group = "LspAttach_inlayhints",
+	callback = function(args)
+		if not (args.data and args.data.client_id) then
+			return
+		end
+
+		local bufnr = args.buf
+		local client = require("vim").lsp.get_client_by_id(args.data.client_id)
+		require("inlay-hints").on_attach(client, bufnr)
+		require("nvim-navic").attach(client, bufnr)
 	end,
 })
