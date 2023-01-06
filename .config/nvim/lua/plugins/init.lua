@@ -1,15 +1,5 @@
 local plugins = {
 	{
-		"jameshiew/nvim-magic",
-		config = function()
-			require("nvim-magic").setup()
-		end,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-	},
-	{
 		"lewis6991/impatient.nvim",
 		config = function()
 			require("impatient")

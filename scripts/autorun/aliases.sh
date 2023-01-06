@@ -2,8 +2,6 @@
 
 # System infos
 alias mem='free --mega'
-alias x='exa'
-alias n='nvim'
 
 # User managment
 alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
@@ -15,6 +13,8 @@ alias en2pt='trans -t portuguese -brief'
 # Apps
 alias hp="hyperfine"
 alias ls="exa --icons --long"
+alias bat="bat -p"
+alias grep="rg"
 
 # Git
 alias gt="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
