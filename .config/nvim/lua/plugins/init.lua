@@ -104,7 +104,6 @@ local plugins = {
 	{ "mg979/vim-visual-multi" },
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = "TSUpdate",
 		config = function()
 			require("plugins.treesitter")
 		end,
