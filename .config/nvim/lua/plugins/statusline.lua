@@ -391,16 +391,18 @@
 -- 	force_inactive = force_inactive,
 -- })
 local icons = require("lspkind").symbol_map
+local color_theme = require("configs.theme").colors
+
 local diff_config = {
 	"diff",
 	colored = true, -- Displays a colored diff status if set to true
 	diff_color = {
 		-- Same color values as the general color option can be used here.
-		added = "LuaLineDiffAdd", -- Changes the diff's added color
-		modified = "LuaLineDiffChange", -- Changes the diff's modified color
-		removed = "LuaLineDiffDelete", -- Changes the diff's removed color you
+		added = { fg = color_theme.green }, -- Changes the diff's added color
+		modified = { fg = color_theme.orange }, -- Changes the diff's modified color
+		removed = { fg = color_theme.red }, -- Changes the diff's removed color you
 	},
-	symbols = { added = icons.Added, modified = icons.Modified, removed = icons.Removed }, -- Changes the symbols used by the diff.
+	symbols = { added = icons.Added .. " ", modified = icons.Modified .. " ", removed = icons.Removed .. " " }, -- Changes the symbols used by the diff.
 	source = function()
 		local gitsigns = require("vim").b.gitsigns_status_dict
 		if gitsigns then
@@ -440,13 +442,13 @@ local lspprog_config = {
 		local frame = math.floor(ms / 120) % #spinners
 		return (table.concat(status, " | ") .. " " .. spinners[frame + 1]) or ""
 	end,
-	color = { fg = require("configs.theme").colors.orange },
+	color = { fg = color_theme.orange },
 	separator = "",
 }
 
 local lspname = {
 	function()
-		local msg = ""
+		local msg = "󰟢"
 		local buf_ft = require("vim").api.nvim_buf_get_option(0, "filetype")
 		local clients = require("vim").lsp.get_active_clients()
 		if next(clients) == nil then
@@ -460,14 +462,14 @@ local lspname = {
 		end
 		return msg
 	end,
-	color = { fg = require("configs.theme").colors.orange },
+	color = { fg = color_theme.orange },
 }
 
 require("lualine").setup({
 	options = { theme = "auto" },
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", { "b:gitsigns_head", icon = "󰘬" }, diff_config, "diagnostics" },
+		lualine_b = { { "b:gitsigns_head", icon = "󰘬" }, diff_config, "diagnostics" },
 		lualine_c = { navic_config },
 		lualine_x = { lspprog_config, lspname, { "filetype", color = { gui = "bold" } } },
 		lualine_y = { "progress" },
