@@ -164,7 +164,12 @@ local plugins = {
 		end,
 	},
 	{
-		"feline-nvim/feline.nvim",
+		-- "feline-nvim/feline.nvim",
+		-- after = { "folke/tokyonight", "onsails/lspkind.nvim" },
+		-- config = function()
+		-- 	require("plugins.statusline")
+		-- end,
+		"nvim-lualine/lualine.nvim",
 		after = { "folke/tokyonight", "onsails/lspkind.nvim" },
 		config = function()
 			require("plugins.statusline")

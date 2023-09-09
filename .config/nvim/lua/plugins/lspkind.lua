@@ -38,5 +38,8 @@ require("lspkind").init({
 		Warn = " ",
 		Info = "",
 		Hint = "",
+		Added = "",
+		Modified = "",
+		Removed = "",
 	},
 })
