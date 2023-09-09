@@ -1,4 +1,4 @@
-local icons = require("plugins.lsp.icons")
+local icons = require("lspkind").symbol_map
 
 local opts = {
 	position = "bottom", -- position of the list can be: bottom, top, left, right

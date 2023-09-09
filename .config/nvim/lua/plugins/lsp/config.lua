@@ -1,4 +1,4 @@
-local icons = require("plugins.lsp.icons")
+local icons = require("lspkind").symbol_map
 local symbols = {
 	Error = icons.Error,
 	Info = icons.Info,

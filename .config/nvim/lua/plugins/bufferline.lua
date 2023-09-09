@@ -53,15 +53,15 @@ require("bufferline").setup({
 						table.insert(result, { text = text .. count, guifg = color, guibg = colors.bg })
 					end
 				end
-				diag(seve.ERROR, "  ", colors.red)
+				diag(seve.ERROR, "  ", colors.red)
 				diag(seve.WARN, "   ", colors.yellow)
-				diag(seve.HINT, "  ", colors.green)
-				diag(seve.INFO, "  ", colors.fg)
+				diag(seve.HINT, "  ", colors.green)
+				diag(seve.INFO, "  ", colors.fg)
 				return result
 			end,
 		},
-        get_element_icon = function(buf)
-            return require('nvim-web-devicons').get_icon(buf.name, {default = false})
-        end,
+		get_element_icon = function(buf)
+			return require("nvim-web-devicons").get_icon(buf.name, { default = false })
+		end,
 	},
 })

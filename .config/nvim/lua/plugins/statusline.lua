@@ -41,7 +41,7 @@ local vi_mode_text = {
 }
 
 local vimode = {
-	provider = " 烈",
+	provider = " 󰒠 ",
 	hl = function()
 		local val = {}
 
@@ -176,8 +176,8 @@ local lspprog = {
 			local title = Lsp.title or ""
 			local spinners = {
 				"",
-				"",
 				"",
+				"",
 			}
 
 			local success_icon = {

@@ -88,13 +88,20 @@ local plugins = {
 			require("plugins.lsp.diags")
 		end,
 	},
-	{ "onsails/lspkind.nvim", dependencies = { "neovim/nvim-lspconfig" } },
+	{
+		"onsails/lspkind.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		config = function()
+			require("plugins.lspkind")
+		end,
+	},
 	{ "hrsh7th/cmp-nvim-lsp", dependencies = { "hrsh7th/nvim-cmp" } },
 	{ "hrsh7th/cmp-buffer", dependencies = { "hrsh7th/nvim-cmp" } },
 	{ "hrsh7th/cmp-path", dependencies = { "hrsh7th/nvim-cmp" } },
 	{ "hrsh7th/cmp-cmdline", dependencies = { "hrsh7th/nvim-cmp" } },
 	{
 		"hrsh7th/nvim-cmp",
+		after = "onsails/lspkind.nvim",
 		config = function()
 			require("plugins.cmp")
 		end,
@@ -151,13 +158,14 @@ local plugins = {
 	{
 		"SmiteshP/nvim-navic",
 		dependencies = "neovim/nvim-lspconfig",
+		after = "onsails/lspkind.nvim",
 		config = function()
 			require("plugins.lsp.navic")
 		end,
 	},
 	{
 		"feline-nvim/feline.nvim",
-		after = "folke/tokyonight",
+		after = { "folke/tokyonight", "onsails/lspkind.nvim" },
 		config = function()
 			require("plugins.statusline")
 		end,
