@@ -129,7 +129,12 @@ local plugins = {
 			require("plugins.setups").telescope()
 		end,
 	},
-	{ "folke/tokyonight.nvim" },
+	{
+		"folke/tokyonight.nvim",
+		init = function()
+			require("configs.theme").setup()
+		end,
+	},
 	{
 		"numToStr/Comment.nvim",
 		config = function()
@@ -152,6 +157,7 @@ local plugins = {
 	},
 	{
 		"feline-nvim/feline.nvim",
+		after = "folke/tokyonight",
 		config = function()
 			require("plugins.statusline")
 		end,

@@ -1,4 +1,5 @@
 require("vim").g.mapleader = " "
+require("vim").opt.termguicolors = true
 local maps = require("configs.maps")
 
 maps.editor()
@@ -12,5 +13,3 @@ require("vim").o.expandtab = true
 require("vim").o.clipboard = "unnamedplus"
 require("vim").o.scrolloff = 4
 require("vim").o.incsearch = true
-
-require("configs.theme").setup()

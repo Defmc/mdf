@@ -9,7 +9,6 @@ M.telescope = function()
 end
 
 M.lsp_inlayhints = function()
-	print("here")
 	require("lsp-inlayhints").setup({
 		inlay_hints = {
 			parameter_hints = {
