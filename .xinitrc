@@ -1,4 +1,3 @@
-doas ~/scripts/set_time2online.sh &
 xrandr
 xset r rate 200
 xsetroot -cursor_name left_ptr
