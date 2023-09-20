@@ -465,10 +465,17 @@ local lspname = {
 	color = { fg = color_theme.orange },
 }
 
+local mode_highlight_config = {
+	function()
+		return ""
+	end,
+	color = { gui = "bold" },
+}
+
 require("lualine").setup({
 	options = { theme = "auto" },
 	sections = {
-		lualine_a = { "mode" },
+		lualine_a = { mode_highlight_config },
 		lualine_b = { { "b:gitsigns_head", icon = "󰘬" }, diff_config, "diagnostics" },
 		lualine_c = { navic_config },
 		lualine_x = { lspprog_config, lspname, { "filetype", color = { gui = "bold" } } },
