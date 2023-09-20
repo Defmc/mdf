@@ -103,6 +103,7 @@ local server_configs = {
 			},
 		},
 	},
+	["haskell-language-server"] = {},
 }
 
 mason_lsp.setup_handlers({
