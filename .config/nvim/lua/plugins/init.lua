@@ -25,6 +25,12 @@ local plugins = {
 			require("gitsigns").setup()
 		end,
 	},
+	{
+		"stevearc/conform.nvim",
+		config = function()
+			require("plugins.setups").conform()
+		end,
+	},
 	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
 	{
 		"jayp0521/mason-nvim-dap.nvim",
@@ -57,12 +63,6 @@ local plugins = {
 			require("plugins.setups").mason()
 			require("plugins.lsp.mason_updater").setup()
 			require("plugins.lsp.config")
-		end,
-	},
-	{
-		"mhartington/formatter.nvim",
-		config = function()
-			require("plugins.setups").formatter()
 		end,
 	},
 	{
@@ -326,6 +326,7 @@ local opts = {
 			},
 		},
 	},
+
 	-- lazy can generate helptags from the headings in markdown readme files,
 	-- so :help works even for plugins that don't have vim docs.
 	-- when the readme opens with :help it will be correctly displayed as markdown
