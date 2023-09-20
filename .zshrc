@@ -1,4 +1,4 @@
-afetch
+rxfetch
 
 source "$HOME/scripts/autorun/env.sh"
 source "$HOME/.cargo/env"
