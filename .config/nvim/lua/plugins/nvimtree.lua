@@ -1,3 +1,5 @@
+local icons = require("lspkind").symbol_map
+
 require("nvim-tree").setup({
 	auto_reload_on_write = true,
 	disable_netrw = false,
@@ -47,10 +49,10 @@ require("nvim-tree").setup({
 		enable = true,
 		show_on_dirs = true,
 		icons = {
-			error = "",
-			info = "",
-			hint = "",
-			warning = "",
+			error = icons.Error,
+			info = icons.Info,
+			hint = icons.Hint,
+			warning = icons.Warning,
 		},
 	},
 	filters = {
