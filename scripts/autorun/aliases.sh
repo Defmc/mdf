@@ -18,3 +18,6 @@ alias grep="rg"
 
 # Git
 alias gt="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
+
+# Debugging
+alias gdb="gdb -q"
