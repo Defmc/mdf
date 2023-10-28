@@ -4,6 +4,6 @@ xsetroot -cursor_name left_ptr
 setxkbmap -model abnt2 -layout br -variant abnt2
 
 picom -b --config ~/.config/picom/picom.conf
-feh --bg-scale ~/img/evangelion.jpg
+feh --bg-scale ~/img/red_sunrise.png
 xrdb -merge .Xresources
 exec bspwm
