@@ -5,16 +5,35 @@ local settings = {
 		fold_section = false,
 		title = "Header",
 		margin = 5,
-		content = {
-			"⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀  ⠀",
-			"⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀",
-			" ⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀",
-			"⠀⠀  ⢀⣾⣿⣿⣿⣇⠀⠀  ⠀",
-			"⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀",
-			"⠀⠀⣰⣿⣿⠏⠀⠀⢻⣿⣿⡄⠀⠀⠀",
-			"⠀⣴⣿⡿⠃⠀⠀⠀⠈⢿⣿⣷⣤⣤⡆",
-			"⠾⠿⠿⠁⠀⠀⠀⠀⠀⠘⣿⣿⡿⠿⠛",
-		}, --require("startup.headers").hydra_header,
+		content = function()
+			local check_day = function(line, day)
+				local out = ""
+				for i = 1, 20, 3 do
+					out = line:len()
+					local unit = (line[i] or "") .. (line[i + 1] or "")
+					if unit == day then
+						out = out .. "x  "
+					else
+						out = out .. unit .. " "
+					end
+				end
+				return out
+			end
+
+			local raw_cal = require("core.utils").os_capture("cal")
+			local cal_lines = require("core.utils").lines(raw_cal)
+			local day = os.date("%d")
+			return {
+				"⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀  ⠀         " .. cal_lines[1],
+				"⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀         " .. cal_lines[2],
+				" ⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀         " .. check_day(cal_lines[3], day),
+				"⠀⠀  ⢀⣾⣿⣿⣿⣇⠀⠀  ⠀         " .. check_day(cal_lines[4], day),
+				"⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀         " .. check_day(cal_lines[5], day),
+				"⠀⠀⣰⣿⣿⠏⠀⠀⢻⣿⣿⡄⠀⠀⠀         " .. check_day(cal_lines[6], day),
+				"⠀⣴⣿⡿⠃⠀⠀⠀⠈⢿⣿⣷⣤⣤⡆         " .. check_day(cal_lines[7], day),
+				"⠾⠿⠿⠁⠀⠀⠀⠀⠀⠘⣿⣿⡿⠿⠛         " .. check_day(cal_lines[8], day),
+			}
+		end, --require("startup.headers").hydra_header,
 		highlight = "Statement",
 		default_color = "",
 		oldfiles_amount = 0,
