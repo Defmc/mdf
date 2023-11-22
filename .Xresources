@@ -16,8 +16,8 @@ Xcursor.theme: Fuchsia-Pop
 *.font: Jetbrains Mono Nerd Font:style=Regular:size=14:autohint=true:antialias=true
 *.font2: FontAwesome 6 Free:style=Regular:size=14:autohint=true:antialias=true
 
-xterm*faceName: xft:Jetbrains Mono Nerd Font
-xterm*font: Jetbrains Mono Nerd Font
+xterm*faceName: xft:Square
+xterm*font: Square
 xterm*faceSize: 14
 
 *.foreground:    #A9B1D6
