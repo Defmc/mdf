@@ -9,4 +9,3 @@ for file in $(ls ~/scripts/autorun); do
 done
 
 [ -f "/home/me/.ghcup/env" ] && source "/home/me/.ghcup/env" # ghcup-env
-rxfetch
