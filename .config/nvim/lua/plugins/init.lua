@@ -176,6 +176,13 @@ local plugins = {
 		end,
 	},
 	{ "lukas-reineke/indent-blankline.nvim" },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	},
 }
 
 local lazypath = require("vim").fn.stdpath("data") .. "/lazy/lazy.nvim"

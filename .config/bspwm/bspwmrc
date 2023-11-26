@@ -18,16 +18,14 @@ bspc config split_ratio 0.50
 bspc config borderless_monocle false
 bspc config gapless_monocle false
 
-bspc config normal_border_color "#4E5173"
-bspc config focused_border_color "#1A1B26"
-bspc config active_border_color "#16161D"
+bspc config normal_border_color "#FABD2F"
+bspc config focused_border_color "#B8BB26"
+bspc config active_border_color "#FB4934"
 
 bspc config focus_follows_pointer true
-bspc config pointer_follows_focus true
 
 bspc pointer_modifier super
 bspc config pointer_follows_focus false
 
 bspc config automatic_scheme spiral
 bspc config initial_polarity second_child
-

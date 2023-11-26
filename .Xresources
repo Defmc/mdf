@@ -20,16 +20,6 @@ xterm*faceName: xft:JetBrains MOno NF
 xterm*font: JetBrains Mono NF
 xterm*faceSize: 14
 
-*.foreground:    #A9B1D6
-*.background:    #1A1B26
-*.cursorColor:   #A9B1D6
-*.highlightColor:#3A3F4B
-
-*.fading:                  40
-*.fadeColor:               #1A1B26
-*.pointerColorForeground:  #A9B1D6
-*.pointerColorBackground:  #1A1B26
-
 ! Statusbar
 *.bottom: "n"
 *.bar: "polybar"
@@ -53,35 +43,47 @@ apps.editor: nvim
 ! 5 Magenta   13 Magenta
 ! 6 Cyan      14 Cyan
 ! 7 Grey      15 White
-  
-! Black
-*.color0:        #1A1B26
-*.color8:        #4E5173
-  
-! Red
-*.color1:        #F7768E
-*.color9:        #E06C75
 
-! Green  
-*.color2:        #9ECE6A
-*.color10:       #98C379
+*.foreground:     #D5C4A1
+*.background:     #1D2021
+*.highlightColor: #3A3F4B
+*.cursorColor:    #D5C4A1
+*.fading:                  40
 
-! Yellow
-*.color3:        #E0AF68
-*.color11:       #D19A66
+#ifdef background_opacity
+*.background:   [background_opacity]#1D2021
+#else
+#endif
 
-! Blue  
-*.color4:        #7AA2F7
-*.color12:       #61AFEF
-  
-! Magenta (pink, !green)  
-*.color5:        #9A7ECC
-*.color13:       #C678DD
+*.color0:       #1D2021
+*.color8:       #665C54
 
-! Cyan (blue + green)
-*.color6:        #4ABAAF
-*.color14:       #56B6C2
- 
-! White  
-*.color7:        #ACB0D0
-*.color15:       #ABB2BF
+*.color1:       #FB4934
+*.color9:       #FB4934
+
+*.color2:       #B8BB26
+*.color10:      #B8BB26
+
+*.color3:       #FABD2F
+*.color11:      #FABD2F
+
+*.color4:       #83A598
+*.color12:      #83A598
+
+*.color5:       #D3869B
+*.color13:      #D3869B
+
+*.color6:       #8EC07C
+*.color14:      #8EC07C
+
+*.color7:       #D5C4A1
+*.color15:      #FBF1C7
+
+! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
+! use 'shell' template to set these if necessary
+*.color16:      #fe8019
+*.color17:      #d65d0e
+*.color18:      #3c3836
+*.color19:      #504945
+*.color20:      #bdae93
+*.color21:      #ebdbb2

@@ -1,5 +1,5 @@
 local icons = require("lspkind").symbol_map
-local color_theme = require("configs.theme").colors
+local color_theme = require("configs.theme").get_current_colorscheme()
 
 local diff_config = {
 	"diff",

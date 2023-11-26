@@ -45,7 +45,7 @@ require("bufferline").setup({
 		custom_areas = {
 			right = function()
 				local result = {}
-				local colors = require("configs.theme").colors
+				local colors = require("configs.theme").get_current_colorscheme()
 				local seve = require("vim").diagnostic.severity
 				local diag = function(sv, text, color)
 					local count = #require("vim").diagnostic.get(0, { severity = sv })
