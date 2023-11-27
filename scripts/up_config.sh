@@ -32,6 +32,7 @@ up_files() {
   up_file .config bspwm &
   up_file img . &
   up_file .themes TokyoNight &
+  up_file .oh-my-zsh custom &
   root_up_file etc makepkg.conf &
   wait
 }
