@@ -1,5 +1,5 @@
 #!/bin/sh
-
+#
 export POLYBAR_RUNNING_THEME_DIRECTORY="$(dirname $0)"
 
 killall -q polybar
