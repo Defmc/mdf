@@ -19,7 +19,7 @@ M.setup = function()
 	-- require("vim").cmd([[colorscheme tokyonight-night]])
 	require("vim").cmd([[ set cursorline ]])
 	require("vim").o.background = "dark"
-	require("vim").cmd([[colorscheme gruvbox]])
+	--require("vim").cmd([[colorscheme gruvbox]])
 	require("configs.theme_utils").load(M.options, M.get_current_colorscheme())
 	--	require("configs.theme_set").set_theme(M.themes[M.current_theme])
 end

@@ -6,12 +6,13 @@ BAR="$(xrdb -get bar)"
 echo $BAR
 case $(echo $BAR | tr '[:lower:]' '[:upper:]') in
 "\"LEMONBAR\"") ~/.config/lemonbar/launch.sh & ;;
-"\"POLYBAR\"") sh ~/.config/polybar/my/launch.sh >/dev/null ;;
+"\"POLYBAR\"") sh ~/.config/polybar/gruvbox/launch.sh >/dev/null ;;
 esac
 
 bspc monitor -d 1 2 3 4 5
 
 bspc config border_width 5 #5
+bspc config border_radius 10
 bspc config window_gap 10  #10
 
 bspc config split_ratio 0.50

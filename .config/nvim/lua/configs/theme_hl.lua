@@ -21,7 +21,7 @@ function M.setup(options, colors)
 	theme.highlights = {
 		Foo = { bg = c.light_magenta, fg = c.fg },
 
-		Comment = { fg = c.light_white, style = options.styles.comments }, -- any comment
+		Comment = { fg = c.light_black, style = options.styles.comments }, -- any comment
 		ColorColumn = { bg = c.black }, -- used for the columns set with 'colorcolumn'
 		Conceal = { fg = c.light_black }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		Cursor = { fg = c.bg, bg = c.fg }, -- character under the cursor
@@ -79,7 +79,7 @@ function M.setup(options, colors)
 		TabLineFill = { bg = c.black }, -- tab pages line, where there are no labels
 		TabLineSel = { fg = c.black, bg = c.blue }, -- tab pages line, active tab page label
 		Title = { fg = c.blue, bold = true }, -- titles for output from ":set all", ":autocmd" etc.
-		Visual = { bg = c.bg }, -- Visual mode selection
+		Visual = { bg = c.highlight }, -- Visual mode selection
 		VisualNOS = { bg = c.bg }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = c.yellow }, -- warning messages
 		Whitespace = { fg = c.highlight }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -179,7 +179,7 @@ function M.setup(options, colors)
 
 		DiagnosticVirtualTextError = { bg = util.darken(c.red, 0.1), fg = c.red }, -- Used for "Error" diagnostic virtual text
 		DiagnosticVirtualTextWarn = { bg = util.darken(c.yellow, 0.1), fg = c.yellow }, -- Used for "Warning" diagnostic virtual text
-		DiagnosticVirtualTextInfo = { bg = util.darken(c.white, 0.1), fg = c.info }, -- Used for "Information" diagnostic virtual text
+		DiagnosticVirtualTextInfo = { bg = util.darken(c.white, 0.1), fg = c.white }, -- Used for "Information" diagnostic virtual text
 		DiagnosticVirtualTextHint = { bg = util.darken(c.green, 0.1), fg = c.green }, -- Used for "Hint" diagnostic virtual text
 
 		DiagnosticUnderlineError = { undercurl = true, sp = c.red }, -- Used to underline "Error" diagnostics
@@ -400,7 +400,7 @@ function M.setup(options, colors)
 		TelescopeNormal = { fg = c.fg, bg = c.highlight },
 
 		-- NvimTree
-		NvimTreeNormal = { fg = c.fg, bg = c.highlight },
+		NvimTreeNormal = { fg = c.fg, bg = c.bg },
 		NvimTreeWinSeparator = {
 			fg = options.styles.sidebars == "transparent" and c.border or c.highlight,
 			bg = c.highlight,
