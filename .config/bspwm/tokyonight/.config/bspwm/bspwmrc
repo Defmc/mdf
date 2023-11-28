@@ -6,7 +6,7 @@ BAR="$(xrdb -get bar)"
 echo $BAR
 case $(echo $BAR | tr '[:lower:]' '[:upper:]') in
 "\"LEMONBAR\"") ~/.config/lemonbar/launch.sh & ;;
-"\"POLYBAR\"") sh ~/.config/polybar/my/launch.sh >/dev/null ;;
+"\"POLYBAR\"") sh ~/.config/polybar/tokyonight/launch.sh >/dev/null ;;
 esac
 
 bspc monitor -d 1 2 3 4 5
