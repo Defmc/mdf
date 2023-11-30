@@ -2,7 +2,7 @@ local icons = require("lspkind").symbol_map
 
 require("nvim-tree").setup({
 	auto_reload_on_write = true,
-	disable_netrw = false,
+	disable_netrw = true,
 	hijack_cursor = true,
 	hijack_netrw = true,
 	hijack_unnamed_buffer_when_opening = false,
@@ -56,12 +56,12 @@ require("nvim-tree").setup({
 		},
 	},
 	filters = {
-		dotfiles = false,
+		dotfiles = true,
 		custom = {},
 		exclude = {},
 	},
 	git = {
-		enable = true,
+		enable = false,
 		ignore = true,
 		timeout = 400,
 	},
@@ -103,6 +103,7 @@ require("nvim-tree").setup({
 	},
 	on_attach = function(bufnr)
 		local api = require("nvim-tree.api")
+		local vim = require("vim")
 
 		local function opts(desc)
 			return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }

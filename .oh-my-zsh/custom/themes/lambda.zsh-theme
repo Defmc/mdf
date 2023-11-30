@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROMPT="%{$fg[cyan]%}%c"
+PROMPT="%{$fg_bold[cyan]%}%c"
 PROMPT+=' $(git_prompt_info)'
 PROMPT+="%(?:%{$fg_bold[green]%}%1{󰘧%} :%{$fg_bold[red]%}%1{󰘧%} )%{$reset_color%}"
 
