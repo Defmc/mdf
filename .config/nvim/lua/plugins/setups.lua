@@ -118,4 +118,10 @@ M.conform = function()
 	})
 end
 
+M.lspkind = function()
+	require("lspkind").init({
+		symbol_map = require("configs.theme").icons,
+	})
+end
+
 return M

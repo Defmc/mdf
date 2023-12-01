@@ -1,27 +1,11 @@
-local present, _ = pcall(require, "tokyonight")
 local M = {}
-
-if not present then
-	M.setup = function() end
-	return M
-end
 
 M.current_theme = "gruvbox"
 
--- git = { change = "#6183bb", add = "#449dab", delete = "#914c54" },
--- gitSigns = {
---   add = "#266d6a",
---   change = "#536c9e",
---   delete = "#b2555b",
--- },
-
 M.setup = function()
-	-- require("vim").cmd([[colorscheme tokyonight-night]])
 	require("vim").cmd([[ set cursorline ]])
 	require("vim").o.background = "dark"
-	--require("vim").cmd([[colorscheme gruvbox]])
-	require("configs.theme_utils").load(M.options, M.get_current_colorscheme())
-	--	require("configs.theme_set").set_theme(M.themes[M.current_theme])
+	require("configs.theme_utils").load(M.current_theme, M.options, M.get_current_colorscheme())
 end
 
 M.themes = {
@@ -138,6 +122,10 @@ M.options = {
 }
 
 M.get_current_colorscheme = function()
+	if M.themes[M.current_theme] == nil then
+		print("error")
+		return {}
+	end
 	return M.themes[M.current_theme]
 end
 

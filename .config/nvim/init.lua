@@ -1,5 +1,4 @@
-MODULES = { "configs", "plugins" }
+require("vim").loader.enable()
 
-for _, mod in ipairs(MODULES) do
-	require(mod)
-end
+require("configs")
+require("plugins")

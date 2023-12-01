@@ -1,5 +1,4 @@
 -- get_element_icon = function(buf) return require('nvim-web-devicons').get_icon(..., {default = false})
-
 require("bufferline").setup({
 	options = {
 		mode = "buffers",

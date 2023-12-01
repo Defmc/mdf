@@ -547,20 +547,18 @@ function M.invert_highlights(hls)
 	end
 end
 
-function M.load(options, colors)
+function M.load(theme_name, options, colors)
 	local vim = require("vim")
+
 	-- only needed to clear when not the default colorscheme
 	if vim.g.colors_name then
 		vim.cmd("hi clear")
 	end
+	vim.g.colors_name = theme_name
 
-	local groups = require("configs.theme_hl").setup(options, colors).highlights
+	local theme = require("configs.theme_hl").setup(options, colors)
 
-	for group, val in pairs(groups) do
-		M.highlight(group, val)
-	end
-
-	--	vim.g.colors_name = "tokyonight"
+	M.syntax(theme.highlights)
 
 	-- if M.new_style() then
 	-- 	for group, colors in pairs(M.defaults) do

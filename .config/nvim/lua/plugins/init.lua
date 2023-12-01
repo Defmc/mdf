@@ -1,11 +1,5 @@
 local plugins = {
 	{
-		"lewis6991/impatient.nvim",
-		config = function()
-			require("impatient")
-		end,
-	},
-	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()
@@ -34,7 +28,7 @@ local plugins = {
 	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
 	{
 		"jayp0521/mason-nvim-dap.nvim",
-		dependencies = { "mfussenegger/nvim-dap" },
+		dependencies = { "mfussenegger/nvim-dap", "williamboman/mason.nvim" },
 		config = function()
 			require("plugins.lsp.debug").setup()
 		end,
@@ -92,7 +86,7 @@ local plugins = {
 		"onsails/lspkind.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
 		config = function()
-			require("plugins.lspkind")
+			require("plugins.setups").lspkind()
 		end,
 	},
 	{ "hrsh7th/cmp-nvim-lsp", dependencies = { "hrsh7th/nvim-cmp" } },
@@ -137,12 +131,6 @@ local plugins = {
 		end,
 	},
 	{
-		"folke/tokyonight.nvim",
-		init = function()
-			require("configs.theme").setup()
-		end,
-	},
-	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
@@ -164,19 +152,18 @@ local plugins = {
 		end,
 	},
 	{
-		-- "feline-nvim/feline.nvim",
-		-- after = { "folke/tokyonight", "onsails/lspkind.nvim" },
-		-- config = function()
-		-- 	require("plugins.statusline")
-		-- end,
 		"nvim-lualine/lualine.nvim",
 		after = { "folke/tokyonight", "onsails/lspkind.nvim" },
 		config = function()
 			require("plugins.statusline")
 		end,
 	},
-	{ "lukas-reineke/indent-blankline.nvim" },
-	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("ibl").setup()
+		end,
+	},
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
@@ -216,7 +203,7 @@ local opts = {
 	},
 	dev = {
 		-- directory where you store your local plugin projects
-		path = "~/projects",
+		path = "~/dev",
 		---@type string[] plugins that match these patterns will use your local versions instead of being fetched from GitHub
 		patterns = {}, -- For example {"folke"}
 	},
@@ -224,13 +211,13 @@ local opts = {
 		-- install missing plugins on startup. This doesn't increase startup time.
 		missing = true,
 		-- try to load one of these colorschemes when starting an installation during startup
-		colorscheme = { "habamax" },
+		colorscheme = { "" },
 	},
 	ui = {
 		-- a number <1 is a percentage., >1 is a fixed size
 		size = { width = 0.8, height = 0.8 },
 		-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-		border = "none",
+		border = "rounded",
 		icons = {
 			loaded = "●",
 			not_loaded = "○",
