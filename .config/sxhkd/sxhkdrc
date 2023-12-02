@@ -4,7 +4,7 @@ super + shift + Return
 
 # program launcher
 super + d
-    zsh -c "$(exec dmenu < /dev/null)"
+    zsh -c "$(dmenu -nf $(xrdb -get '*.foreground') -nb $(xrdb -get '*.background') < /dev/null)"
 
 super + shift + s
     $(xrdb -get "apps.screenshot")
