@@ -7,7 +7,7 @@ sed -i "s/^#Server/Server/" mirrorlist
 echo "mirrors:"
 cat mirrorlist
 
-rankmirrors -n 6 mirrorlist >rankedlist
+rankmirrors -n 20 mirrorlist >rankedlist
 cat rankedlist
 doas mv rankedlist /etc/pacman.d/mirrorlist
 

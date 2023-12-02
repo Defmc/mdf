@@ -159,12 +159,6 @@ local plugins = {
 		end,
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("ibl").setup()
-		end,
-	},
-	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require("colorizer").setup()
