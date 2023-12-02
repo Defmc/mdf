@@ -100,7 +100,10 @@ local plugins = {
 			require("plugins.cmp")
 		end,
 	},
-	{ "L3MON4D3/LuaSnip", after = "hrsh7th/nvim-cmp" },
+	{
+		"L3MON4D3/LuaSnip",
+		after = "hrsh7th/nvim-cmp",
+	},
 	{ "saadparwaiz1/cmp_luasnip", after = "hrsh7th/nvim-cmp" },
 	{ "mg979/vim-visual-multi" },
 	{

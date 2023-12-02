@@ -30,7 +30,7 @@ dmenu.topbar: 0
 ! Default apps
 apps.terminal: st
 apps.screenshot: flameshot gui
-apps.launcher: dmenu_run
+apps.launcher: dmenu -l 1
 apps.editor: nvim
 
 ! Normal      Bright

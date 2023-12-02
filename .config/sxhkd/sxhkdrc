@@ -4,7 +4,7 @@ super + shift + Return
 
 # program launcher
 super + d
-    $(xrdb -get "apps.launcher")
+    zsh -c "$(exec dmenu < /dev/null)"
 
 super + shift + s
     $(xrdb -get "apps.screenshot")

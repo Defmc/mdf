@@ -57,8 +57,7 @@ M.mason = function()
 end
 
 M.statusline = function()
-	local options = { theme = "tokyonight" }
-	require("lualine").setup(options)
+	require("lualine").setup()
 end
 
 M.conform = function()
