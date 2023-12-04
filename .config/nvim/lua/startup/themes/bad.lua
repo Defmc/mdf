@@ -7,12 +7,11 @@ local settings = {
 		margin = 5,
 		content = function()
 			local check_day = function(line, day)
-				local out = ""
+				local out = " "
 				for i = 1, 20, 3 do
-					out = line:len()
-					local unit = (line[i] or "") .. (line[i + 1] or "")
+					local unit = (line:sub(i, i) or "") .. (line:sub(i + 1, i + 1) or "")
 					if unit == day then
-						out = out .. "x  "
+						out = out .. " x "
 					else
 						out = out .. unit .. " "
 					end
@@ -22,10 +21,13 @@ local settings = {
 
 			local raw_cal = require("core.utils").os_capture("cal")
 			local cal_lines = require("core.utils").lines(raw_cal)
-			local day = os.date("%d")
+			local day = tostring(os.date("%d"))
+			if day:sub(1, 1) == "0" then
+				day = " " .. day:sub(2, 2)
+			end
 			return {
-				"⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀  ⠀         " .. cal_lines[1],
-				"⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀         " .. cal_lines[2],
+				"⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀  ⠀          " .. cal_lines[1],
+				"⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀          " .. cal_lines[2],
 				" ⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀         " .. check_day(cal_lines[3], day),
 				"⠀⠀  ⢀⣾⣿⣿⣿⣇⠀⠀  ⠀         " .. check_day(cal_lines[4], day),
 				"⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀         " .. check_day(cal_lines[5], day),
