@@ -104,15 +104,18 @@ local server_configs = {
 			},
 		},
 	},
-	["haskell-language-server"] = {},
+	["hls"] = {},
 }
 
 mason_lsp.setup_handlers({
 	function(svr)
+		vim.print(svr)
 		lsp_cfg[svr].setup({
-			on_attach = function(_, _) end,
+			on_attach = function(_, _)
+				vim.print("attached")
+			end,
 			capabilities = capabilities,
-			settings = server_configs[svr] or {},
+			settings = server_configs[svr],
 		})
 	end,
 })
