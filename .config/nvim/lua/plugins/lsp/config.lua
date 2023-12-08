@@ -44,6 +44,7 @@ capabilities.textDocument.completion.completionItem = {
 	insertReplaceSupport = true,
 	labelDetailsSupport = true,
 	deprecatedSupport = true,
+	documentSymbolProvider = true,
 	commitCharactersSupport = true,
 	tagSupport = { valueSet = { 1 } },
 	resolveSupport = {
@@ -109,13 +110,9 @@ local server_configs = {
 
 mason_lsp.setup_handlers({
 	function(svr)
-		vim.print(svr)
 		lsp_cfg[svr].setup({
-			on_attach = function(_, _)
-				vim.print("attached")
-			end,
 			capabilities = capabilities,
-			settings = server_configs[svr],
+			settings = server_configs[svr] or {},
 		})
 	end,
 })
@@ -131,6 +128,8 @@ require("vim").api.nvim_create_autocmd("LspAttach", {
 		local bufnr = args.buf
 		local client = require("vim").lsp.get_client_by_id(args.data.client_id)
 		require("inlay-hints").on_attach(client, bufnr)
-		require("nvim-navic").attach(client, bufnr)
+		if client.server_capabilities.documentSymbolProvider then
+			require("nvim-navic").attach(client, bufnr)
+		end
 	end,
 })
