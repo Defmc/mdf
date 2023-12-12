@@ -27,7 +27,7 @@ require("bufferline").setup({
 		diagnostics = "nvim_lsp",
 		diagnostics_update_in_insert = false,
 		diagnostics_indicator = function(count, level, _, _)
-			local icon = level:match("error") and " " or " "
+			local icon = level:match("error") and "" or ""
 			return " " .. icon .. count
 		end,
 		offsets = { { filetype = "NvimTree", text = "File Explorer" } },
@@ -52,10 +52,10 @@ require("bufferline").setup({
 						table.insert(result, { text = text .. count, guifg = color, guibg = colors.bg })
 					end
 				end
-				diag(seve.ERROR, "  ", colors.red)
-				diag(seve.WARN, "   ", colors.yellow)
-				diag(seve.HINT, "  ", colors.green)
-				diag(seve.INFO, "  ", colors.fg)
+				diag(seve.ERROR, " ", colors.red)
+				diag(seve.WARN, "  ", colors.yellow)
+				diag(seve.HINT, " ", colors.green)
+				diag(seve.INFO, " ", colors.fg)
 				return result
 			end,
 		},

@@ -33,6 +33,8 @@ M.editor = function()
 	map("n", "Q", ":bd<CR>")
 	map("n", "<C-S-Down>", ":m+1<CR>")
 	map("n", "<C-S-Up>", ":m-2<CR>")
+	map("v", ">", ":> <CR> | gv")
+	map("v", "<", ":< <CR> | gv")
 	map("n", "<A-Left>", ":vertical resize +5 <CR>")
 	map("n", "<A-Right>", ":vertical resize -5 <CR>")
 	map("n", "<Tab>", ":BufferLineCycleNext <CR>")
@@ -49,6 +51,14 @@ M.debug = function()
 	map("n", "<leader>do", ":lua require('dapui').open()<CR>")
 	map("n", "<leader>dc", ":lua require('dapui').close()<CR>")
 	map("n", "<leader>dr", ":lua require('dap').continue()<CR>")
+end
+
+M.trouble = function()
+	map("n", "<leader>xx", ":TroubleToggle<CR>")
+	map("n", "<leader>xw", ":Trouble workspace_diagnostics<CR>")
+	map("n", "<leader>xd", ":Trouble document_diagnostics<CR>")
+	map("n", "<leader>xq", ":Trouble quickfix<CR>")
+	map("n", "<leader>xl", ":Trouble loclist<CR>")
 end
 
 return M
