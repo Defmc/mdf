@@ -28,7 +28,7 @@ require("bufferline").setup({
 		diagnostics_update_in_insert = false,
 		diagnostics_indicator = function(count, level, _, _)
 			local icon = level:match("error") and "" or ""
-			return " " .. icon .. count
+			return icon .. " " .. count
 		end,
 		offsets = { { filetype = "NvimTree", text = "File Explorer" } },
 		color_icons = true,
@@ -44,18 +44,19 @@ require("bufferline").setup({
 		custom_areas = {
 			right = function()
 				local result = {}
+				local icons = require("configs.theme").icons
 				local colors = require("configs.theme").get_current_colorscheme()
 				local seve = require("vim").diagnostic.severity
-				local diag = function(sv, text, color)
+				local diag = function(sv, icon, color)
 					local count = #require("vim").diagnostic.get(0, { severity = sv })
 					if count ~= 0 then
-						table.insert(result, { text = text .. count, guifg = color, guibg = colors.bg })
+						table.insert(result, { text = " " .. icon .. " " .. count, guifg = color, guibg = colors.bg })
 					end
 				end
-				diag(seve.ERROR, " ", colors.red)
-				diag(seve.WARN, "  ", colors.yellow)
-				diag(seve.HINT, " ", colors.green)
-				diag(seve.INFO, " ", colors.fg)
+				diag(seve.ERROR, icons.Error, colors.red)
+				diag(seve.WARN, icons.Warn, colors.yellow)
+				diag(seve.HINT, icons.Hint, colors.green)
+				diag(seve.INFO, icons.Info, colors.fg)
 				return result
 			end,
 		},
