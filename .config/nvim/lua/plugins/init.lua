@@ -6,7 +6,7 @@ local plugins = {
 			require("telescope").load_extension("ui-select")
 		end,
 	},
-	{ "mfussenegger/nvim-dap", after = "mason.nvim" },
+	{ "mfussenegger/nvim-dap", dependencies = { "nvim-neotest/nvim-nio" }, after = "mason.nvim" },
 	{
 		"simrat39/inlay-hints.nvim",
 		config = function()
