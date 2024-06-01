@@ -37,7 +37,7 @@ local navic_config = {
 
 local lspprog_config = {
 	function()
-		local messages = require("vim").lsp.util.get_progress_messages()
+		local messages = require("vim").lsp.util.get_status()
 		if #messages == 0 then
 			return ""
 		end
