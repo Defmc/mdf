@@ -7,3 +7,7 @@ export plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source "$HOME/.cargo/env"
 source "$ZSH/oh-my-zsh.sh"
+source <(fzf --zsh)
+
+HISTFILE="~/.zshrc"
+HISTSIZE=10000
