@@ -6,7 +6,6 @@ local plugins = {
 			require("telescope").load_extension("ui-select")
 		end,
 	},
-	{ "mfussenegger/nvim-dap", dependencies = { "nvim-neotest/nvim-nio" }, after = "mason.nvim" },
 	{
 		"simrat39/inlay-hints.nvim",
 		config = function()
@@ -23,14 +22,6 @@ local plugins = {
 		"stevearc/conform.nvim",
 		config = function()
 			require("plugins.setups").conform()
-		end,
-	},
-	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } },
-	{
-		"jayp0521/mason-nvim-dap.nvim",
-		dependencies = { "mfussenegger/nvim-dap", "williamboman/mason.nvim" },
-		config = function()
-			require("plugins.lsp.debug").setup()
 		end,
 	},
 	{
@@ -72,17 +63,6 @@ local plugins = {
 		end,
 	},
 	{
-		"folke/trouble.nvim",
-		dependencies = {
-			"kyazdani42/nvim-web-devicons",
-			"folke/lsp-colors.nvim",
-			"neovim/nvim-lspconfig",
-		},
-		config = function()
-			require("plugins.lsp.diags")
-		end,
-	},
-	{
 		"onsails/lspkind.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
 		config = function()
@@ -112,23 +92,22 @@ local plugins = {
 			require("plugins.treesitter")
 		end,
 	},
-	{
-		"kyazdani42/nvim-tree.lua",
-		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-		init = function()
-			require("configs.maps").nvim_tree()
-		end,
-		config = function()
-			require("plugins.nvimtree")
-		end,
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-	},
+	require("plugins.lsp.trouble_setting"),
+	require("plugins.nvimtree"),
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		init = function()
 			require("configs.maps").telescope()
 		end,
+		keys = {
+			{ "ff", "<cmd>Telescope find_files <CR>", desc = "Find files" },
+			{ "fg", "<cmd>Telescope live_grep <CR>", desc = "Live grep" },
+			{ "fb", "<cmd>Telescope buffers <CR>", desc = "Buffers" },
+			{ "fh", "<cmd>Telescope help_tags <CR>", desc = "Help tags" },
+			{ "fc", "<cmd>Telescope colorscheme <CR>", desc = "Colorscheme" },
+			{ "ft", "<cmd>Telescope treesitter <CR>", desc = "Treesitter" },
+		},
 		config = function()
 			require("plugins.setups").telescope()
 		end,
