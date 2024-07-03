@@ -1,4 +1,5 @@
 local plugins = {
+	require("plugins.gruvbox"),
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },

@@ -26,8 +26,8 @@ local settings = {
 				day = " " .. day:sub(2, 2)
 			end
 			return {
-				"⠀⠀⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀  ⠀          " .. cal_lines[1],
-				"⠀⠀⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀⠀          " .. cal_lines[2],
+				"⠀⣶⣶⣶⣶⡆⠀⠀⠀⠀            " .. cal_lines[1],
+				"⠀⠛⠛⢻⣿⣿⡀⠀⠀⠀⠀⠀  ⠀       " .. cal_lines[2],
 				" ⠀⠀⠀⠀⢀⣿⣿⣷⠀⠀⠀⠀⠀⠀         " .. check_day(cal_lines[3], day),
 				"⠀⠀  ⢀⣾⣿⣿⣿⣇⠀⠀  ⠀         " .. check_day(cal_lines[4], day),
 				"⠀⠀⠀⢠⣿⣿⡟⢹⣿⣿⡆⠀⠀⠀⠀         " .. check_day(cal_lines[5], day),

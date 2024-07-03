@@ -5,7 +5,9 @@ M.current_theme = "gruvbox"
 M.setup = function()
 	require("vim").cmd([[ set cursorline ]])
 	require("vim").o.background = "dark"
-	require("configs.theme_utils").load(M.current_theme, M.options, M.get_current_colorscheme())
+    -- require("gruvbox").setup()
+	-- require("vim").cmd([[colorscheme gruvbox]])
+	-- require("configs.theme_utils").load(M.current_theme, M.options, M.get_current_colorscheme())
 end
 
 M.themes = {
