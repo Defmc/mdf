@@ -13,11 +13,11 @@ Xcursor.theme: Fuchsia-Pop
 
 ! inner padding
 *.borderpx: 15
-*.font: VictorMono NFM:size=16:autohint=true:antialias=true
+*.font: VictorMono NFM:size=12:autohint=true:antialias=true
 *.font2: FontAwesome 6 Free:style=Bold:size=14:autohint=true:antialias=true
 
 xterm*faceName: xft:VictorMono NFM
-xterm*faceSize: 16
+xterm*faceSize: 12
 
 ! Statusbar
 *.bottom: "n"
@@ -43,8 +43,8 @@ apps.editor: nvim
 ! 6 Cyan      14 Cyan
 ! 7 Grey      15 White
 
-*.foreground:     #D5C4A1
-*.background:     #1D2021
+*.foreground:     #fbf1c7
+*.background:     #1d2021
 *.highlightColor: #3A3F4B
 *.cursorColor:    #D5C4A1
 *.fading:                  40
@@ -54,7 +54,7 @@ apps.editor: nvim
 #else
 #endif
 
-*.color0:       #1D2021
+*.color0:       #1d2021
 *.color8:       #665C54
 
 *.color1:       #FB4934
