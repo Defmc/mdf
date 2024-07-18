@@ -13,10 +13,10 @@ Xcursor.theme: Fuchsia-Pop
 
 ! inner padding
 *.borderpx: 15
-*.font: VictorMono NFM:size=12:autohint=true:antialias=true
+*.font: Jetbrains Mono NFM:size=12:autohint=true:antialias=true
 *.font2: FontAwesome 6 Free:style=Bold:size=14:autohint=true:antialias=true
 
-xterm*faceName: xft:VictorMono NFM
+xterm*faceName: xft:Jetbrains Mono NFM
 xterm*faceSize: 12
 
 ! Statusbar
