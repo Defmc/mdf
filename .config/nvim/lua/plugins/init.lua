@@ -70,13 +70,18 @@ local plugins = {
 			require("plugins.setups").lspkind()
 		end,
 	},
-	{ "hrsh7th/cmp-nvim-lsp", dependencies = { "hrsh7th/nvim-cmp" } },
-	{ "hrsh7th/cmp-buffer", dependencies = { "hrsh7th/nvim-cmp" } },
-	{ "hrsh7th/cmp-path", dependencies = { "hrsh7th/nvim-cmp" } },
-	{ "hrsh7th/cmp-cmdline", dependencies = { "hrsh7th/nvim-cmp" } },
 	{
 		"hrsh7th/nvim-cmp",
 		after = "onsails/lspkind.nvim",
+		dependencies = {
+			{
+				"kdheepak/cmp-latex-symbols",
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-cmdline",
+			},
+		},
 		config = function()
 			require("plugins.cmp")
 		end,
