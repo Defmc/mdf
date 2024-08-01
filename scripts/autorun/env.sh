@@ -13,4 +13,5 @@ export plugins=(
 )
 
 source "$HOME/.cargo/env"
+source "$HOME/.zprofile"
 source "$ZSH/oh-my-zsh.sh"
