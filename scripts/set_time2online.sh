@@ -1,6 +1,6 @@
 #!/bin/sh
 
-baseurl="http://worldtimeapi.org/api/timezone"
+baseurl="http://www.worldtimeapi.org/api/timezone"
 area="America"
 location="Sao_Paulo"
 region=""
@@ -11,6 +11,6 @@ if [[ -z "$region" ]]; then
 fi
 echo "$url"
 
-date=$(curl $url | sed -E 's/.*"datetime":"?([^,"]*)"?.*/\1/')
+date=$(curl --tlsv1.2 $url | sed -E 's/.*"datetime":"?([^,"]*)"?.*/\1/')
 echo "$date"
 hwclock --systohc
