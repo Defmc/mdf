@@ -1,4 +1,4 @@
-local nvim_tree_setup = function()
+return function()
 	local icons = require("lspkind").symbol_map
 	require("nvim-tree").setup({
 		auto_reload_on_write = true,
@@ -116,15 +116,3 @@ local nvim_tree_setup = function()
 		end,
 	})
 end
-
-return {
-	"kyazdani42/nvim-tree.lua",
-	cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-	config = function()
-		nvim_tree_setup()
-	end,
-	keys = {
-		{ "E", "<cmd>NvimTreeToggle<CR>", desc = "Toggle nvim tree" },
-	},
-	dependencies = { "kyazdani42/nvim-web-devicons" },
-}

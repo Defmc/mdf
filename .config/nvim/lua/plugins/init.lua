@@ -119,7 +119,17 @@ local plugins = {
 		end,
 	},
 	require("plugins.lsp.trouble_setting"),
-	require("plugins.nvimtree"),
+	{
+		"kyazdani42/nvim-tree.lua",
+		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+		config = function()
+			require("plugins.nvimtree")()
+		end,
+		keys = {
+			{ "E", "<cmd>NvimTreeToggle<CR>", desc = "Toggle nvim tree" },
+		},
+		dependencies = { "kyazdani42/nvim-web-devicons" },
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
