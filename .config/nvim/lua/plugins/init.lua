@@ -1,6 +1,40 @@
 local plugins = {
 	require("plugins.gruvbox"),
 	{
+		"rcarriga/nvim-notify",
+		config = function()
+			local notify = require("notify")
+			require("vim").notify = notify
+			print = function(...)
+				local print_safe_args = {}
+				local _ = { ... }
+				for i = 1, #_ do
+					table.insert(print_safe_args, tostring(_[i]))
+				end
+				notify(table.concat(print_safe_args, " "), "info")
+			end
+			require("notify").setup({
+				stages = "slide",
+			})
+		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+			"hrsh7th/nvim-cmp",
+		},
+	},
+	{
 		"nvim-telescope/telescope-ui-select.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()
