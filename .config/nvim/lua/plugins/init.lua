@@ -1,6 +1,10 @@
 local plugins = {
 	require("plugins.gruvbox"),
 	{
+		"sphamba/smear-cursor.nvim",
+		opts = {},
+	},
+	{
 		"rcarriga/nvim-notify",
 		config = function()
 			local notify = require("notify")
