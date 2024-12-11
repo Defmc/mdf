@@ -5,24 +5,6 @@ local plugins = {
 		opts = {},
 	},
 	{
-		"rcarriga/nvim-notify",
-		config = function()
-			local notify = require("notify")
-			require("vim").notify = notify
-			print = function(...)
-				local print_safe_args = {}
-				local _ = { ... }
-				for i = 1, #_ do
-					table.insert(print_safe_args, tostring(_[i]))
-				end
-				notify(table.concat(print_safe_args, " "), "info")
-			end
-			require("notify").setup({
-				stages = "slide",
-			})
-		end,
-	},
-	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		opts = {
@@ -46,146 +28,41 @@ local plugins = {
 		end,
 	},
 	{
-		"simrat39/inlay-hints.nvim",
-		config = function()
-			require("plugins.lsp.inlayhints").setup()
-		end,
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
 		end,
 	},
-	{
-		"stevearc/conform.nvim",
-		config = function()
-			require("plugins.setups").conform()
-		end,
-	},
-	{
-		"akinsho/bufferline.nvim",
-		config = function()
-			require("plugins.bufferline")
-		end,
-	},
-	{
-		"Julian/lean.nvim",
-		event = { "BufReadPre *.lean", "BufNewFile *.lean" },
-
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			"nvim-lua/plenary.nvim",
-			-- you also will likely want nvim-cmp or some completion engine
-		},
-
-		-- see details below for full configuration options
-		opts = {
-			lsp = {},
-			mappings = true,
-		},
-
-		config = function()
-			require("lean").setup({ mappings = true })
-		end,
-	},
+	require("plugins.conform"),
+	require("plugins.bufferline"),
 	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
 		end,
 	},
-	{
-		"williamboman/mason.nvim",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			"williamboman/mason-lspconfig.nvim",
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			require("configs.maps").lsp()
-			require("plugins.setups").mason()
-			require("plugins.lsp.mason_updater").setup()
-			require("plugins.lsp.config")
-		end,
-	},
-	{
-		"RishabhRD/lspactions",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"weilbith/nvim-code-action-menu",
-			"nvim-lua/popup.nvim",
-			"neovim/nvim-lspconfig",
-		},
-		config = function()
-			require("plugins.lsp.actions").setup()
-		end,
-	},
+	require("plugins.lsp.mason"),
+	require("plugins.lsp.lspactions"),
 	{
 		"onsails/lspkind.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
 		config = function()
-			require("plugins.setups").lspkind()
+			require("lspkind").init({
+				symbol_map = require("configs.theme").icons,
+			})
 		end,
 	},
-	{
-		"hrsh7th/nvim-cmp",
-		after = "onsails/lspkind.nvim",
-		dependencies = {
-			{
-				"kdheepak/cmp-latex-symbols",
-				"hrsh7th/cmp-nvim-lsp",
-				"hrsh7th/cmp-buffer",
-				"hrsh7th/cmp-path",
-				"hrsh7th/cmp-cmdline",
-			},
-		},
-		config = function()
-			require("plugins.cmp")
-		end,
-	},
+	require("plugins.cmp"),
 	{
 		"L3MON4D3/LuaSnip",
 		after = "hrsh7th/nvim-cmp",
 	},
 	{ "saadparwaiz1/cmp_luasnip", after = "hrsh7th/nvim-cmp" },
 	{ "mg979/vim-visual-multi" },
-	{
-		"nvim-treesitter/nvim-treesitter",
-		config = function()
-			require("plugins.treesitter")
-		end,
-	},
-	require("plugins.lsp.trouble_setting"),
-	{
-		"kyazdani42/nvim-tree.lua",
-		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-		config = function()
-			require("plugins.nvimtree")()
-		end,
-		keys = {
-			{ "E", "<cmd>NvimTreeToggle<CR>", desc = "Toggle nvim tree" },
-		},
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-	},
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		init = function()
-			require("configs.maps").telescope()
-		end,
-		keys = {
-			{ "ff", "<cmd>Telescope find_files <CR>", desc = "Find files" },
-			{ "fg", "<cmd>Telescope live_grep <CR>", desc = "Live grep" },
-			{ "fb", "<cmd>Telescope buffers <CR>", desc = "Buffers" },
-			{ "fh", "<cmd>Telescope help_tags <CR>", desc = "Help tags" },
-			{ "fc", "<cmd>Telescope colorscheme <CR>", desc = "Colorscheme" },
-			{ "ft", "<cmd>Telescope treesitter <CR>", desc = "Treesitter" },
-		},
-		config = function()
-			require("plugins.setups").telescope()
-		end,
-	},
+	require("plugins.treesitter"),
+	require("plugins.trouble"),
+	require("plugins.nvimtree"),
+	require("plugins.telescopenvim"),
 	{
 		"numToStr/Comment.nvim",
 		config = function()
@@ -199,19 +76,12 @@ local plugins = {
 			require("startup").setup({ theme = "bad" })
 		end,
 	},
-	{
-		"SmiteshP/nvim-navic",
-		dependencies = "neovim/nvim-lspconfig",
-		after = "onsails/lspkind.nvim",
-		config = function()
-			require("plugins.lsp.navic")
-		end,
-	},
+	require("plugins.lsp.navic"),
 	{
 		"nvim-lualine/lualine.nvim",
-		after = { "folke/tokyonight", "onsails/lspkind.nvim" },
+		after = { "onsails/lspkind.nvim" },
 		config = function()
-			require("plugins.statusline")
+			require("lualine").setup()
 		end,
 	},
 	{
