@@ -2,7 +2,7 @@ return {
     "kyazdani42/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     config = function()
-        local icons = require("lspkind").symbol_map
+        local icons = require("configs.theme").icons
         require("nvim-tree").setup({
             auto_reload_on_write = true,
             disable_netrw = true,

@@ -8,7 +8,7 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup()
 
-        local icons = require("lspkind").symbol_map
+        local icons = require("configs.theme").icons
         -- local signs = { "Error", "Warn", "Hint", "Info" }
         -- for _, type in pairs(signs) do
         --     local hl = "DiagnosticSign" .. type
@@ -35,8 +35,16 @@ return {
                     else
                         return icons.Hint
                     end
-                end
-            }
+                end,
+            },
+        })
+
+        require("vim").o.updatetime = 1000
+        require("vim").api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            group = require("vim").api.nvim_create_augroup("float_diagnostic", { clear = true }),
+            callback = function()
+                require("vim").diagnostic.open_float(nil, { focus = false })
+            end,
         })
 
         require("mason-lspconfig").setup_handlers({
@@ -44,6 +52,10 @@ return {
                 require("lspconfig")[server_name].setup({})
                 require("vim").lsp.inlay_hint.enable(true)
             end,
+        })
+
+        require("vim").lsp.handlers["textDocument/hover"] = require("vim").lsp.with(require("vim").lsp.handlers.hover, {
+            border = "rounded",
         })
     end,
 }
