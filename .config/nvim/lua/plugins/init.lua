@@ -1,47 +1,33 @@
 local plugins = {
     require("plugins.gruvbox"),
+    -- require("plugins.noice"),
+    require("plugins.dapui"),
     require("plugins.dap"),
     require("plugins.lsp.mason_lspconfig"),
     require("plugins.which-key"),
     {
-        "folke/noice.nvim",
-        event = "VeryLazy",
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
         opts = {
-            -- add any options here
+            indent = {
+                char = '▏'
+            },
+            scope = {
+                enabled = false
+            },
         },
-        dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
-            "hrsh7th/nvim-cmp",
-        },
-    },
-    {
-        "nvim-telescope/telescope-ui-select.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim" },
-        config = function()
-            require("telescope").load_extension("ui-select")
-        end,
     },
     {
         "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup()
-        end,
+        opts = {}
     },
     require("plugins.conform"),
     require("plugins.bufferline"),
     {
         "windwp/nvim-autopairs",
-        config = function()
-            require("nvim-autopairs").setup()
-        end,
+        opts = {}
     },
     require("plugins.lsp.mason"),
-    require("plugins.lsp.lspactions"),
     {
         "onsails/lspkind.nvim",
         dependencies = { "neovim/nvim-lspconfig" },
@@ -54,9 +40,15 @@ local plugins = {
     require("plugins.cmp"),
     {
         "L3MON4D3/LuaSnip",
-        after = "hrsh7th/nvim-cmp",
+        dependencies = { "hrsh7th/nvim-cmp" },
     },
-    { "saadparwaiz1/cmp_luasnip", after = "hrsh7th/nvim-cmp" },
+    {
+        "saadparwaiz1/cmp_luasnip",
+        dependencies = {
+            "hrsh7th/nvim-cmp",
+            "L3MON4D3/LuaSnip",
+        },
+    },
     { "mg979/vim-visual-multi" },
     require("plugins.treesitter"),
     require("plugins.trouble"),
@@ -64,30 +56,24 @@ local plugins = {
     require("plugins.telescopenvim"),
     {
         "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end,
+        opts = {}
     },
     {
         "startup-nvim/startup.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-        config = function()
-            require("startup").setup({ theme = "bad" })
-        end,
+        opts = {
+            theme = "bad"
+        }
     },
     require("plugins.lsp.navic"),
     {
         "nvim-lualine/lualine.nvim",
         after = { "onsails/lspkind.nvim" },
-        config = function()
-            require("lualine").setup()
-        end,
+        opts = {}
     },
     {
         "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("colorizer").setup()
-        end,
+        opts = {}
     },
 }
 
@@ -107,7 +93,7 @@ require("vim").opt.rtp:prepend(lazypath)
 local opts = {
     root = require("vim").fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
     defaults = {
-        lazy = false,                                 -- should plugins be lazy-loaded?
+        lazy = false,                                    -- should plugins be lazy-loaded?
         version = nil,
         -- version = "*", -- enable this to try installing the latest stable versions of plugins
     },
@@ -117,7 +103,7 @@ local opts = {
         -- defaults for the `Lazy log` command
         -- log = { "-10" }, -- show the last 10 commits
         log = { "--since=3 days ago" }, -- show commits from the last 3 days
-        timeout = 120,            -- kill processes that take more than 2 minutes
+        timeout = 120,                  -- kill processes that take more than 2 minutes
         url_format = "https://github.com/%s.git",
     },
     dev = {
@@ -201,7 +187,7 @@ local opts = {
         -- automatically check for plugin updates
         enabled = false,
         concurrency = nil, ---@type number? set to 1 to check for updates very slowly
-        notify = true, -- get a notification when new updates are found
+        notify = true,    -- get a notification when new updates are found
         frequency = 3600, -- check for updates every hour
     },
     change_detection = {
@@ -221,11 +207,11 @@ local opts = {
             disable_events = { "VimEnter", "BufReadPre" },
             ttl = 3600 * 24 * 5, -- keep unused modules for up to 5 days
         },
-        reset_packpath = true, -- reset the package path to improve startup time
+        reset_packpath = true,   -- reset the package path to improve startup time
         rtp = {
-            reset = true, -- reset the runtime path to $VIMRUNTIME and your config directory
+            reset = true,        -- reset the runtime path to $VIMRUNTIME and your config directory
             ---@type string[]
-            paths = {},  -- add any custom paths here that you want to indluce in the rtp
+            paths = {},          -- add any custom paths here that you want to indluce in the rtp
             ---@type string[] list any plugins you want to disable here
             disabled_plugins = {
                 -- "gzip",

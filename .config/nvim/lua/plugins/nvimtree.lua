@@ -1,6 +1,10 @@
 return {
     "kyazdani42/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+    keys = {
+        { "E", "<cmd>NvimTreeToggle<CR>", desc = "toggle nvim tree" },
+    },
     config = function()
         local icons = require("configs.theme").icons
         require("nvim-tree").setup({
@@ -119,8 +123,4 @@ return {
             end,
         })
     end,
-    keys = {
-        { "E", "<cmd>NvimTreeToggle<CR>", desc = "toggle nvim tree" },
-    },
-    dependencies = { "kyazdani42/nvim-web-devicons" },
 }
