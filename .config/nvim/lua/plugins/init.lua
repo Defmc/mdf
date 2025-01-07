@@ -1,6 +1,6 @@
 local plugins = {
     require("plugins.gruvbox"),
-    -- require("plugins.noice"),
+    require("plugins.noice"),
     require("plugins.dapui"),
     require("plugins.dap"),
     require("plugins.lsp.mason_lspconfig"),

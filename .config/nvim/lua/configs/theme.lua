@@ -1,5 +1,7 @@
 local M = {}
 
+M.borderty = "single"
+
 M.border = function(hl_name)
     return {
         { "╭", hl_name },

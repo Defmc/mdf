@@ -13,5 +13,5 @@ echo "$url"
 
 date=$(curl --tlsv1.2 $url | sed -E 's/.*"datetime":"?([^,"]*)"?.*/\1/')
 echo "$date"
-date -s "$date"
-hwclock --systohc
+doas date -s "$date"
+doas hwclock --systohc

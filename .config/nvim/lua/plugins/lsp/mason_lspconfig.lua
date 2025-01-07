@@ -33,7 +33,7 @@ return {
             })
         end
 
-        local border = "single"
+        local border = require("configs.theme").borderty
 
         vim.o.updatetime = 1000
         vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -43,10 +43,10 @@ return {
             end,
         })
 
+        vim.lsp.inlay_hint.enable(true)
         require("mason-lspconfig").setup_handlers({
             function(server_name)
                 require("lspconfig")[server_name].setup({})
-                vim.lsp.inlay_hint.enable(true)
             end,
         })
 

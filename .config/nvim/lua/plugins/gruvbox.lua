@@ -12,8 +12,9 @@ return {
         })
         vim.cmd([[ colorscheme gruvbox ]])
         vim.cmd([[ hi clear SignColumn ]])
-        vim.cmd([[ highlight FloatBorder  guibg=none ]])
-        vim.cmd([[ highlight NormalFloat  guibg=none ]])
+        vim.cmd([[ hi FloatBorder  guibg=none ]])
+        vim.cmd([[ hi NormalFloat  guibg=none ]])
+        vim.cmd([[ hi Pmenu guibg=none ]])
     end,
     opts = ...,
 }
