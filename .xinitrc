@@ -6,4 +6,5 @@ picom -b --config ~/.config/picom/picom.conf
 feh --bg-scale ~/img/road.png
 xrdb -merge .Xresources
 doas ~/scripts/set_time2online.sh &
+unclutter &
 exec bspwm

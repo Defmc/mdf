@@ -5,25 +5,31 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
     },
-    keys = {
-        { "<leader>ca", vim.lsp.buf.code_action,    desc = "Show code actions" },
-        { "<leader>gd", vim.lsp.buf.declaration,    desc = "Goto declaration" },
-        { "<leader>gD", vim.lsp.buf.definition,     desc = "Goto definition" },
-        { "<leader>R",  vim.lsp.buf.rename,         desc = "Rename" },
-        { "<leader>gi", vim.lsp.buf.implementation, desc = "Goto implementation" },
-        { "<leader>r",  vim.lsp.buf.references,     desc = "References" },
-        { "K",          vim.lsp.buf.hover,          desc = "Hover" }
-    },
+    lazy = false,
     after = "williamboman/mason.nvim",
+    keys = {
+        { "<leader>gi", vim.lsp.buf.implementation,  desc = "Goto implementation" },
+        { "<leader>gd", vim.lsp.buf.declaration,     desc = "Goto declaration" },
+        { "<leader>gD", vim.lsp.buf.definition,      desc = "Goto definition" },
+        { "<leader>gT", vim.lsp.buf.type_definition, desc = "Goto type definition" },
+        { "<leader>ca", vim.lsp.buf.code_action,     desc = "Show code actions" },
+        { "<leader>R",  vim.lsp.buf.rename,          desc = "Rename variable" },
+        { "<leader>r",  vim.lsp.buf.references,      desc = "References" },
+        { "K",          vim.lsp.buf.hover,           desc = "Hover" }
+    },
     config = function()
         require("mason-lspconfig").setup()
 
         local icons = require("configs.theme").icons
+
+        -- Uses icons for diagnostics
         -- local signs = { "Error", "Warn", "Hint", "Info" }
         -- for _, type in pairs(signs) do
         --     local hl = "DiagnosticSign" .. type
         --     require("vim").fn.sign_define(hl, { text = icons[type], texthl = hl, numhl = hl })
         -- end
+
+        -- change line color according to sign type
         for _, diag in ipairs({ "Error", "Warn", "Info", "Hint" }) do
             vim.fn.sign_define("DiagnosticSign" .. diag, {
                 text = "",
@@ -65,7 +71,7 @@ return {
                 end,
             },
             float = {
-                border = { border }
+                border = border
             }
         })
 
