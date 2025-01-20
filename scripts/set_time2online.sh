@@ -1,17 +1,13 @@
 #!/bin/sh
 
-baseurl="http://www.worldtimeapi.org/api/timezone"
+baseurl="https://www.timeapi.io/api/time/current/zone?timeZone="
 area="America"
 location="Sao_Paulo"
 region=""
+url="$baseurl$area%2F$location"
 
-url="$baseurl/$area/$location"
-if [[ -z "$region" ]]; then
-    url="$url/$region"
-fi
 echo "$url"
-
-date=$(curl --tlsv1.2 $url | sed -E 's/.*"datetime":"?([^,"]*)"?.*/\1/')
+date=$(curl -X 'GET' $url -H 'accept: application/json' | sed -E 's/.*"dateTime":"?([^,"]*)"?.*/\1/')
 echo "$date"
 doas date -s "$date"
 doas hwclock --systohc
