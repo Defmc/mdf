@@ -28,7 +28,6 @@ up_files() {
   up_file .cargo config.toml &
   up_file .cargo env &
   up_file . scripts &
-  up_file . .gdbinit &
   up_file .config bspwm &
   up_file img . &
   up_file .themes TokyoNight &
