@@ -1,5 +1,4 @@
 ~/scripts/min_rxfetch.sh
 
-for file in $(ls ~/scripts/autorun); do
-    source ~/scripts/autorun/$file
-done
+source "$HOME/scripts/autorun/env.sh" "$HOME/scripts/autorun/prog" "$HOME/scripts/autorun/aliases.sh"
+
