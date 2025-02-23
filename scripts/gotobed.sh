@@ -1,6 +1,6 @@
 #!/bin/sh
 
-doas ~/scripts/set_time2online.sh
+~/scripts/set_time2online.sh
 cd ~/dev/unfoback
 deno run --allow-all app.js
 paru -Syyu --noconfirm
