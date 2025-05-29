@@ -54,7 +54,7 @@ apps.editor: nvim
 #else
 #endif
 
-*.color0:       #1d2021
+*.color0:       #000000
 *.color8:       #665C54
 
 *.color1:       #FB4934
