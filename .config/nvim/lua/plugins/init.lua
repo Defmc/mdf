@@ -25,7 +25,8 @@ local plugins = {
     require("plugins.bufferline"),
     {
         "windwp/nvim-autopairs",
-        opts = {}
+	event = "InsertEnter",
+	config = true,
     },
     require("plugins.lsp.mason"),
     {
