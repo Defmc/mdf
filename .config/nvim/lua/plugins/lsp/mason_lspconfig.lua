@@ -19,16 +19,14 @@ return {
         { "K",          vim.lsp.buf.hover,           desc = "Hover" }
     },
     config = function()
-        require("mason-lspconfig").setup()
-
         local icons = require("configs.theme").icons
 
         -- Uses icons for diagnostics
-        -- local signs = { "Error", "Warn", "Hint", "Info" }
-        -- for _, type in pairs(signs) do
-        --     local hl = "DiagnosticSign" .. type
-        --     require("vim").fn.sign_define(hl, { text = icons[type], texthl = hl, numhl = hl })
-        -- end
+        local signs = { "Error", "Warn", "Hint", "Info" }
+        for _, type in pairs(signs) do
+            local hl = "DiagnosticSign" .. type
+            require("vim").fn.sign_define(hl, { text = icons[type], texthl = hl, numhl = hl })
+        end
 
         -- change line color according to sign type
         for _, diag in ipairs({ "Error", "Warn", "Info", "Hint" }) do
@@ -51,11 +49,20 @@ return {
         })
 
         vim.lsp.inlay_hint.enable(true)
-        -- require("mason-lspconfig").setup_handlers({
-        --     function(server_name)
-        --         require("lspconfig")[server_name].setup({})
-        --     end,
-        -- })
+
+        local navic = require("nvim-navic")
+        local on_attach = function(client, bufnr)
+            if client.server_capabilities.documentSymbolProvider then
+                print("attaching nvim-navic")
+                navic.attach(client, bufnr)
+            else
+                print("no support founded for nvim-navic")
+            end
+        end
+
+        vim.lsp.config("*", {
+            on_attach = on_attach
+        })
 
         vim.diagnostic.config({
             virtual_text = {
@@ -87,5 +94,7 @@ return {
                 border = border
             }
         )
+
+        require("mason-lspconfig").setup()
     end,
 }

@@ -59,4 +59,14 @@ M.icons = {
     Removed = "",
 }
 
+M.palette = function()
+    local matchs = {
+        gruvbox = function()
+            return require("gruvbox").palette
+        end
+    }
+    local fallback = matchs[require("vim").g.colors_name or nil] or function() end
+    return fallback()
+end
+
 return M

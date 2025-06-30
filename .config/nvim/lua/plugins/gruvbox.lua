@@ -10,11 +10,11 @@ return {
                 dark0 = "#1d2021",
             },
         })
-        vim.cmd([[ colorscheme gruvbox ]])
         vim.cmd([[ hi clear SignColumn ]])
         vim.cmd([[ hi FloatBorder  guibg=none ]])
         vim.cmd([[ hi NormalFloat  guibg=none ]])
         vim.cmd([[ hi Pmenu guibg=none ]])
+        vim.cmd([[ colorscheme gruvbox ]])
     end,
     opts = ...,
 }

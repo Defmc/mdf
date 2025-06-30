@@ -25,8 +25,8 @@ local plugins = {
     require("plugins.bufferline"),
     {
         "windwp/nvim-autopairs",
-	event = "InsertEnter",
-	config = true,
+        event = "InsertEnter",
+        config = true,
     },
     require("plugins.lsp.mason"),
     {
@@ -70,8 +70,8 @@ local plugins = {
     {
         "nvim-lualine/lualine.nvim",
         after = { "onsails/lspkind.nvim" },
-        opts = {}
     },
+    require("plugins.statusline"),
     {
         "norcalli/nvim-colorizer.lua",
         opts = {}
