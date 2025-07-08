@@ -6,18 +6,6 @@ local plugins = {
     require("plugins.lsp.mason_lspconfig"),
     require("plugins.which-key"),
     {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {
-            indent = {
-                char = '▏'
-            },
-            scope = {
-                enabled = false
-            },
-        },
-    },
-    {
         "lewis6991/gitsigns.nvim",
         opts = {}
     },
@@ -53,7 +41,6 @@ local plugins = {
     { "mg979/vim-visual-multi" },
     require("plugins.treesitter"),
     require("plugins.trouble"),
-    require("plugins.nvimtree"),
     require("plugins.telescopenvim"),
     {
         "numToStr/Comment.nvim",
@@ -76,6 +63,14 @@ local plugins = {
         "norcalli/nvim-colorizer.lua",
         opts = {}
     },
+    {
+        dependencies = { "nvim-telescope/telescope.nvim" },
+        "nvim-telescope/telescope-ui-select.nvim",
+        config = function()
+            require("telescope").load_extension("ui-select")
+        end
+    },
+    require("plugins.snacks")
 }
 
 local lazypath = require("vim").fn.stdpath("data") .. "/lazy/lazy.nvim"
