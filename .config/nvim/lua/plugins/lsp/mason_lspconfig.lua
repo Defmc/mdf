@@ -9,14 +9,16 @@ return {
     lazy = false,
     after = "williamboman/mason.nvim",
     keys = {
-        { "<leader>gi", vim.lsp.buf.implementation,  desc = "Goto implementation" },
-        { "<leader>gd", vim.lsp.buf.declaration,     desc = "Goto declaration" },
-        { "<leader>gD", vim.lsp.buf.definition,      desc = "Goto definition" },
-        { "<leader>gT", vim.lsp.buf.type_definition, desc = "Goto type definition" },
-        { "<leader>ca", vim.lsp.buf.code_action,     desc = "Show code actions" },
-        { "<leader>R",  vim.lsp.buf.rename,          desc = "Rename variable" },
-        { "<leader>r",  vim.lsp.buf.references,      desc = "References" },
-        { "K",          vim.lsp.buf.hover,           desc = "Hover" }
+        { "<leader>gi", vim.lsp.buf.implementation,                           desc = "Goto implementation" },
+        { "<leader>gd", vim.lsp.buf.declaration,                              desc = "Goto declaration" },
+        { "<leader>gD", vim.lsp.buf.definition,                               desc = "Goto definition" },
+        { "<leader>gT", vim.lsp.buf.type_definition,                          desc = "Goto type definition" },
+        { "<leader>ca", vim.lsp.buf.code_action,                              desc = "Show code actions" },
+        { "<leader>R",  vim.lsp.buf.rename,                                   desc = "Rename variable" },
+        { "<leader>r",  vim.lsp.buf.references,                               desc = "References" },
+        { "K",          vim.lsp.buf.hover,                                    desc = "Hover" },
+        { "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
+        { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
     },
     config = function()
         local icons = require("configs.theme").icons
