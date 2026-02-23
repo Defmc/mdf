@@ -7,11 +7,6 @@ up_file() {
   log_proc "cp -r $HOME/$1/$2 $HOME/dev/mdf/$1/$2" "Copying $HOME/$1/$2"
 }
 
-root_up_file() {
-  mkdir -p "$HOME/dev/mdf/$1"
-  log_proc "cp -r /$1/$2 $HOME/dev/mdf/$1/$2" "Copying /$1/$2"
-}
-
 up_files() {
   up_file . .Xresources &
   up_file . .xinitrc &
@@ -22,7 +17,6 @@ up_files() {
   up_file .config/picom picom.conf &
   up_file .config/nvim lua &
   up_file .config/nvim init.lua &
-  up_file .config lemonbar &
   up_file .config polybar &
   up_file .config sxhkd &
   up_file .cargo config.toml &
@@ -30,9 +24,7 @@ up_files() {
   up_file . scripts &
   up_file .config bspwm &
   up_file img . &
-  up_file .themes TokyoNight &
   up_file .oh-my-zsh/custom themes &
-  root_up_file etc makepkg.conf &
   wait
 }
 
@@ -51,6 +43,8 @@ rm_buff() {
   mkdir "$HOME/dev/mdf"
   mv "$HOME/dev/.git" "$HOME/dev/mdf/.git"
 }
+
+clear
 
 log_proc "rm_buff" "Removing old buffer"
 up_files

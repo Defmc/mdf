@@ -28,7 +28,7 @@ c10=${bgwhite}
 c11=${bold}
 
 space="     "
-echo -e "${space}${c11}welcome!${c0}\n\
+echo "${space}${c11}welcome!${c0}\n\
 ${space}  ${c3}•${c8}_${c3}•${c0}\n\
 ${space}  ${c8}${c0}${c9}oo${c0}${c8}|${c0}\n\
 ${space} ${c8}/${c0}${c10} ${c0}${c8}'\'${c0}\n\

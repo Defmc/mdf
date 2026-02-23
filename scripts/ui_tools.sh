@@ -3,11 +3,12 @@
 . "$HOME/scripts/colors.sh"
 
 log_proc() {
-    printf "\033[s$FG_RESET[..] $2...\n"
+    printf "${FG_RESET}[..] %s...\n" "$2"
     err=$(eval "$1" 2>&1)
-    if [ $? -eq 0 ]; then
-        printf "\033[u$FG_GREEN[Ok]$RESET $2...\n"
+    _rc=$?
+    if [ $_rc -eq 0 ]; then
+        printf "${FG_GREEN}[Ok]${RESET} %s...\n" "$2"
     else
-        printf "\033[u$FG_RED[Er]$RESET $2: \n\t $err\n"
+        printf "${FG_RED}[Er]${RESET} %s:\n\t%s\n" "$2" "$err"
     fi
 }
