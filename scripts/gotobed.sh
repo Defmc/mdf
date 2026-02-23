@@ -1,11 +1,15 @@
 #!/bin/sh
 
-~/scripts/set_time2online.sh
+. /etc/os-release
+
 cd ~/dev/unfoback
 deno run --allow-all app.js
-paru -Syyu --noconfirm
-stack upgrade
-zsh -c "source ~/.zshrc && omz update && exit"
+
+case "$NAME" in
+    "Void") xbps-install -Su -y ;;
+    "Arch") paru -Syyu --noconfirm ;;
+esac
+
+~/.oh-my-zsh/tools/upgrade.sh
 rustup update
 ~/scripts/up_config.sh
-~/scripts/clear_cache.sh
