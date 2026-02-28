@@ -19,6 +19,7 @@ up_files() {
   up_file .config/niri config.kdl &
   up_file .config/foot foot.ini &
   up_file .config/fuzzel fuzzel.ini &
+  up_file .config/lemonbar . &
   up_file .config polybar &
   up_file .config sxhkd &
   up_file .cargo config.toml &
