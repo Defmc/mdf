@@ -41,10 +41,10 @@ up_git() {
 }
 
 rm_buff() {
-  cp -r "$HOME/dev/mdf/.git" "/tmp/.git"
+  cp -r "$HOME/dev/mdf/.git" "/tmp/mdf.git"
   rm -rf "$HOME/dev/mdf"
   mkdir "$HOME/dev/mdf"
-  mv "/tmp/.git" "$HOME/dev/mdf/.git"
+  mv "/tmp/mdf.git" "$HOME/dev/mdf/.git"
 }
 
 clear

@@ -3,7 +3,7 @@
 . "$HOME/scripts/colors.sh"
 
 log_proc() {
-    printf "${FG_RESET}[..] %s...\n" "$2"
+    printf "${FG_RESET}[..] %s..." "$2"
     err=$(eval "$1" 2>&1)
     _rc=$?
     if [ $_rc -eq 0 ]; then
