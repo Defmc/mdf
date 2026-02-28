@@ -21,7 +21,7 @@ xterm*faceSize: 12
 
 ! Statusbar
 *.bottom: "n"
-*.bar: "polybar"
+*.bar: "lemonbar"
 
 ! Dmenu
 dmenu.topbar: 0

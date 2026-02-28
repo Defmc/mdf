@@ -16,6 +16,8 @@ up_files() {
   up_file .config/picom picom.conf &
   up_file .config/nvim lua &
   up_file .config/nvim init.lua &
+  up_file .config/niri config.kdl &
+  up_file .config/foot foot.ini &
   up_file .config polybar &
   up_file .config sxhkd &
   up_file .cargo config.toml &

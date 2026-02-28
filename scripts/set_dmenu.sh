@@ -10,4 +10,4 @@ curl "https://gist.githubusercontent.com/Defmc/1467b4679153e7daa9d9079071bc12cc/
 
 git apply x.diff
 
-doas make clean install
+sudo make clean install

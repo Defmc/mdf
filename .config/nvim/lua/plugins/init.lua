@@ -60,8 +60,8 @@ local plugins = {
     },
     require("plugins.statusline"),
     {
-        "norcalli/nvim-colorizer.lua",
-        opts = {}
+        "catgoose/nvim-colorizer.lua",
+        event = "BufReadPre"
     },
     {
         dependencies = { "nvim-telescope/telescope.nvim" },
