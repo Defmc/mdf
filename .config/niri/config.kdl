@@ -466,7 +466,7 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    Mod+O { toggle-overview; }
 
     Mod+Shift+Q repeat=false { close-window; }
 
