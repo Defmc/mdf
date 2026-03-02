@@ -10,7 +10,6 @@ local plugins = {
         opts = {}
     },
     require("plugins.conform"),
-    require("plugins.bufferline"),
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",

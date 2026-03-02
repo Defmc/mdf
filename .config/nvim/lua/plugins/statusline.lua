@@ -1,5 +1,6 @@
 return {
     'nvim-lualine/lualine.nvim',
+    after = "ellisonleao/gruvbox.nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
         local icons = require("configs.theme").icons
@@ -10,9 +11,9 @@ return {
             colored = true, -- Displays a colored diff status if set to true
             diff_color = {
                 -- Same color values as the general color option can be used here.
-                added = { fg = color_theme.green },                                                                     -- Changes the diff's added color
-                modified = { fg = color_theme.orange },                                                                 -- Changes the diff's modified color
-                removed = { fg = color_theme.red },                                                                     -- Changes the diff's removed color you
+                added = { fg = color_theme.bright_green },                                                              -- Changes the diff's added color
+                modified = { fg = color_theme.bright_yellow },                                                          -- Changes the diff's modified color
+                removed = { fg = color_theme.bright_red },                                                              -- Changes the diff's removed color you
             },
             symbols = { added = icons.Added .. " ", modified = icons.Modified .. " ", removed = icons.Removed .. " " }, -- Changes the symbols used by the diff.
             source = function()
@@ -54,7 +55,7 @@ return {
                 local frame = math.floor(ms / 120) % #spinners
                 return (table.concat(status, " | ") .. " " .. spinners[frame + 1]) or ""
             end,
-            color = { fg = color_theme.orange },
+            color = { fg = color_theme.bright_yellow },
             separator = "",
         }
 
@@ -74,7 +75,7 @@ return {
                 end
                 return msg
             end,
-            color = { fg = color_theme.orange },
+            color = { fg = color_theme.bright_yellow },
         }
 
         local vim = require("vim")
@@ -102,8 +103,38 @@ return {
             color = { gui = "bold" },
         }
 
+        local buffers_config = {
+            "buffers",
+            use_mode_colors = false,
+            symbols = {
+                modified = " ●",
+                alternate_file = "",
+                directory = " "
+            },
+            buffers_color = {
+                inactive = { bg = '#282828' },
+                active = { bg = "#1d2021", gui = "bold", fg = "#fbf1c7" }
+            }
+        }
+
+        local custom_theme = require("lualine.themes.auto")
+        vim.print(
+            custom_theme.command.a.fg)
+        custom_theme.normal.c.bg = "#282828"
+        custom_theme.insert.c.bg = "#282828"
+        custom_theme.visual.c.bg = "#282828"
+        custom_theme.replace.c.bg = "#282828"
+        custom_theme.inactive.c.bg = "#282828"
+        custom_theme.command.c.bg = "#282828"
+        -- custom_theme.back1.c.bg = "#282828"
+        -- custom_theme.fore.c.bg = "#282828"
+        -- custom_theme.back2.c.bg = "#282828"
+
         require("lualine").setup({
-            options = { theme = "auto" },
+            options = { theme = custom_theme },
+            globalstatus = true,
+            always_show_tabline = true,
+            extensions = { "nvim-tree" },
             sections = {
                 lualine_a = { mode_highlight_config },
                 lualine_b = { { "b:gitsigns_head", icon = "󰘬" }, diff_config, "diagnostics" },
@@ -112,6 +143,14 @@ return {
                 lualine_y = { "progress" },
                 lualine_z = { "location" },
             },
+            tabline = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = { buffers_config },
+                lualine_x = {},
+                lualine_y = {},
+                lualine_z = { 'branch' }
+            }
         })
     end
 }
