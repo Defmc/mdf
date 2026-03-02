@@ -7,11 +7,11 @@ M.terminal = function()
     map("", "<A-v>", ":vsplit | terminal<CR>")
     map("", "<A-s>", ":split | terminal<CR>")
     map("", "<A-f>", [[ :lua require("core.term").toggle_float_term() <CR> ]])
-    map("t", "<Tab><Esc>", "<C-\\><C-n>")
+    map("t", "<Esc><Esc>", "<C-\\><C-n>")
 end
 
 M.editor = function()
-    map("n", "Q", ":bd<CR>")
+    map("n", "<A-q>", ":bd<CR>")
     map("n", "<A-l>", "<Cmd>bnext<CR>")
     map("n", "<A-h>", "<Cmd>bprevious<CR>")
     map("n", "<C-S-Down>", ":m+1<CR>")

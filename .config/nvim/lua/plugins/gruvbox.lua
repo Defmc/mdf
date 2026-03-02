@@ -11,10 +11,10 @@ return {
                 dark0 = "#1d2021",
             },
             overrides = {
-                Pmenu = { bg = "#1d2021" },     -- Custom menu colors
-                TabLineSel = { bg = "#1d2021" },
-                PmenuSel = { bg = "#1d2021" },  -- Custom selection colors
-                PmenuSbar = { bg = "#1d2021" }, -- Custom scrollbar
+                Pmenu = { bg = "#1d2021" }, -- Custom menu colors
+                -- TabLineSel = { bg = "#1d2021" },
+                -- PmenuSel = { bg = "#1d2021" },  -- Custom selection colors
+                -- PmenuSbar = { bg = "#1d2021" }, -- Custom scrollbar
                 -- PmenuThumb = { bg = "#1d2021" }, -- Custom thumb
             }
         })
