@@ -436,6 +436,7 @@ binds {
     Mod+Return hotkey-overlay-title="New instante of a footclient" { spawn "footclient"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Alt+Shift+Return hotkey-overlay-title="Open a project in Neovide" { spawn-sh "~/scripts/open_code_editor.sh"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

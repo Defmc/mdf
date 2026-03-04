@@ -45,13 +45,6 @@ local plugins = {
         "numToStr/Comment.nvim",
         opts = {}
     },
-    {
-        "startup-nvim/startup.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-        opts = {
-            theme = "bad"
-        }
-    },
     require("plugins.lsp.navic"),
     {
         "nvim-lualine/lualine.nvim",

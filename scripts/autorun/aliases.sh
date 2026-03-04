@@ -8,9 +8,8 @@ alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
 
 # Apps
 alias hp="hyperfine"
-alias ls="exa --icons --long"
-alias cat="bat -p"
-alias grep="rg"
+alias exa="exa --icons --long"
+alias bat="bat -p --theme gruvbox-dark"
 
 # Git
 alias gt="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
