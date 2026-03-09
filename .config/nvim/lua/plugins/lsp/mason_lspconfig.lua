@@ -24,21 +24,41 @@ return {
         local icons = require("configs.theme").icons
 
         -- Uses icons for diagnostics
-        local signs = { "Error", "Warn", "Hint", "Info" }
-        for _, type in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            require("vim").fn.sign_define(hl, { text = icons[type], texthl = hl, numhl = hl })
-        end
+        -- local signs = { "Error", "Warn", "Hint", "Info" }
+        -- for _, type in pairs(signs) do
+        --     local hl = "DiagnosticSign" .. type
+        --     require("vim").fn.sign_define(hl, { text = icons[type], texthl = hl, numhl = hl })
+        -- end
+
+        require("vim").diagnostic.config {
+            underline = true,
+            virtual_text = {
+                prefix = "",
+                severity = nil,
+                source = "if_many",
+                format = nil,
+            },
+            signs = {
+                text = {
+                    [require("vim").diagnostic.severity.ERROR] = icons["Error"],
+                    [require("vim").diagnostic.severity.WARN] = icons["Warn"],
+                    [require("vim").diagnostic.severity.INFO] = icons["Info"],
+                    [require("vim").diagnostic.severity.HINT] = icons["Hint"]
+                }
+            },
+            severity_sort = true,
+            update_in_insert = false,
+        }
 
         -- change line color according to sign type
-        for _, diag in ipairs({ "Error", "Warn", "Info", "Hint" }) do
-            vim.fn.sign_define("DiagnosticSign" .. diag, {
-                text = "",
-                texthl = "DiagnosticSign" .. diag,
-                linehl = "",
-                numhl = "DiagnosticVirtualText" .. diag,
-            })
-        end
+        -- for _, diag in ipairs({ "Error", "Warn", "Info", "Hint" }) do
+        --     vim.fn.sign_define("DiagnosticSign" .. diag, {
+        --         text = "",
+        --         texthl = "DiagnosticSign" .. diag,
+        --         linehl = "",
+        --         numhl = "DiagnosticVirtualText" .. diag,
+        --     })
+        -- end
 
         local border = require("configs.theme").borderty
 
