@@ -238,3 +238,4 @@ local opts = {
 }
 
 require("lazy").setup(plugins, opts)
+return plugins

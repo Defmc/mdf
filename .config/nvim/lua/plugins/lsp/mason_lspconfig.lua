@@ -88,17 +88,20 @@ return {
             }
         })
 
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-            vim.lsp.handlers.hover, {
-                border = border
+        vim.lsp.config('*', {
+            handlers = {
+                ['textDocument/hover'] = function(err, result, ctx, config)
+                    config = config or {}
+                    config.border = border
+                    vim.lsp.handlers.hover(err, result, ctx, config)
+                end,
+                ['textDocument/signatureHelp'] = function(err, result, ctx, config)
+                    config = config or {}
+                    config.border = border
+                    vim.lsp.handlers.signature_help(err, result, ctx, config)
+                end,
             }
-        )
-
-        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-            vim.lsp.handlers.signature_help, {
-                border = border
-            }
-        )
+        })
 
         require("mason-lspconfig").setup()
     end,
