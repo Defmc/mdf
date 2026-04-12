@@ -1,5 +1,5 @@
 #!/bin/sh
-[ ! -z "$DISPLAY" ] && export EDITOR=$(xrdb -get "apps.editor")
+[ ! -z "$DISPLAY" ] && export EDITOR=nvim
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="lambda"
 export DISABLE_FZF_AUTO_COMPLETION="false"

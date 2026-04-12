@@ -1,18 +1,9 @@
 #!/bin/sh
 
-# System infos
-alias mem='free --mega'
-
-# User managment
-alias keyboard='setxkbmap -model abnt2 -layout br -variant abnt2'
-
 # Apps
 alias hp="hyperfine"
-alias exa="exa --icons --long"
+alias lsw="exa --icons --long --all --tree"
 alias bat="bat -p --theme gruvbox-dark"
 
 # Git
 alias gt="git log --graph --decorate --pretty=oneline --abbrev-commit --all"
-
-# Debugging
-alias gdb="gdb -q"
