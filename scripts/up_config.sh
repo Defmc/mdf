@@ -12,6 +12,7 @@ up_files() {
   up_file . .xinitrc
   up_file .icons .
   up_file . .zshrc
+  up_file . .themes
   up_file .config gtk-3.0
   up_file .config/picom picom.conf
   up_file .config/nvim lua
