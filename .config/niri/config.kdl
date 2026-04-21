@@ -144,9 +144,9 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    // default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
+    default-column-width {}
 
     // By default focus ring and border are rendered as a solid background rectangle
     // behind windows. That is, they will show up through semitransparent windows.
@@ -291,7 +291,8 @@ layer-rule {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
+spawn-sh-at-startup "gammastep -b 1:1 -O 3500"
 spawn-sh-at-startup "wbg -s ~/img/wallpaper/gruvbox/dock.png"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
