@@ -3,10 +3,6 @@ local map = require("core.utils").map
 local M = {}
 
 M.terminal = function()
-    map("", "<A-w>", ":terminal<CR>")
-    map("", "<A-v>", ":vsplit | terminal<CR>")
-    map("", "<A-s>", ":split | terminal<CR>")
-    map("", "<A-f>", [[ :lua require("core.term").toggle_float_term() <CR> ]])
     map("t", "<A-Esc>", "<C-\\><C-n>")
 end
 
