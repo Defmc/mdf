@@ -65,7 +65,7 @@ M.palette = function()
             return require("gruvbox").palette
         end
     }
-    local fallback = matchs[require("vim").g.colors_name or nil] or function() end
+    local fallback = matchs[vim.g.colors_name or nil] or function() end
     return fallback()
 end
 

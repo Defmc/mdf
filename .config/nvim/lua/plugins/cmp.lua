@@ -1,6 +1,5 @@
 return {
     "hrsh7th/nvim-cmp",
-    after = "onsails/lspkind.nvim",
     dependencies = {
         {
             "kdheepak/cmp-latex-symbols",
@@ -8,27 +7,26 @@ return {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
+            "onsails/lspkind.nvim",
+            "L3MON4D3/LuaSnip",
         },
     },
     config = function()
         local cmp = require("cmp")
 
-        require("vim").opt.completeopt = "menuone,noselect"
+        vim.opt.completeopt = "menuone,noselect"
 
-        local cmp_window = require("cmp.utils.window")
         local border = require("configs.theme").border
-
-        function cmp_window:has_scrollbar()
-            return false
-        end
 
         local options = {
             window = {
                 completion = {
                     border = border("CmpBorder"),
+                    scrollbar = false
                 },
                 documentation = {
                     border = border("CmpDocBorder"),
+                    scrollbar = false
                 },
             },
             snippet = {
@@ -44,9 +42,9 @@ return {
 
                     -- The function below will be called before any actual modifications from lspkind
                     -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-                    before = function(entry, vim_item)
-                        return vim_item
-                    end,
+                    -- before = function(_entry, vim_item)
+                    --     return vim_item
+                    -- end,
                 }),
             },
             mapping = {
@@ -64,10 +62,7 @@ return {
                     if cmp.visible() then
                         cmp.select_next_item()
                     elseif require("luasnip").expand_or_jumpable() then
-                        require("vim").fn.feedkeys(
-                            require("vim").api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
-                            ""
-                        )
+                        require("luasnip").expand_or_jump()
                     else
                         fallback()
                     end
@@ -79,10 +74,7 @@ return {
                     if cmp.visible() then
                         cmp.select_prev_item()
                     elseif require("luasnip").jumpable(-1) then
-                        require("vim").fn.feedkeys(
-                            require("vim").api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true),
-                            ""
-                        )
+                        require("luasnip").jump(-1)
                     else
                         fallback()
                     end
@@ -95,9 +87,7 @@ return {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "buffer" },
-                { name = "nvim_lua" },
                 { name = "path" },
-                { name = "copilot" },
                 { name = "latex_symbols", options = { strategy = 0 } },
             },
         }

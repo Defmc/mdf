@@ -12,7 +12,7 @@ return {
     },
     config = function()
         require("dapui").setup()
-        -- require("vim").fn.sign_define('DapBreakpoint',
+        -- vim.fn.sign_define('DapBreakpoint',
         --     { text = '', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
     end,
 }

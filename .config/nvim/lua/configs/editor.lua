@@ -1,15 +1,15 @@
-require("vim").g.mapleader = " "
-require("vim").opt.termguicolors = true
+vim.g.mapleader = " "
+vim.opt.termguicolors = true
 local maps = require("configs.maps")
 
 maps.editor()
 maps.terminal()
 
-require("vim").o.number = true
-require("vim").o.tabstop = 4
-require("vim").o.softtabstop = 4
-require("vim").o.shiftwidth = 4
-require("vim").o.expandtab = true
-require("vim").o.clipboard = "unnamedplus"
-require("vim").o.scrolloff = 4
-require("vim").o.incsearch = true
+vim.o.number = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.clipboard = "unnamedplus"
+vim.o.scrolloff = 4
+vim.o.incsearch = true

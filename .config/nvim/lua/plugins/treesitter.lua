@@ -4,7 +4,6 @@ return {
         ensure_installed = {},
         highlight = {
             enable = true,
-            use_languagetree = true,
         },
     }
 }

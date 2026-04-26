@@ -1,4 +1,4 @@
-require("vim").loader.enable()
+vim.loader.enable()
 
 require("configs")
 require("plugins")

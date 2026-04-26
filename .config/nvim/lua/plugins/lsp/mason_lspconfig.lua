@@ -1,5 +1,3 @@
-local vim = require("vim")
-
 return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
@@ -7,30 +5,22 @@ return {
         "neovim/nvim-lspconfig"
     },
     lazy = false,
-    after = "williamboman/mason.nvim",
     keys = {
-        { "<leader>gi", vim.lsp.buf.implementation,                           desc = "Goto implementation" },
-        { "<leader>gd", vim.lsp.buf.declaration,                              desc = "Goto declaration" },
-        { "<leader>gD", vim.lsp.buf.definition,                               desc = "Goto definition" },
-        { "<leader>gT", vim.lsp.buf.type_definition,                          desc = "Goto type definition" },
-        { "<leader>ca", vim.lsp.buf.code_action,                              desc = "Show code actions" },
-        { "<leader>R",  vim.lsp.buf.rename,                                   desc = "Rename variable" },
-        { "<leader>r",  vim.lsp.buf.references,                               desc = "References" },
-        { "K",          vim.lsp.buf.hover,                                    desc = "Hover" },
-        { "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
-        { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+        { "<leader>gi", function() vim.lsp.buf.implementation() end,                                                            desc = "Goto implementation" },
+        { "<leader>gd", function() vim.lsp.buf.declaration() end,                                                               desc = "Goto declaration" },
+        { "<leader>gD", function() vim.lsp.buf.definition() end,                                                                desc = "Goto definition" },
+        { "<leader>gT", function() vim.lsp.buf.type_definition() end,                                                           desc = "Goto type definition" },
+        { "<leader>ca", function() vim.lsp.buf.code_action() end,                                                               desc = "Show code actions" },
+        { "<leader>R",  function() vim.lsp.buf.rename() end,                                                                    desc = "Rename variable" },
+        { "<leader>r",  function() vim.lsp.buf.references() end,                                                                desc = "References" },
+        { "K",          function() vim.lsp.buf.hover({ border = require("configs.theme").border("FloatBorder") }) end,          desc = "Hover" },
+        { "<leader>s",  function() vim.lsp.buf.signature_help({ border = require("configs.theme").border("FloatBorder") }) end, desc = "Signature help" },
     },
     config = function()
         local icons = require("configs.theme").icons
 
-        require("vim").diagnostic.config {
+        vim.diagnostic.config {
             underline = true,
-            virtual_text = {
-                prefix = "",
-                severity = nil,
-                source = "if_many",
-                format = nil,
-            },
             signs = {
                 text = {
                     [vim.diagnostic.severity.ERROR] = icons["Error"],
@@ -41,35 +31,6 @@ return {
             },
             severity_sort = true,
             update_in_insert = false,
-        }
-
-        local border = require("configs.theme").borderty
-
-        vim.o.updatetime = 1000
-        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-            group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
-            callback = function()
-                vim.diagnostic.open_float(nil, { focus = false })
-            end,
-        })
-
-        vim.lsp.inlay_hint.enable(true)
-
-        local navic = require("nvim-navic")
-        local on_attach = function(client, bufnr)
-            if client.server_capabilities.documentSymbolProvider then
-                print("attaching nvim-navic")
-                navic.attach(client, bufnr)
-            else
-                print("no support founded for nvim-navic")
-            end
-        end
-
-        vim.lsp.config("*", {
-            on_attach = on_attach
-        })
-
-        vim.diagnostic.config({
             virtual_text = {
                 prefix = function(diagnostic)
                     if diagnostic.severity == vim.diagnostic.severity.ERROR then
@@ -84,22 +45,62 @@ return {
                 end,
             },
             float = {
-                border = border
+                border = require("configs.theme").border("DiagnosticBorder")
             }
+        }
+
+        vim.o.updatetime = 1000
+        vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+            group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+            callback = function()
+                vim.diagnostic.open_float(nil, { focus = false })
+            end,
         })
 
-        vim.lsp.config('*', {
-            handlers = {
-                ['textDocument/hover'] = function(err, result, ctx, config)
-                    config = config or {}
-                    config.border = border
-                    vim.lsp.handlers.hover(err, result, ctx, config)
-                end,
-                ['textDocument/signatureHelp'] = function(err, result, ctx, config)
-                    config = config or {}
-                    config.border = border
-                    vim.lsp.handlers.signature_help(err, result, ctx, config)
-                end,
+        vim.lsp.inlay_hint.enable(true)
+
+        local navic = require("nvim-navic")
+        local on_attach = function(client, bufnr)
+            if client.server_capabilities.documentSymbolProvider then
+                navic.attach(client, bufnr)
+            else
+                print("no support founded for nvim-navic")
+            end
+        end
+
+        vim.lsp.config("*", {
+            on_attach = on_attach
+        })
+        vim.lsp.config('lua_ls', {
+            settings = {
+                Lua = {
+                    runtime = {
+                        version = 'LuaJIT',
+                    },
+                    diagnostics = {
+                        globals = { 'vim', 'require' },
+                    },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                    telemetry = {
+                        enable = false,
+                    },
+                },
+            },
+        })
+        vim.lsp.config('rust_analyzer', {
+            settings = {
+                ['rust-analyzer'] = {
+                    checkOnSave = false,
+                }
+            }
+        })
+        vim.lsp.config('clangd', {
+            cmd = {
+                'clangd',
+                '--background-index=false',
+                '--j=2',
             }
         })
 

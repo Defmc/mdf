@@ -40,11 +40,6 @@ local plugins = {
     { "mg979/vim-visual-multi" },
     require("plugins.treesitter"),
     require("plugins.trouble"),
-    require("plugins.telescopenvim"),
-    {
-        "numToStr/Comment.nvim",
-        opts = {}
-    },
     require("plugins.lsp.navic"),
     {
         "nvim-lualine/lualine.nvim",
@@ -54,13 +49,6 @@ local plugins = {
     {
         "catgoose/nvim-colorizer.lua",
         event = "BufReadPre"
-    },
-    {
-        dependencies = { "nvim-telescope/telescope.nvim" },
-        "nvim-telescope/telescope-ui-select.nvim",
-        config = function()
-            require("telescope").load_extension("ui-select")
-        end
     },
     require("plugins.snacks")
 }
@@ -77,27 +65,28 @@ if vim.env.PROF then
         },
     })
 end
-local lazypath = require("vim").fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not require("vim").loop.fs_stat(lazypath) then
-    require("vim").fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        lazypath,
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    local out = vim.fn.system({
+        "git", "clone", "--filter=blob:none", "--branch=stable",
+        "https://github.com/folke/lazy.nvim.git", lazypath,
     })
-    require("vim").fn.system({ "git", "-C", lazypath, "checkout", "tags/stable" }) -- last stable release
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({ { "Failed to clone lazy.nvim:\n" .. out, "ErrorMsg" } }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
-require("vim").opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 local opts = {
-    root = require("vim").fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
+    root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
     defaults = {
-        lazy = false,                                    -- should plugins be lazy-loaded?
+        lazy = false,                         -- should plugins be lazy-loaded?
         version = nil,
         -- version = "*", -- enable this to try installing the latest stable versions of plugins
     },
-    lockfile = require("vim").fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
+    lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
     concurrency = nil, ---@type number limit the maximum amount of concurrent tasks
     git = {
         -- defaults for the `Lazy log` command
@@ -165,7 +154,7 @@ local opts = {
 
             -- open a terminal for the plugin dir
             ["<localleader>t"] = function(plugin)
-                require("lazy.util").open_cmd({ require("vim").go.shell }, {
+                require("lazy.util").open_cmd({ vim.go.shell }, {
                     cwd = plugin.dir,
                     terminal = true,
                     close_on_exit = true,
@@ -198,7 +187,7 @@ local opts = {
     performance = {
         cache = {
             enabled = true,
-            path = require("vim").fn.stdpath("cache") .. "/lazy/cache",
+            path = vim.fn.stdpath("cache") .. "/lazy/cache",
             -- Once one of the following events triggers, caching will be disabled.
             -- To cache all modules, set this to `{}`, but that is not recommended.
             -- The default is to disable on:
@@ -230,7 +219,7 @@ local opts = {
     -- so :help works even for plugins that don't have vim docs.
     -- when the readme opens with :help it will be correctly displayed as markdown
     readme = {
-        root = require("vim").fn.stdpath("state") .. "/lazy/readme",
+        root = vim.fn.stdpath("state") .. "/lazy/readme",
         files = { "README.md" },
         -- only generate markdown helptags for plugins that dont have docs
         skip_if_doc_exists = true,

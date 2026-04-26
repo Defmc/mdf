@@ -17,7 +17,7 @@ return {
             },
             symbols = { added = icons.Added .. " ", modified = icons.Modified .. " ", removed = icons.Removed .. " " }, -- Changes the symbols used by the diff.
             source = function()
-                local gitsigns = require("vim").b.gitsigns_status_dict
+                local gitsigns = vim.b.gitsigns_status_dict
                 if gitsigns then
                     return {
                         added = gitsigns.added,
@@ -42,7 +42,7 @@ return {
 
         local lspprog_config = {
             function()
-                local messages = require("vim").lsp.util.get_status()
+                local messages = vim.lsp.status()
                 if #messages == 0 then
                     return ""
                 end
@@ -51,7 +51,7 @@ return {
                     table.insert(status, (msg.percentage or 0) .. "%% " .. (msg.title or ""))
                 end
                 local spinners = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-                local ms = require("vim").loop.hrtime() / 1000000
+                local ms = vim.loop.hrtime() / 1000000
                 local frame = math.floor(ms / 120) % #spinners
                 return (table.concat(status, " | ") .. " " .. spinners[frame + 1]) or ""
             end,
@@ -62,14 +62,14 @@ return {
         local lspname = {
             function()
                 local msg = "󰟢"
-                local buf_ft = require("vim").api.nvim_buf_get_option(0, "filetype")
-                local clients = require("vim").lsp.get_clients()
+                local buf_ft = vim.bo.filetype
+                local clients = vim.lsp.get_clients()
                 if next(clients) == nil then
                     return msg
                 end
                 for _, client in ipairs(clients) do
                     local filetypes = client.config.filetypes
-                    if filetypes and require("vim").fn.index(filetypes, buf_ft) ~= -1 then
+                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
                         return client.name
                     end
                 end
@@ -78,7 +78,7 @@ return {
             color = { fg = color_theme.bright_yellow },
         }
 
-        local vim = require("vim")
+        local vim = vim
         -- local mode_symbols = {
         --     ['n']  = 'n',  -- Normal
         --     ['no'] = 'no', -- Operator-pending
@@ -131,8 +131,7 @@ return {
         -- custom_theme.back2.c.bg = "#282828"
 
         require("lualine").setup({
-            options = { theme = custom_theme },
-            globalstatus = true,
+            options = { theme = custom_theme, globalstatus = true },
             always_show_tabline = true,
             extensions = { "nvim-tree" },
             sections = {
