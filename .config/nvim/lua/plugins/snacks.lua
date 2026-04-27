@@ -138,8 +138,12 @@ return {
         },
         terminal = {
             win = {
-                position = "float",
-                border = "single"
+                border = "single",
+                wo = {
+                    winblend = 0,
+                    winhighlight = "Normal:Normal,NormalFloat:Normal",
+                    winbar = ""
+                },
             }
         }
     },
@@ -150,7 +154,27 @@ return {
             "<A-f>",
             function()
                 Snacks.terminal.toggle(nil,
-                    { win = { position = "float", style = "" } })
+                    {
+                        win = {
+                            position = "float",
+                        }
+                    })
+            end,
+            mode = { "n", "t" }
+        },
+        {
+            "<A-w>",
+            function()
+                Snacks.terminal.open(nil, {
+                    win = {
+                        position = "current",
+                    },
+                    bo = {
+                        buflisted = true
+                    },
+                    start_insert = false,
+                    auto_insert = false
+                })
             end,
             mode = { "n", "t" }
         },
