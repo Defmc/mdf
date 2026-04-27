@@ -6,13 +6,8 @@ return {
     },
     lazy = false,
     keys = {
-        { "<leader>gi", function() vim.lsp.buf.implementation() end,                                                            desc = "Goto implementation" },
-        { "<leader>gd", function() vim.lsp.buf.declaration() end,                                                               desc = "Goto declaration" },
-        { "<leader>gD", function() vim.lsp.buf.definition() end,                                                                desc = "Goto definition" },
-        { "<leader>gT", function() vim.lsp.buf.type_definition() end,                                                           desc = "Goto type definition" },
         { "<leader>ca", function() vim.lsp.buf.code_action() end,                                                               desc = "Show code actions" },
         { "<leader>R",  function() vim.lsp.buf.rename() end,                                                                    desc = "Rename variable" },
-        { "<leader>r",  function() vim.lsp.buf.references() end,                                                                desc = "References" },
         { "K",          function() vim.lsp.buf.hover({ border = require("configs.theme").border("FloatBorder") }) end,          desc = "Hover" },
         { "<leader>s",  function() vim.lsp.buf.signature_help({ border = require("configs.theme").border("FloatBorder") }) end, desc = "Signature help" },
     },

@@ -1,7 +1,7 @@
 return {
     'nvim-lualine/lualine.nvim',
     after = "ellisonleao/gruvbox.nvim",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { 'nvim-tree/nvim-web-devicons', "onsails/lspkind.nvim" },
     config = function()
         local icons = require("configs.theme").icons
         local color_theme = require("configs.theme").palette()
@@ -78,7 +78,6 @@ return {
             color = { fg = color_theme.bright_yellow },
         }
 
-        local vim = vim
         -- local mode_symbols = {
         --     ['n']  = 'n',  -- Normal
         --     ['no'] = 'no', -- Operator-pending

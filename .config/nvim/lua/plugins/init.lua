@@ -41,10 +41,6 @@ local plugins = {
     require("plugins.treesitter"),
     require("plugins.trouble"),
     require("plugins.lsp.navic"),
-    {
-        "nvim-lualine/lualine.nvim",
-        after = { "onsails/lspkind.nvim" },
-    },
     require("plugins.statusline"),
     {
         "catgoose/nvim-colorizer.lua",

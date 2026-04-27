@@ -3,7 +3,6 @@ return {
     priority = 1000,
     lazy = false,
     config = function()
-        local vim = vim
         vim.cmd([[ set cursorline ]])
         vim.o.background = "dark"
         require("gruvbox").setup({
