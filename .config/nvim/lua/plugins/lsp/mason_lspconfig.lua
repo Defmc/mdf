@@ -84,20 +84,6 @@ return {
                 },
             },
         })
-        vim.lsp.config('rust_analyzer', {
-            settings = {
-                ['rust-analyzer'] = {
-                    checkOnSave = false,
-                }
-            }
-        })
-        vim.lsp.config('clangd', {
-            cmd = {
-                'clangd',
-                '--background-index=false',
-                '--j=2',
-            }
-        })
 
         require("mason-lspconfig").setup()
     end,

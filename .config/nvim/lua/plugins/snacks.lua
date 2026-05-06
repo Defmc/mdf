@@ -123,7 +123,7 @@ return {
                 explorer = {
                     auto_close = true
                 }
-            }
+            },
         },
         ui_select = { enabled = true },
         quickfile = { enabled = true },
@@ -134,6 +134,11 @@ return {
         styles = {
             notification = {
                 -- wo = { wrap = true } -- Wrap notifications
+            },
+            terminal = {
+                bo = {
+                    buflisted = false
+                }
             }
         },
         terminal = {
@@ -156,8 +161,13 @@ return {
                 Snacks.terminal.toggle(nil,
                     {
                         win = {
-                            position = "float",
-                        }
+                            style = "float",
+                        },
+                        bo = {
+                            buflisted = false,
+                        },
+                        start_insert = true,
+                        auto_insert = true
                     })
             end,
             mode = { "n", "t" }
@@ -167,10 +177,11 @@ return {
             function()
                 Snacks.terminal.open(nil, {
                     win = {
+                        style = "terminal",
                         position = "current",
-                    },
-                    bo = {
-                        buflisted = true
+                        bo = {
+                            buflisted = true
+                        },
                     },
                     start_insert = false,
                     auto_insert = false
@@ -302,6 +313,15 @@ return {
                     callback = function(ev)
                         vim.bo[ev.buf].buflisted = true
                     end,
+                })
+
+                vim.api.nvim_create_autocmd("TermOpen", {
+                    callback = function(ev)
+                        local win = vim.fn.bufwinid(ev.buf)
+                        if win ~= -1 and vim.api.nvim_win_get_config(win).relative ~= "" then
+                            vim.bo[ev.buf].buflisted = false
+                        end
+                    end
                 })
             end,
         })

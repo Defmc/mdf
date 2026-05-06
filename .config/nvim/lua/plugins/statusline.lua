@@ -3,66 +3,179 @@ return {
     after = "ellisonleao/gruvbox.nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons', "onsails/lspkind.nvim" },
     config = function()
-        local icons = require("configs.theme").icons
-        local color_theme = require("configs.theme").palette()
+        -- Eviline config for lualine
+        -- Author: shadmansaleh
+        -- Credit: glepnir
+        local lualine = require('lualine')
 
-        local diff_config = {
-            "diff",
-            colored = true, -- Displays a colored diff status if set to true
-            diff_color = {
-                -- Same color values as the general color option can be used here.
-                added = { fg = color_theme.bright_green },                                                              -- Changes the diff's added color
-                modified = { fg = color_theme.bright_yellow },                                                          -- Changes the diff's modified color
-                removed = { fg = color_theme.bright_red },                                                              -- Changes the diff's removed color you
+        -- Color table for highlights
+        local color_theme = require("configs.theme").palette()
+        local colors = {
+            bg       = color_theme.dark0,
+            fg       = color_theme.light3,
+            yellow   = color_theme.bright_yellow,
+            cyan     = color_theme.bright_cyan,
+            darkblue = color_theme.neutral_blue,
+            green    = color_theme.bright_green,
+            orange   = color_theme.bright_orange,
+            violet   = color_theme.faded_purple,
+            magenta  = color_theme.neutral_red,
+            blue     = color_theme.bright_blue,
+            red      = color_theme.bright_red,
+        }
+
+        local conditions = {
+            buffer_not_empty = function()
+                return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+            end,
+            hide_in_width = function()
+                return vim.fn.winwidth(0) > 80
+            end,
+            check_git_workspace = function()
+                local filepath = vim.fn.expand('%:p:h')
+                local gitdir = vim.fn.finddir('.git', filepath .. ';')
+                return gitdir and #gitdir > 0 and #gitdir < #filepath
+            end,
+        }
+
+        -- Config
+        local config = {
+            options = {
+                -- Disable sections and component separators
+                component_separators = '',
+                section_separators = '',
+                theme = {
+                    -- We are going to use lualine_c an lualine_x as left and
+                    -- right section. Both are highlighted by c theme .  So we
+                    -- are just setting default looks o statusline
+                    normal = { c = { fg = colors.fg, bg = colors.bg } },
+                    inactive = { c = { fg = colors.fg, bg = colors.bg } },
+                },
             },
-            symbols = { added = icons.Added .. " ", modified = icons.Modified .. " ", removed = icons.Removed .. " " }, -- Changes the symbols used by the diff.
-            source = function()
-                local gitsigns = vim.b.gitsigns_status_dict
-                if gitsigns then
-                    return {
-                        added = gitsigns.added,
-                        modified = gitsigns.changed,
-                        removed = gitsigns.removed,
-                    }
-                end
-            end, -- A function that works as a data source for diff.
-            -- It must return a table as such:
-            --   { added = add_count, modified = modified_count, removed = removed_count }
-            -- or nil on failure. count <= 0 won't be displayed.
-            color = { gui = "bold" },
+            sections = {
+                -- these are to remove the defaults
+                lualine_a = {},
+                lualine_b = {},
+                lualine_y = {},
+                lualine_z = {},
+                -- These will be filled later
+                lualine_c = {},
+                lualine_x = {},
+            },
+            inactive_sections = {
+                -- these are to remove the defaults
+                lualine_a = {},
+                lualine_b = {},
+                lualine_y = {},
+                lualine_z = {},
+                lualine_c = {},
+                lualine_x = {},
+            },
+        }
+
+        -- Inserts a component in lualine_c at left section
+        local function ins_left(component)
+            table.insert(config.sections.lualine_c, component)
+        end
+
+        -- Inserts a component in lualine_x at right section
+        local function ins_right(component)
+            table.insert(config.sections.lualine_x, component)
+        end
+
+        local mode_map = {
+            ['n'] = 'NORMAL',
+            ['no'] = 'N·OP',
+            ['nov'] = 'N·OP',
+            ['v'] = 'VISUAL',
+            ['V'] = 'V·LINE',
+            ['\22'] = 'V·BLCK',
+            ['i'] = 'INSERT',
+            ['ic'] = 'INSERT',
+            ['ix'] = 'INSERT',
+            ['R'] = 'REPLACE',
+            ['Rv'] = 'V·RPLC',
+            ['c'] = 'COMMAND',
+            ['cv'] = 'EX',
+            ['s'] = 'SELECT',
+            ['S'] = 'S·LINE',
+            ['\19'] = 'S·BLCK',
+            ['t'] = 'TERM',
+        }
+
+        local mode_colors = {
+            NORMAL     = "#51afef",
+            INSERT     = "#98be65",
+            VISUAL     = "#c678dd",
+            ['V·LINE'] = "#c678dd",
+            ['V·BLCK'] = "#c678dd",
+            REPLACE    = "#ff6c6b",
+            COMMAND    = "#ecbe7b",
+            TERM       = "#98be65",
+        }
+
+        local colored_mode = function()
+            local raw = vim.api.nvim_get_mode().mode
+            local label = mode_map[raw] or raw:upper()
+            return { bg = colors.bg, fg = mode_colors[label] or "#51afef", gui = "bold" }
+        end
+
+        ins_left {
+            function()
+                return '▊'
+            end,
+            color = colored_mode,              -- Sets highlighting of component
+            padding = { left = 0, right = 1 }, -- We don't need space before this
+        }
+
+        ins_left {
+            function()
+                local raw = vim.api.nvim_get_mode().mode
+                return mode_map[raw] or raw:upper()
+            end,
+            color = colored_mode,
+            separator = { left = '', right = '' },
+            padding = { right = 0 },
+        }
+
+        ins_left { 'location' }
+
+        ins_left {
+            'filename',
+            cond = conditions.buffer_not_empty,
+            color = { fg = colors.magenta, gui = 'bold' },
         }
 
         local navic = require("nvim-navic")
-        local navic_config = {
+        ins_left {
             function()
-                return navic.get_location({})
+                return "> " + navic.get_location({})
             end,
-            cond = navic.is_available,
+            cond = function()
+                return navic.is_available()
+            end
         }
 
-        local lspprog_config = {
+        -- Insert mid section. You can make any number of sections in neovim :)
+        -- for lualine it's any number greater then 2
+        ins_left {
             function()
-                local messages = vim.lsp.status()
-                if #messages == 0 then
-                    return ""
-                end
-                local status = {}
-                for _, msg in pairs(messages) do
-                    table.insert(status, (msg.percentage or 0) .. "%% " .. (msg.title or ""))
-                end
-                local spinners = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-                local ms = vim.loop.hrtime() / 1000000
-                local frame = math.floor(ms / 120) % #spinners
-                return (table.concat(status, " | ") .. " " .. spinners[frame + 1]) or ""
+                return '%='
             end,
-            color = { fg = color_theme.bright_yellow },
-            separator = "",
         }
 
-        local lspname = {
+        ins_right {
+            'filetype',
+            icon_only = true,
+            colored = true,
+            padding = { right = 0 }
+        }
+
+        ins_right {
+            -- Lsp server name .
             function()
-                local msg = "󰟢"
-                local buf_ft = vim.bo.filetype
+                local msg = ''
+                local buf_ft = vim.api.nvim_get_option_value('filetype', { buf = 0 })
                 local clients = vim.lsp.get_clients()
                 if next(clients) == nil then
                     return msg
@@ -75,80 +188,48 @@ return {
                 end
                 return msg
             end,
-            color = { fg = color_theme.bright_yellow },
+            color = { fg = colors.yellow, gui = 'bold' },
+            padding = { left = 0 }
         }
 
-        -- local mode_symbols = {
-        --     ['n']  = 'n',  -- Normal
-        --     ['no'] = 'no', -- Operator-pending
-        --     ['v']  = 'v',  -- Visual
-        --     ['V']  = 'V',  -- Visual Line
-        --     ['^V'] = '^V', -- Visual Block (Ctrl+v)
-        --     ['i']  = 'i',  -- Insert
-        --     ['ic'] = 'ic', -- Insert completion
-        --     ['R']  = 'R',  -- Replace
-        --     ['Rv'] = 'Rv', -- Virtual Replace
-        --     ['c']  = 'c',  -- Command
-        --     ['cv'] = 'cv', -- Vim Ex mode
-        --     ['s']  = 's',  -- Select
-        --     ['S']  = 'S',  -- Select Line
-        --     ['t']  = 't',  -- Terminal
-        -- }
-        local mode_highlight_config = {
+        ins_right {
+            'diagnostics',
+            sources = { 'nvim_diagnostic' },
+            symbols = { error = ' ', warn = ' ', info = ' ' },
+            diagnostics_color = {
+                error = { fg = colors.red },
+                warn = { fg = colors.yellow },
+                info = { fg = colors.cyan },
+            },
+        }
+
+        ins_right {
+            'branch',
+            icon = '',
+            color = { fg = colors.violet, gui = 'bold' },
+        }
+
+        ins_right {
+            'diff',
+            -- Is it me or the symbol for modified us really weird
+            symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
+            diff_color = {
+                added = { fg = colors.green },
+                modified = { fg = colors.orange },
+                removed = { fg = colors.red },
+            },
+            cond = conditions.hide_in_width,
+        }
+
+        ins_right {
             function()
-                local mode = vim.api.nvim_get_mode().mode
-                return mode
+                return '▊'
             end,
-            color = { gui = "bold" },
+            color = colored_mode,
+            padding = { left = 1 },
         }
 
-        local buffers_config = {
-            "buffers",
-            use_mode_colors = false,
-            symbols = {
-                modified = " ●",
-                alternate_file = "",
-                directory = " "
-            },
-            buffers_color = {
-                inactive = { bg = '#282828' },
-                active = { bg = "#1d2021", gui = "bold", fg = "#fbf1c7" }
-            }
-        }
-
-        local custom_theme = require("lualine.themes.auto")
-        vim.print(
-            custom_theme.command.a.fg)
-        custom_theme.normal.c.bg = "#282828"
-        custom_theme.insert.c.bg = "#282828"
-        custom_theme.visual.c.bg = "#282828"
-        custom_theme.replace.c.bg = "#282828"
-        custom_theme.inactive.c.bg = "#282828"
-        custom_theme.command.c.bg = "#282828"
-        -- custom_theme.back1.c.bg = "#282828"
-        -- custom_theme.fore.c.bg = "#282828"
-        -- custom_theme.back2.c.bg = "#282828"
-
-        require("lualine").setup({
-            options = { theme = custom_theme, globalstatus = true },
-            always_show_tabline = true,
-            extensions = { "nvim-tree" },
-            sections = {
-                lualine_a = { mode_highlight_config },
-                lualine_b = { { "b:gitsigns_head", icon = "󰘬" }, diff_config, "diagnostics" },
-                lualine_c = { navic_config },
-                lualine_x = { lspprog_config, lspname, { "filetype", color = { gui = "bold" } } },
-                lualine_y = { "progress" },
-                lualine_z = { "location" },
-            },
-            tabline = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = { buffers_config },
-                lualine_x = {},
-                lualine_y = {},
-                lualine_z = { 'branch' }
-            }
-        })
+        -- Now don't forget to initialize lualine
+        lualine.setup(config)
     end
 }
