@@ -5,6 +5,7 @@ local plugins = {
     require("plugins.dap"),
     require("plugins.lsp.mason_lspconfig"),
     require("plugins.which-key"),
+    require("plugins.leap"),
     {
         "lewis6991/gitsigns.nvim",
         opts = {}
